@@ -4546,6 +4546,61 @@ h1.page-title + .tag-cloud-list {
 #post .ads-wrap {
   margin: 40px 0;
 }
+#post .yjr_wrap {
+  -webkit-box-shadow: 0 5px 10px 0 #000;
+  box-shadow: 0 5px 10px 0 #000;
+  border-radius: 0 0 7px 7px;
+}
+#post .yjr_wrap * {
+  margin: 0;
+  padding: 0;
+}
+#post .yjr_wrap p {
+  margin: 2px 0;
+}
+#post .yjr_wrap .yjr_menu {
+  background: #000;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+#post .yjr_wrap .yjr_menuItem {
+  font-size: 16px;
+  text-align: center;
+  width: 90px;
+  color: #fff;
+  line-height: 40px;
+  margin: 0;
+  list-style: none;
+}
+#post .yjr_wrap .yjr_menuItem:hover {
+  cursor: pointer;
+  border-bottom: 3px solid #108ee9;
+  color: #108ee9;
+}
+#post .yjr_wrap .yjr_itemSelected {
+  border-bottom: 3px solid #108ee9;
+  color: #108ee9;
+  background-color: #1c1c1c;
+  border-bottom: 0;
+}
+#post .yjr_wrap .yjr_code .highlight {
+  border-radius: 0 0 7px 7px;
+}
+#post .yjr_wrap .yjr_effect {
+  background-color: #212121;
+  color: #fff;
+  padding: 5px 10px 5px 15px;
+  margin-bottom: 24px;
+  border-radius: 0 0 7px 7px;
+}
 .relatedPosts {
   margin-top: 40px;
 }
