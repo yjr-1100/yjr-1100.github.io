@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>vite的使用</title>
+      <link href="/2022/04/23/vite%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+      <url>/2022/04/23/vite%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<img src="https://vitejs.cn/logo.svg" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/><h1 id="vite-与-vue-cli"><a href="#vite-与-vue-cli" class="headerlink" title="vite 与 vue-cli"></a>vite 与 vue-cli</h1><p>相比于 <code>vue-cli</code> ,<code>vite</code> 只支持 <code>Vue3.x</code> 的项目的创建，不是基于 <code>webpack</code> 的打包工具 运行速度比较快，比较小巧，实际开发中还是 <code>vue-cli</code> 使用比较多</p><h1 id="vite的基本使用"><a href="#vite的基本使用" class="headerlink" title="vite的基本使用"></a>vite的基本使用</h1><p>下面使用vite来创建vue3的项目</p><ol><li><p>初始化项目</p> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init vite-app 项目名称</span><br></pre></td></tr></table></figure></li><li><p>运行vue3的项目</p> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd 项目名称</span><br><span class="line">npm install</span><br><span class="line">npm run dev</span><br></pre></td></tr></table></figure></li></ol><h1 id="vite-构建的项目结构"><a href="#vite-构建的项目结构" class="headerlink" title="vite 构建的项目结构"></a>vite 构建的项目结构</h1><h2 id="整体结构图"><a href="#整体结构图" class="headerlink" title="整体结构图"></a>整体结构图</h2><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204231648325.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/><h2 id="src目录结构"><a href="#src目录结构" class="headerlink" title="src目录结构"></a>src目录结构</h2><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204231650269.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/><h1 id="vite项目的运行流程"><a href="#vite项目的运行流程" class="headerlink" title="vite项目的运行流程"></a>vite项目的运行流程</h1><p>在工程化的项目中，vue要做的就是通过<code>main.js</code> 把 <code>App.vue</code> 渲染到 <code>index.html</code> 的指定取域中</p><p>其中：</p><ol><li><code>App.vue</code> 用来编写待渲染的模板结构</li><li><code>index.html</code> 中需要预留一个el区域</li><li><code>main.js</code> 把 <code>App.vue</code> 渲染到 <code>index.html</code> 所预留的区域中</li></ol><p>看一下main.js 中进行渲染的步骤</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 从vue中按需导入 createApp函数</span></span><br><span class="line"><span class="comment">// createApp函数的作用，是创建 Vue 的单页面应用程序实例</span></span><br><span class="line"><span class="keyword">import</span> &#123; createApp &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 导入待渲染的 App 组件</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 调用 createApp() 函数，返回值是“单页面应用程序的实例”，用常量 spa_app 进行接收，同时把App组件座位参数传给 createApp 函数，表示把App渲染 index.html 页面上</span></span><br><span class="line"><span class="keyword">const</span> spa_app = <span class="title function_">createApp</span>(<span class="title class_">App</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 调用spa_app 实例的mount 方法，用来指定 vue实际要控制的区域</span></span><br><span class="line">spa_app.<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> VUE学习 </category>
+          
+          <category> vue3 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue3 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>vue路由</title>
       <link href="/2022/04/10/vue%E8%B7%AF%E7%94%B1/"/>
       <url>/2022/04/10/vue%E8%B7%AF%E7%94%B1/</url>
