@@ -1,0 +1,260 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>windows server2012 Web服务器 | YJR-1100</title><meta name="keywords" content="网络安全,Windows操作系统"><meta name="author" content="yjr-1100"><meta name="copyright" content="yjr-1100"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="WEB服务器概述  web服务器一般也称为：网页服务器，HTTP服务器  web服务器使用的协议是： http协议, 端口号：80 web服务器的作用：​    web服务器是将我们做好的网页发布出去,让网民可以通过网络远程访问我们的网页，比如京东网站服务器， WEB服务中的元素HTTP (HyperText Transfer Protocol，超文本传输协议)，设计HTTP最初的目的是为了提供一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="windows server2012 Web服务器">
+<meta property="og:url" content="https://yjr-1100.github.io/2022/04/30/windowsServer2012Web/index.html">
+<meta property="og:site_name" content="YJR-1100">
+<meta property="og:description" content="WEB服务器概述  web服务器一般也称为：网页服务器，HTTP服务器  web服务器使用的协议是： http协议, 端口号：80 web服务器的作用：​    web服务器是将我们做好的网页发布出去,让网民可以通过网络远程访问我们的网页，比如京东网站服务器， WEB服务中的元素HTTP (HyperText Transfer Protocol，超文本传输协议)，设计HTTP最初的目的是为了提供一">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204301440072.png">
+<meta property="article:published_time" content="2022-04-30T04:46:26.000Z">
+<meta property="article:modified_time" content="2022-04-30T06:41:05.371Z">
+<meta property="article:author" content="yjr-1100">
+<meta property="article:tag" content="网络安全">
+<meta property="article:tag" content="Windows操作系统">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204301440072.png"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://yjr-1100.github.io/2022/04/30/windowsServer2012Web/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":150},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'windows server2012 Web服务器',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-04-30 14:41:05'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/mylogol2.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/background_4k.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">YJR-1100</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">windows server2012 Web服务器</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-04-30T04:46:26.000Z" title="发表于 2022-04-30 12:46:26">2022-04-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-04-30T06:41:05.371Z" title="更新于 2022-04-30 14:41:05">2022-04-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/Windows%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">Windows操作系统</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>7分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="windows server2012 Web服务器"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="WEB服务器概述"><a href="#WEB服务器概述" class="headerlink" title="WEB服务器概述"></a>WEB服务器概述</h1><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204301249777.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>web服务器一般也称为：网页服务器，HTTP服务器 </p>
+<p>web服务器使用的协议是： http协议, <strong>端口号：80</strong></p>
+<p><strong>web服务器的作用：</strong><br>​    web服务器是将我们做好的网页发布出去,让网民可以通过网络远程访问我们的网页，比如京东网站服务器，</p>
+<h2 id="WEB服务中的元素"><a href="#WEB服务中的元素" class="headerlink" title="WEB服务中的元素"></a>WEB服务中的元素</h2><p>HTTP (HyperText Transfer Protocol，超文本传输协议)，设计HTTP最初的目的是为了提供一种发布和接收HTML页面的方法，HTTP是一个客户端(用户)和服务端(网站)之间请求和应答的标准</p>
+<p>www (World Wide Web，万维网)是一个透过互联网访问的，由许多互相链接的超文本组成的系统,万维网是信息时代发展的核心，也是数十亿人在互联网上进行交互的主要工具。今天我们通常用www，表示一台WEB主机。</p>
+<p>URL(Uniform Resource Locator，统一资源定位符)互联网上的标准地址，统一资源定位符的完整格式如下</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://bbs.sangfor.com.cn:80/plugin.php?id=service">https://bbs.sangfor.com.cn:80/plugin.php?id=service</a></p>
+</blockquote>
+<h2 id="WEB服务器常见类型"><a href="#WEB服务器常见类型" class="headerlink" title="WEB服务器常见类型"></a>WEB服务器常见类型</h2><p>Windows Server内置了一个WEB服务器，名为IIS（Internet information Service）互联网信息服务，使用动态语言 <code>APS/ASPX</code></p>
+<p>IIS除了提供HTTP协议的WEB浏览，还可以提供FTP&#x2F;FTPS、NNTP、HTTPS、SMTP等服务</p>
+<p>在Linux中，常用的WEB器有多种，如</p>
+<ul>
+<li>APACHE,可以结合PHP</li>
+<li>TOMCAT,以JAVA为主</li>
+<li>NGINX,以静态页面为主</li>
+</ul>
+<p>除此以外,还有一些厂商的WEB服务器，比如：</p>
+<ul>
+<li>IBM公司的WebSphere，以JAVA为主</li>
+<li>Oracle的WebLogic，以JAVA为主</li>
+</ul>
+<h1 id="使用IIS部署web服务器"><a href="#使用IIS部署web服务器" class="headerlink" title="使用IIS部署web服务器"></a>使用IIS部署web服务器</h1><p>和DNS，DHCP服务器类似，我们也是在管理工具中添加这个IIS服务，记得安装时勾选安全响应的功能，即把Web服务器下安全性的功能都勾选上</p>
+<ol>
+<li><p>winxp 客户机 win2012web服务器 连在同一个交换机在同一网段，相互ping通</p>
+</li>
+<li><p>安装IIS里的web插件，和安装DNS类似，不过这里选择的不是网络服务而是“应用程序服务器”，里面有IIS ，双击里面还有万维网服务，选中万维网服务，安装</p>
+</li>
+<li><p>安装完后我们netstat -an 来看一下<strong>80端口</strong>已经开了，说明服务器已经可以用了，只是网页没有发布。</p>
+<p>这个时候我们再xp打开浏览器，访问这个服务器的IP就会看到“建设中”这三个字，这是IIS自带的默认网站，它的路径：C:\Inetpub\wwwroot   这个网站有很大的漏洞。我们去开始—管理工具，找到“Internet信息服务管理器” 里面有个网站，默认网站，右键停止它。</p>
+<p><strong>注意：因为web服务器上唯一的网站停止了，所以80端口自动就关闭了</strong></p>
+</li>
+<li><p>发布网站：在网站那右键新建网站，输入个描述，选择IP，一路下一步。完成后设置<strong>默认文档</strong>，右键刚才建的网站，属性里有个文档，设置一下它的主页，把其他的都删了，自己添加一个。</p>
+</li>
+<li><p>我们重复第4 步，再次发布一个新的网站</p>
+<p>我们发现它是停止的，右键点击启动报错，这是因为端口号冲突了，</p>
+<p>方法一：同一IP，不同端口号<br>        我们把端口改为81，这样就可以同时发布了，但是访问的时候，没有写端口默认80,如果想要访问其他的，需要手动输入端口号。（适用于专业人士测试网站）<br>方法二：同一IP，同一端口，不同域名<br>        在属性里不改端口号，我们点击IP后面的高级，点击编辑，写一个主机头值，也就是完整的域名。这样同一个端口和IP，因为主机头值不同所以可以区别开，但是，我们只能通过域名来访问了。所以我们需要同时设置一下DNS服务器，给客户机配置好DNS，因为只有IP，端口，域名三个都相同才可以访问到该网站。通过IP已经不可以访问了。</p>
+</li>
+</ol>
+<h2 id="IIS的安全配置"><a href="#IIS的安全配置" class="headerlink" title="IIS的安全配置"></a>IIS的安全配置</h2><p>默认状态下，所有的用户匿名连接IIS网站，如果对网站的安全性要求高，或网站中有机密信息，就需要对用户限制,禁止匿名访问，而只允许特殊的用户账户才能进行访问。可以通过IIS“身份验证”功能实现</p>
+<p>点击刚才的网站，双击<strong>身份验证</strong></p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204301424007.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p><strong>windows身份验证</strong>:集成Windows验证是一种安全的验证形式，用户名和密码在通过网络发送前会经过散列处理，因此可以确保安全性。如果是域环境，会自动读取用户身份验证。Windows身份验证优先于基本验证，但它并不提示用户输入用户名和密码，只有Windows验证失败后，浏览器才提示用户输入其用户名和密码。</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204301426370.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p><strong>摘要式身份验证</strong>:该验证只能在带有Windows域控制器的域中使用。域控制器必须具有所用密码的纯文本复件，因为必须执行散列操作并将结果与浏览器发送的散列值相比较。</p>
+<p><strong>基本身份验证</strong>:该验证会“模仿”为一个本地用户(即实际登录到服务器的用户)，再访问Web服务器时登录。若以基本验证方式验证用户，则用户必须具有服务器“本地登录”的权限。使用基本身份验证方法将导致密码以未加密形式在网络上传输</p>
+<p>我们需要先禁用 <code>匿名身份验证</code> 然后更具需要打开其他的身份验证</p>
+<p>我们还可以通过 <strong>IP地址和域限制</strong> 设置允许哪些IP访问或者拒绝哪些IP访问</p>
+<h2 id="网站类型"><a href="#网站类型" class="headerlink" title="网站类型"></a>网站类型</h2><p><strong>静态网站</strong>：不可以和用户互动，一般扩展名为.html或.htm</p>
+<p>只有前台，没有后台数据库</p>
+<p><strong>动态网站：</strong>可以与客户进行互动，在静态网页上内置的了动态语言（php，asp，jsp，java，python），一般扩展名为.php或.asp等，</p>
+<p>asp是微软的，在window上发布，IIS+ASP+SQL Server</p>
+<p>php不是微软的，推荐在linux里发布:Apache+php+mysql</p>
+<p>发布动态的网页，开始和前面的都一样，不过新建网页时有相关权限勾线，我们要勾选“<strong>读取”，“运行脚本”，“执行”</strong>, 然后在网站下面还有一个web扩展，我们打开Active Server Page 选择允许，</p>
+<hr>
+<h1 id="FTP服务器"><a href="#FTP服务器" class="headerlink" title="FTP服务器"></a>FTP服务器</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>File Transfor Protocol（文件传输服务器）</p>
+<p>FTP服务器功能几乎登445文件共享服务器。</p>
+<p>一般内部文件共享使用SMB服务器，对外文件共享使用FTP服务器。</p>
+<h2 id="FTP协议"><a href="#FTP协议" class="headerlink" title="FTP协议"></a>FTP协议</h2><p>端口号：20&#x2F;21</p>
+<p>21端口：控制端口</p>
+<p>20端口：数据端口</p>
+<p>FTP协议有两种模式：主动模式，被动模式</p>
+<p>主被动模式的选择在客户机，但所谓主被动是站在服务器的角度说的，看服务器是主动连接还是被别人连接。</p>
+<h2 id="使用IIS部署FTP服务器"><a href="#使用IIS部署FTP服务器" class="headerlink" title="使用IIS部署FTP服务器"></a>使用IIS部署FTP服务器</h2><ol>
+<li><p>连接客户机，服务器，连接到同一交换机，配置IP，相互ping通</p>
+</li>
+<li><p>安装IIS里面的<strong>文件传输协议（FTP）服务</strong> 在万维网的下面。</p>
+</li>
+<li><p>打开cmd，netstat -an ，发现21端口已经开了，和web一样，它也有一个默认的共享文件，路径是： C:\Inetpub\ftproot</p>
+</li>
+<li><p>开始—管理工具—IIS （它还是IIS这个软件，但是里面有一个FTP服务）</p>
+</li>
+<li><p>我们只需要把共享的文件放在那个默认的文件夹里就可以共享了，</p>
+</li>
+<li><p>客户机在文件资源管理器（我的电脑），地址栏输入：<code>ftp://10.1.1.2</code>，10.1.1.2是服务器IP，就可以访问了。</p>
+<p>当然这个站点也是有漏洞的，我们可以像web一样自己新建一个共享的文件夹。在FTP站点上右键—–新建—-起个名字—–一路下一步—最后权限都勾选上，因为是和文件夹权限取交集，那么我们只用关心文件夹的NTFS权限就可以了。</p>
+</li>
+<li><p>我们在默认的站点那里右键属性—安全账户，我们发现勾选了允许匿名访问，即不用输入账号密码就可以访问了。</p>
+<p>那是因为我们在安装IIS的时候，自动创建了一个以 IUSR_+计算机名的用户，这是一个Internet来宾账户，当我们允许匿名访问的时候，服务器会把这个用户的账户密码发个客户机，客户机自动实现登录，所以看起来用户是没有输入密码和账户的，但是事实上，任何访问都需要一个身份。</p>
+<p>我们不勾选允许匿名访问，那么我们就可以利用以前学的NTFS权限来设置可以访问的用户。</p>
+</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">yjr-1100</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://yjr-1100.github.io/2022/04/30/windowsServer2012Web/">https://yjr-1100.github.io/2022/04/30/windowsServer2012Web/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://yjr-1100.github.io" target="_blank">YJR-1100</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a><a class="post-meta__tags" href="/tags/Windows%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">Windows操作系统</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204301440072.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2022/04/29/%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB%E6%9C%8D%E5%8A%A1/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204301243142.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">windows server2012 文件服务器</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/04/27/windows%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0/" title="windows操作系统学习"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204272319402.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-27</div><div class="title">windows操作系统学习</div></div></a></div><div><a href="/2022/04/28/DNS%E6%9C%8D%E5%8A%A1/" title="windows server2012 DNS服务"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204282316431.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-28</div><div class="title">windows server2012 DNS服务</div></div></a></div><div><a href="/2022/04/29/DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="windows server2012 DHCP服务器"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204291349661.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-29</div><div class="title">windows server2012 DHCP服务器</div></div></a></div><div><a href="/2022/04/29/%E6%B4%BB%E5%8A%A8%E7%9B%AE%E5%BD%95/" title="windows server2012 活动目录"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204291606278.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-29</div><div class="title">windows server2012 活动目录</div></div></a></div><div><a href="/2022/04/29/%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB%E6%9C%8D%E5%8A%A1/" title="windows server2012 文件服务器"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204301243142.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-29</div><div class="title">windows server2012 文件服务器</div></div></a></div><div><a href="/2022/04/26/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%A6%82%E8%BF%B0/" title="网络安全概述"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204262252594.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-26</div><div class="title">网络安全概述</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/mylogol2.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">yjr-1100</div><div class="author-info__description">一个俗人的博客</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">12</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/yjr-1100"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/yjr-1100" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:jiaruiyang221@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">总要记些什么证明我来过</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#WEB%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">WEB服务器概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#WEB%E6%9C%8D%E5%8A%A1%E4%B8%AD%E7%9A%84%E5%85%83%E7%B4%A0"><span class="toc-number">1.1.</span> <span class="toc-text">WEB服务中的元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WEB%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%B8%B8%E8%A7%81%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.2.</span> <span class="toc-text">WEB服务器常见类型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8IIS%E9%83%A8%E7%BD%B2web%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">2.</span> <span class="toc-text">使用IIS部署web服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#IIS%E7%9A%84%E5%AE%89%E5%85%A8%E9%85%8D%E7%BD%AE"><span class="toc-number">2.1.</span> <span class="toc-text">IIS的安全配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%AB%99%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.2.</span> <span class="toc-text">网站类型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#FTP%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">3.</span> <span class="toc-text">FTP服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">3.1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FTP%E5%8D%8F%E8%AE%AE"><span class="toc-number">3.2.</span> <span class="toc-text">FTP协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8IIS%E9%83%A8%E7%BD%B2FTP%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">3.3.</span> <span class="toc-text">使用IIS部署FTP服务器</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/04/30/windowsServer2012Web/" title="windows server2012 Web服务器"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204301440072.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="windows server2012 Web服务器"/></a><div class="content"><a class="title" href="/2022/04/30/windowsServer2012Web/" title="windows server2012 Web服务器">windows server2012 Web服务器</a><time datetime="2022-04-30T04:46:26.000Z" title="发表于 2022-04-30 12:46:26">2022-04-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/29/%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB%E6%9C%8D%E5%8A%A1/" title="windows server2012 文件服务器"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204301243142.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="windows server2012 文件服务器"/></a><div class="content"><a class="title" href="/2022/04/29/%E6%96%87%E4%BB%B6%E5%85%B1%E4%BA%AB%E6%9C%8D%E5%8A%A1/" title="windows server2012 文件服务器">windows server2012 文件服务器</a><time datetime="2022-04-29T08:08:52.000Z" title="发表于 2022-04-29 16:08:52">2022-04-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/29/%E6%B4%BB%E5%8A%A8%E7%9B%AE%E5%BD%95/" title="windows server2012 活动目录"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204291606278.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="windows server2012 活动目录"/></a><div class="content"><a class="title" href="/2022/04/29/%E6%B4%BB%E5%8A%A8%E7%9B%AE%E5%BD%95/" title="windows server2012 活动目录">windows server2012 活动目录</a><time datetime="2022-04-29T05:51:46.000Z" title="发表于 2022-04-29 13:51:46">2022-04-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/29/DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="windows server2012 DHCP服务器"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204291349661.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="windows server2012 DHCP服务器"/></a><div class="content"><a class="title" href="/2022/04/29/DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="windows server2012 DHCP服务器">windows server2012 DHCP服务器</a><time datetime="2022-04-29T02:12:19.000Z" title="发表于 2022-04-29 10:12:19">2022-04-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/04/28/DNS%E6%9C%8D%E5%8A%A1/" title="windows server2012 DNS服务"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204282316431.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="windows server2012 DNS服务"/></a><div class="content"><a class="title" href="/2022/04/28/DNS%E6%9C%8D%E5%8A%A1/" title="windows server2012 DNS服务">windows server2012 DNS服务</a><time datetime="2022-04-28T09:01:35.000Z" title="发表于 2022-04-28 17:01:35">2022-04-28</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/background_4k.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022 By yjr-1100</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">你好有缘人</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())
+
+$('.yjr_wrap .yjr_menu').on('click',function (event) {
+// 判断标签是否li
+if (event.target.tagName === 'LI') {
+  $tar =$(event.target)
+  //获取子元素index
+  var index =  $tar.parent().children().index($tar);
+  $tar.parent().children().eq(index).addClass('yjr_itemSelected').siblings().removeClass('yjr_itemSelected')
+  if(index==1){
+      $tar.parent().parent().find('.yjr_code').attr('hidden',true)
+      $tar.parent().parent().find('.yjr_effect').attr('hidden',false)
+    }else{
+        $tar.parent().parent().find('.yjr_code').attr('hidden',false)
+      $tar.parent().parent().find('.yjr_effect').attr('hidden',true)
+    }
+  }
+})</script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
