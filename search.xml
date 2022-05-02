@@ -4,7 +4,65 @@
   
     
     <entry>
-      <title>Linux网络管理学习</title>
+      <title>Linux进程管理</title>
+      <link href="/2022/05/02/Linux%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/"/>
+      <url>/2022/05/02/Linux%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86/</url>
+      
+        <content type="html"><![CDATA[<h1 id="进程概述"><a href="#进程概述" class="headerlink" title="进程概述"></a>进程概述</h1><p>一个进程是一条命令运行的实例，如一个vi的命令同时被15个不同的用户打开，那么就会创建15个进程,进程通过ID进行识别，进程ID对当前系统来说是唯一的,进程会与一个特定的用户账号和组关联，账号信息可以帮助进程获取指定的系统资源权限</p><p>Linux的进程在 &#x2F;proc 目录下，存在于以进程ID命名的文件夹中，如下图，蓝色的部分表示进程ID</p><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205021209700.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/><h1 id="列出进程"><a href="#列出进程" class="headerlink" title="列出进程"></a>列出进程</h1><h2 id="ps命令"><a href="#ps命令" class="headerlink" title="ps命令"></a>ps命令</h2><blockquote><p>ps 是最早也是最常用的列出当前系统进程的命令</p></blockquote><p>常用的ps命令</p><ol><li><p><code>ps u</code> 显示进程的同时，以用户角度查看进程的使用资源情况<br><code>VSZ(Virtual Set Size)</code> 虚拟内存大小，以KB为单位<br><code>RSS(Resident Set Size)</code> 实际内存大小<br><code>STAT</code> 中 <code>R</code> 表示睡眠进程，<code>S</code> 表示正在运行，<code>+</code>表示前台操作</p><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205021339093.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/></li><li><p><code>ps ux | less</code> 查看系统当前用户的所有进程，<code>| less</code> 是管道处理，分页显示结果</p></li><li><p><code>ps -e</code> 列出运行中的进程<br>我们还可以自定义显示的列，或者按照某列排序<br><code>ps -eo pid,user,group,gid,vsz,rss,comm | less</code> o选项后面代表指定列<br><code>ps -eo pid,user,group,gid,vsz,rss,comm --sort=-rss</code> sort代表排序，按照 <code>-rss</code>代表按照内存使用排倒序</p></li></ol><h2 id="top命令"><a href="#top命令" class="headerlink" title="top命令"></a>top命令</h2><blockquote><p>top 提供了一种面向屏幕的方法来显示系统中运行的进程，在使用top时，默认按照进程当前所使用的CPU时间来显示进程，也可以设置为其它排序</p><p>当发现一个进程为不适当的进程，可以使用top来完全终止进程活改变进程优先级</p></blockquote><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205021419834.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/><p>top命令的一些操作</p><blockquote><p><strong>单击h</strong>,查看帮助文件，再按任意键返回<br><strong>单击M</strong>,以内存占用排序，<br><strong>单击P</strong>,以CPU占用排序<br><strong>单击数字1</strong>，切换显示所有CPU的使用情况<br><strong>单击R</strong>,对输出进行反向排序<br><strong>单击u</strong>,并输入用户名，显示某用户的进程<br><strong>单击r</strong>,然后输入进程P1D,改变进程的优先级，优先级取值为-19~20<br><strong>单击k</strong>,杀死进程，输入进程PID,再输入15表示彻底终止该进程</p></blockquote><hr><h1 id="管理前台和后台进程"><a href="#管理前台和后台进程" class="headerlink" title="管理前台和后台进程"></a>管理前台和后台进程</h1><p>在Linux的SHELL中，无法快捷的进行进程的切换，因为SHELL中没有像任务栏一样的进程切换工具，SHELL能做的是在后台和前台之间切换当前活动的进程</p><p>直接在命令后面加一个 <code>&amp;</code> 符号就可以把命令放到后台,比如 <code>find /usr &gt; /tmp/1.txt &amp;</code> </p><p>通过<code>jobs</code>命令查看后台进程</p><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205021454842.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/><p>使用 <code>fg</code> 命令可以恢复进程到前台，比如 <code>fg % 1</code> 其中1 为工作号 如果不写 <code>% 1</code> 那么 <code>fg</code> 命令会把带有 <code>+</code> 号的工作恢复到前台</p><h2 id="关闭和修改进程"><a href="#关闭和修改进程" class="headerlink" title="关闭和修改进程"></a>关闭和修改进程</h2><h3 id="关闭进程"><a href="#关闭进程" class="headerlink" title="关闭进程"></a>关闭进程</h3><p>Linux对进程的操作依赖进程间的信号来实现，通常信号是由一个系统错误产生，当然也可以人为发送信号，常用的信号如下</p><table><thead><tr><th>信号名</th><th>数字</th><th>说明</th></tr></thead><tbody><tr><td>SIGHUP</td><td>1</td><td>由一个非链接状态的终端发送给控制进程，或者控制进程在自身结束时发给前台进程</td></tr><tr><td>SIGINT</td><td>2</td><td>一般是由ctrl+C发起的中断</td></tr><tr><td>SINGKILL</td><td>9</td><td>一般用于SHELL中强制终止异常进程</td></tr><tr><td>SIGTERM</td><td>15</td><td>通常是一个结束请求，如关机时发送给进程，kill命令也默认发送这个信号</td></tr></tbody></table><p>比如我们要关闭一个PID为8888的进程可以执行下面的操作</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">kill 8888           kill默认发送15信号</span><br><span class="line">kill -15 8888       kil指定发送15信号</span><br><span class="line">kill -SIGKILL 8888  kll指定发送9信号，即SIGKILL</span><br><span class="line">kill -1 8888        kill指定发送1信号，类似于systemctlreload httpd,重新加载配置文件</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>使用<code>killall</code>命令，可以根据进程名发送信号，而不需要查看进程ID,这样的有点是可以方便的杀死进程，但是也有可能误杀其他进程，比如 <code>killall bash</code> 除了会杀掉bash，还会杀掉所有的shell脚本，使用<code>killall</code>时，同样可以使用信号数字</p><h3 id="修改进程优先级"><a href="#修改进程优先级" class="headerlink" title="修改进程优先级"></a>修改进程优先级</h3><p>修改进程CPU使用优先级，Linux使用nice值定义进程访问CPU的优先级，<code>top</code> 命令的<code>NI</code> 列指向的就是CPU优先级</p><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205021522533.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/><p>nice的值可以在-20~19之间，默认取值为0</p><ul><li>nice值越低，进程就有更多访问CPU的机会，优先级越高</li><li>普通用户只能将自己的进程nice设为 0~19</li><li>普通用户只能将nice值越设越高</li><li>普通用户只能在自己进程上设置nice</li></ul><p>使用下面的命令来修改nice值</p><ol><li><code>nice -5 vim &amp;</code> 将vim进程放在后台运行且设置nice值为 5</li><li><code>renice -n -5 8888</code> renice 对正在运行的进程修改nice值，这个命令的意思是对进程ID为8888的进程nice值减5</li></ol><h2 id="守护进程"><a href="#守护进程" class="headerlink" title="守护进程"></a>守护进程</h2><p>守护进程(init或systemd) ，可以理解为所有“进程之母”，是所有进程的起源，进程由他调度,守护进程是Linux内核中的第一个进程，通常名称为 <code>init</code> 或 <code>systemd</code>，Linux内核中有一个PID为0的进程表示内核，守护进程PID为1</p><hr><h1 id="服务管理"><a href="#服务管理" class="headerlink" title="服务管理"></a>服务管理</h1><p>Linux 服务管理有两个命令</p><ul><li><code>service</code></li><li><code>systemctl</code></li></ul><p><code>service</code> 命令的本质是指向<code>/etc/init.d</code>目录下的脚本</p><p><code>systemctl</code> 命令是linux系统最新的初始化系统，同时 <code>systemctl</code> 也兼容了 <code>service</code> 命令，也会查找<code>/etc/init.d</code>目录</p><p>systemctl常用方法如下：</p><blockquote><p><code>systemctl start|stop|restart service</code> 启动停止重启服务<br><code>systemctl enable|disable service</code>     开机启动开机不启动服务<br><code>systemctl status service</code>             查看服务的状态<br><code>systemctl is-active service</code>           查看服务是否启动<br><code>systemctl is-enabled service</code>           查看服务是否开机启动</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络安全 </category>
+          
+          <category> Linux操作系统 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux操作系统 </tag>
+            
+            <tag> CentOS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>CentOS安装包管理学习</title>
+      <link href="/2022/05/01/Linux%E5%AE%89%E8%A3%85%E5%8C%85%E7%AE%A1%E7%90%86%E5%AD%A6%E4%B9%A0/"/>
+      <url>/2022/05/01/Linux%E5%AE%89%E8%A3%85%E5%8C%85%E7%AE%A1%E7%90%86%E5%AD%A6%E4%B9%A0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="程序包管理概述"><a href="#程序包管理概述" class="headerlink" title="程序包管理概述"></a>程序包管理概述</h1><p>在早期的Liux系统中，如果想要添加软件，必须获取该软件源代码，然后将其编译成二进制代码。再来运行，这种软件包通常是一个压缩包，如tar格式</p><p>获取压缩包安装软件并不困难，但是有一些明显的缺点：</p><ol><li>获取软件的依赖软件</li><li>不知道相关软件的路径</li><li>删除时可能比较困难</li><li>更新时比较困难</li></ol><p>为了解决从压缩包安装软件的困难，软件包从简单的压缩包，变成了更复杂的打包，比如：</p><ul><li>RPM包，该包最初被称为Red Hat Package Manager,后被重命名为RPM。RPM是SUSE、Red Hat、Centos等的首选软件包格式</li><li>Deb包，基于 Debian GNU&#x2F;Linux 的管理包文件，常用于基于 Debian 的发行版本 Linux ,如 Ubuntu、Linux mint、KNOPPIX 等</li></ul><p><strong>RPM</strong>与<strong>DEB</strong>都是非常优秀的软件包管理工具，作用的Liux系统不同，我们因为学习的是Centos,所以我们重点介绍<strong>RPM</strong></p><p>Liux系统管理员的主要职责之一是软件管理，包含以下常见工作</p><ul><li>安装应用程序</li><li>更新应用程序</li><li>给内核打补丁</li></ul><p>我们需要一个合适的工具，查看并维护当前的软件及版本，Linux通常使用<strong>rpm</strong>用作软件管理，同时使用<strong>yum</strong>作为补充</p><hr><h1 id="RPM安装程序包"><a href="#RPM安装程序包" class="headerlink" title="RPM安装程序包"></a>RPM安装程序包</h1><p><strong>程序包的含义</strong></p><p><strong>RPM程序包</strong>就是<strong>文件容器</strong>，包含特定应用程序或应用程序相关的文件组<br>通常<strong>RPM程序包</strong>包含:</p><ul><li>二进制文件(可执行文件)</li><li>安装脚本</li><li>配置文件</li><li>软件使用文档</li><li>安装卸载命令<br>注意：rpm包会依赖CPU类型来工作，如x86,x86_64,arm等</li></ul><p><strong>RPM数据库</strong></p><p>RPM数据库存在本机的 <code>/var/lib/rpm/</code> 目录，RPM数据库的作用如下</p><ol><li>跟踪每个RPM中各文件的版本和位置</li><li>维护各文件的MD5校验和</li></ol><p><strong>查询已安装软件</strong></p><p>使用命令 <code>rpm -qi 软件名称</code>，比如 <code>rpm -qi firefox</code></p><p>查看当前系统所安装的软件包 </p><ul><li><code>rpm -qa |more</code> 加<code>more</code> 是为了分页显示</li><li><code>rpm -qa | grep vim</code> 从显示结果中过滤出指定软件，这里过滤出包含vim的</li></ul><p><strong>安装软件包</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rpm -i packagename 安装软件包</span><br><span class="line">rpm -U packagename 升级软件包，如果原来没有安装，则安装</span><br><span class="line">rpm -F packagename 只升级软件包，如果原来安装，而不会新安装</span><br><span class="line"></span><br><span class="line">rpm -e packagename 卸载程序包</span><br></pre></td></tr></table></figure><p><strong>注意：</strong> <strong>使用rpm安装软件包，必须先完整的安装软件包的依赖</strong>，才能安装软件。但软件的依赖通常比较多，所以一般使用更优化的工具<strong>yum</strong>来安装</p><hr><h1 id="yum"><a href="#yum" class="headerlink" title="yum"></a>yum</h1><p>YUM(Yellowdog Update Modified) 项目着手解决RPM软件包依赖的问题，主要作用是将RPM不再视为单一软件包，而是视为一个软件库</p><p>借助软件库，安装软件的工程师不再解决依赖问题，而是由LInux发行版的经销商来解决。发行版经销商将Linux发行版中每个软件包所需的所有组件都加入到软件库，yum的软件库可以放在WEB服务器，FTP服务器的一个目录甚至本地介质中，本地目录中，然后将软件库配置到<code>/etc/yum.conf</code> 中，或者 <code>/etc/yu.repos.d</code> 目录下的文件中</p><h2 id="yum工作原理"><a href="#yum工作原理" class="headerlink" title="yum工作原理"></a>yum工作原理</h2><p>yum基本语法如下</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum [options] command</span><br></pre></td></tr></table></figure><p>比如我们要安装火狐浏览器</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install firefox</span><br></pre></td></tr></table></figure><p>用户只需要知道软件名，而不用知道完整的安装包路径或者安装包全称</p><p><strong>yum工作流程</strong><br><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205021037621.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/></p><p><code>/etc/yum.conf</code> 是yum的配置文件，当使用yum时，会检查此文件，CentOS7的文件默认如下</p><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205021052406.jpg" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/><p><strong>搜索软件</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum search 软件名</span><br></pre></td></tr></table></figure><p>比如搜索软件 <code>editor</code> 输入 <code>yum search editor</code> ，搜索到了我们就可以选择需要的使用 <code>yum install</code> 来安装</p><p><strong>查看软件信息</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum info 软件名</span><br></pre></td></tr></table></figure><p><strong>如果知道一个命令，但是不知道软件名，可以查询这个命令来获取软件名</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum provides netstat</span><br></pre></td></tr></table></figure><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205021057667.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/><p>通过查询，可以发现，<code>netstat</code>命令在<strong>net-tools</strong>软件中</p><p><strong>查看软件包安装依赖</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum deplist 软件名</span><br></pre></td></tr></table></figure><p>比如查看 net-tools 的依赖 <code>yum deplist net-tools</code></p><p><strong>安装软件</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install xxxxx</span><br></pre></td></tr></table></figure><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205021115006.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/><p><strong>删除软件</strong></p><p>只会删除列出的软件包，不会删除所有</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum erase xxxxx</span><br></pre></td></tr></table></figure><p><strong>查看yum历史记录</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum history</span><br></pre></td></tr></table></figure><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205021106788.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/><p>争对历史记录我们还可以查看具体的信息,使用下面的命令</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum history info 2</span><br></pre></td></tr></table></figure><p>2是yum history中的id</p><p>我们还可以彻底还原，删除history 2 中的操作</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum history undo 2</span><br></pre></td></tr></table></figure><p><strong>更新软件包</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum check-update //检查更新，只是检查</span><br><span class="line">yum update 软件包名 //更新指定软件包</span><br><span class="line">yum update // 更新所有软件包</span><br></pre></td></tr></table></figure><p><strong>维护yum缓存库</strong><br>如果yum配置中使用的软件缓存，那么yum的缓存目录很容易装满，缓存目录中的所有数据都是可以被清理的，清理后，yum下次使用时会自动下载新的<strong>元数据</strong>，使用下面的命令可以进行清理</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yum clean packages</span><br><span class="line">yum clean metadata</span><br><span class="line">yum clean all</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络安全 </category>
+          
+          <category> Linux操作系统 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux操作系统 </tag>
+            
+            <tag> CentOS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>CentOS网络管理学习</title>
       <link href="/2022/05/01/Linux%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E5%AD%A6%E4%B9%A0/"/>
       <url>/2022/05/01/Linux%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E5%AD%A6%E4%B9%A0/</url>
       
@@ -23,6 +81,8 @@
         <tags>
             
             <tag> Linux操作系统 </tag>
+            
+            <tag> CentOS </tag>
             
         </tags>
       
@@ -50,6 +110,8 @@
         <tags>
             
             <tag> Linux操作系统 </tag>
+            
+            <tag> CentOS </tag>
             
         </tags>
       
