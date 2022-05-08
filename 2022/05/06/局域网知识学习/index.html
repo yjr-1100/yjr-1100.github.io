@@ -1,0 +1,500 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>局域网知识学习 | YJR-1100</title><meta name="keywords" content="网络安全,计算机网络"><meta name="author" content="yjr-1100"><meta name="copyright" content="yjr-1100"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="局域网概述局域网（LAN：Local Area Network）是将局部范围内各种通信设备互联在一起实现相互间数据传输和资源共享的通信网络 局域网特征：  覆盖范围小 传输速率高 误码率低 是一个自治网，由所属单位管理  局域网技术包含物理层和数据链路层的功能 它的特征主要由三个因素确定：  连接各种设备的拓扑结构 传输数据的传输介质（包括信号技术） 共享资源的介质访问控制技术   局域网分类 按">
+<meta property="og:type" content="article">
+<meta property="og:title" content="局域网知识学习">
+<meta property="og:url" content="https://yjr-1100.github.io/2022/05/06/%E5%B1%80%E5%9F%9F%E7%BD%91%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="YJR-1100">
+<meta property="og:description" content="局域网概述局域网（LAN：Local Area Network）是将局部范围内各种通信设备互联在一起实现相互间数据传输和资源共享的通信网络 局域网特征：  覆盖范围小 传输速率高 误码率低 是一个自治网，由所属单位管理  局域网技术包含物理层和数据链路层的功能 它的特征主要由三个因素确定：  连接各种设备的拓扑结构 传输数据的传输介质（包括信号技术） 共享资源的介质访问控制技术   局域网分类 按">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg">
+<meta property="article:published_time" content="2022-05-06T12:21:08.000Z">
+<meta property="article:modified_time" content="2022-05-08T07:27:11.874Z">
+<meta property="article:author" content="yjr-1100">
+<meta property="article:tag" content="网络安全">
+<meta property="article:tag" content="计算机网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://yjr-1100.github.io/2022/05/06/%E5%B1%80%E5%9F%9F%E7%BD%91%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":150},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '局域网知识学习',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-05-08 15:27:11'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/mylogol2.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">38</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/background_4k.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">YJR-1100</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">局域网知识学习</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-05-06T12:21:08.000Z" title="发表于 2022-05-06 20:21:08">2022-05-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-05-08T07:27:11.874Z" title="更新于 2022-05-08 15:27:11">2022-05-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">5.9k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>17分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="局域网知识学习"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="局域网概述"><a href="#局域网概述" class="headerlink" title="局域网概述"></a>局域网概述</h1><p>局域网（LAN：Local Area Network）是将局部范围内各种通信设备互联在一起实现相互间<strong>数据传输</strong>和<strong>资源共享</strong>的通信网络</p>
+<p><strong>局域网特征：</strong></p>
+<ul>
+<li>覆盖范围小</li>
+<li>传输速率高</li>
+<li>误码率低</li>
+<li>是一个自治网，由所属单位管理</li>
+</ul>
+<p>局域网技术包含物理层和数据链路层的功能</p>
+<p><strong>它的特征主要由三个因素确定：</strong></p>
+<ul>
+<li>连接各种设备的<strong>拓扑结构</strong></li>
+<li>传输数据的<strong>传输介质</strong>（包括信号技术）</li>
+<li>共享资源的<strong>介质访问控制技术</strong></li>
+</ul>
+<hr>
+<h1 id="局域网分类"><a href="#局域网分类" class="headerlink" title="局域网分类"></a>局域网分类</h1><ol>
+<li>按转换方式：共享介质局域网、交换局域网</li>
+<li>按资源管理方式：对等局域网、非对等局域网</li>
+<li>按传输技术：基带局域网、宽带局域网</li>
+<li>按局域网采用的物理层和介质访问控制子层协议分类：以太网、令牌环网、令牌总线</li>
+<li>按物理拓扑分类：总线型拓扑、环形拓扑、星型拓扑</li>
+</ol>
+<h2 id="总线型拓扑"><a href="#总线型拓扑" class="headerlink" title="总线型拓扑"></a>总线型拓扑</h2><p>所有的用户工作站都同等的挂接在一条广播式公共信道总线上，是一种分布式结构的单挑系统，常用的总线传输介质有双绞线对、同轴电缆和光缆、无方向性同频广播式无线电信道</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205062034269.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p><strong>总线型拓扑结构局域网的优点：</strong></p>
+<ol>
+<li>通信成本最省</li>
+<li>易于扩充工作站数目</li>
+<li>总线的无源操作和系统的分布控制，保证了网络的高度可靠性</li>
+<li>用广播式通信方式无转接节点，传输时延短</li>
+</ol>
+<p><strong>总线型拓扑结构局域网的缺点：</strong></p>
+<ol>
+<li>网络覆盖范围受到限制</li>
+<li>信道的故障将导致整个网络失败，完全瘫痪</li>
+<li>广播式竞争型多址通信不利于网络业务量的增加</li>
+</ol>
+<h2 id="环型拓扑"><a href="#环型拓扑" class="headerlink" title="环型拓扑"></a>环型拓扑</h2><p>各个工作站通过一个环接器挂接在一个环型的传输通路上，环内的信号必须是单项传播的。环型局域网的传输介质可采用双绞线、同轴电缆和光纤</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205062042249.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p><strong>环型结构局域网的优点：</strong></p>
+<ol>
+<li>网络接入控制及其接口部件比较简单</li>
+<li>网络操作是分布式且非竞争型的，信道资源分配比较公平。</li>
+<li>网络的性能比较稳定，能够承受较重的负荷</li>
+</ol>
+<p><strong>环型结构局域网的缺点：</strong></p>
+<ol>
+<li>每个节点的环接器必须是有源部件，可靠性较差</li>
+<li>环内需要设置对令牌进行控制的控制装置</li>
+<li>网络的扩充不如总线网容易</li>
+</ol>
+<h2 id="星型拓扑"><a href="#星型拓扑" class="headerlink" title="星型拓扑"></a>星型拓扑</h2><p>每个工作站都经过一条专用线路连接到中心节点上，通过中心节点的转接，可与其他任何一个工作站建立连接，相互通信，星型局域网使用双绞线或光纤作为传输介质</p>
+<p><strong>星型拓扑结构局域网的优点：</strong></p>
+<ol>
+<li>集中控制有利于将各个工作站送来的数据流进行汇集</li>
+<li>易于别的网络互联，连接方便、经济;</li>
+<li>易于扩充，故障管理容易</li>
+</ol>
+<p><strong>星型拓扑结构局域网的缺点：</strong></p>
+<ol>
+<li>中心节点交换机是关键设备，可靠性要求高，要求有备份机或者双机运行</li>
+</ol>
+<hr>
+<h1 id="局域网接入控制技术"><a href="#局域网接入控制技术" class="headerlink" title="局域网接入控制技术"></a>局域网接入控制技术</h1><h2 id="固定接入类"><a href="#固定接入类" class="headerlink" title="固定接入类"></a>固定接入类</h2><p>将公共的信道带宽资源对网络用户做了固定或相对固定的分配。如：<strong>频分复用</strong>和<strong>时分复用</strong>，信道被划分成若干子信道，每一子信道可提供给一对节点固定使用，实现一对通信实体之间的点到点通信</p>
+<h2 id="集中控制接入类"><a href="#集中控制接入类" class="headerlink" title="集中控制接入类"></a>集中控制接入类</h2><p>要求网络中设置一个对信道接入进行管理的中心控制节点，将信道的全部带宽资源按需分配给要求接入网络通信实体，如轮询和预约接入技术等</p>
+<h2 id="分布控制接入类"><a href="#分布控制接入类" class="headerlink" title="分布控制接入类"></a>分布控制接入类</h2><p>不要求网络中设置中心控制节点，它决定网络系统具有高度的可靠性和可扩展性的重要因素。</p>
+<ul>
+<li>局域网中采用最多的一类信道接入控制技术</li>
+<li>根据特定的网络拓扑形式发展起来，只适用于特定拓扑的局域网</li>
+</ul>
+<hr>
+<h1 id="局域网参考模型"><a href="#局域网参考模型" class="headerlink" title="局域网参考模型"></a>局域网参考模型</h1><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205062059026.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>局域网参考模型和OSI&#x2F;RM相比，相当于OSI&#x2F;RM的最低两层；<br>为例使局域网中的数据链路层不至于过于复杂，将局域网的数据链路层划分为<strong>媒体访问控制MAC子层</strong>和<strong>逻辑链路控制LLC子层</strong></p>
+<p>MAC子层主要完成与具体传输媒体有关功能<br>LLC子串完成与媒体访问无关部分主要功能<br>局域网对LLC子层是透明的，只有MAC子层才能看到所连接的是采用什么标准的局域网</p>
+<p>IEEE 802标准：</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205062105224.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>局域网的链路层两种不同的帧</p>
+<p>LLC帧和MAC帧</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205062106076.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<hr>
+<h1 id="以太网的物理层和MAC子层"><a href="#以太网的物理层和MAC子层" class="headerlink" title="以太网的物理层和MAC子层"></a>以太网的物理层和MAC子层</h1><h2 id="802-3以太网标准"><a href="#802-3以太网标准" class="headerlink" title="802.3以太网标准"></a>802.3以太网标准</h2><p>1EEE802.3有5种物理层规范</p>
+<ul>
+<li>粗缆以太网(10BASE-5)</li>
+<li>细缆以太网(10BASE-2)</li>
+<li>双绞线以太网(10BASE-T)</li>
+<li>光纤以太网(10BASE-F)</li>
+<li>宽带以太网(10 Broad36)</li>
+</ul>
+<p><strong>802.3以太网标准-粗缆以太网(10BASE-5)</strong></p>
+<p>使用总线结构的<strong>粗同轴电缆</strong>作为传输介质，最大传输速率为10Mb&#x2F;s,采用<strong>基带传输技术</strong>，每一个网段最大长度为500m。每个网段理论上可以连接100台计算机。网络上两台计算机之间的缆线长度不小于2.5m。</p>
+<p><strong>802.3以太网标准-细缆以太网(10BASE-2)</strong></p>
+<p>使用总线结构的<strong>细同轴电缆</strong>作为传输介质，每一个网段最大长度为185m,每个网段理论上可以连接33台计算机,电缆总长度不超过900m</p>
+<p><strong>802.3以太网标准-双绞线以太网(10BASE-T)</strong></p>
+<p>每一个网段最大长度不超过100m</p>
+<p><strong>802.3以太网标准-光纤以太网(10BASE-F)</strong></p>
+<p>使用单模或多模光纤作为传输介质,每一个网段最大长度为500m</p>
+<p><strong>802.3以太网标准-宽带以太网(10 Broad36)</strong></p>
+<p>是一种宽带LAN。使用75Ω同轴电缆作为传输介质，单个网段的最大连接距离为1800m,整个网段的最大跨度为3600m,10 Broad36与<strong>基带以太网相互兼容</strong>的方法是把基带曼彻斯特编码经过差分相移键控调制后发送到宽带电缆上，调制后的10Mb&#x2F;s信号占用14MHz的带宽</p>
+<p><strong>802.3以太网标准-“5-4-3”规则</strong></p>
+<ul>
+<li>一个以太网最多只允许含5个网段</li>
+<li>最多只允许使用4个中继器</li>
+<li>其中3个网段上可以接终端</li>
+</ul>
+<p><strong>IEEE 802.3以太网主要技术特性</strong></p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205071604474.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p><strong>以太网的传输介质特性比较</strong></p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205071605704.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p><strong>以太网物理层编码技术</strong></p>
+<p>曼彻斯特编码：</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205071606860.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<h2 id="以太网数据封装格式"><a href="#以太网数据封装格式" class="headerlink" title="以太网数据封装格式"></a>以太网数据封装格式</h2><p><strong>ETHRNET Ⅱ标准定义的数据帧分装格式</strong></p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205071607946.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>以太网数据帧的长度在 64-1518字节之间</p>
+<p><strong>IEEE 802.3标准数据帧</strong></p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205071609154.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>与ETHRNET Ⅱ标准数据帧的区别在于，Ethernet Ⅱ格式中包含一个Type字段，标识以太帧处理完成后将被发送到哪个上层协议进行处理，IEEE 802.3格式中，同样的位置是长度字段</p>
+<h2 id="Mac子层"><a href="#Mac子层" class="headerlink" title="Mac子层"></a>Mac子层</h2><p><strong>常见的冲突避免技术</strong></p>
+<ol>
+<li>载波侦听多路访问&#x2F;冲突检测（CSMA&#x2F;CD）</li>
+<li>令牌环</li>
+<li>载波侦听多路访问&#x2F;冲突避免（CSMA&#x2F;CA）</li>
+</ol>
+<p>MAC帧的封装功能</p>
+<ul>
+<li>成帧（帧定界、帧同步）和卸帧</li>
+<li>编址与寻址（源和目的地址的处理）</li>
+<li>差错检测（由更高层负责矫正差错）</li>
+</ul>
+<h2 id="802-3的MAC子层的主要功能"><a href="#802-3的MAC子层的主要功能" class="headerlink" title="802.3的MAC子层的主要功能"></a>802.3的MAC子层的主要功能</h2><p><strong>介质接入管理功能</strong></p>
+<ul>
+<li>信道分配（避免碰撞，介质接入控制）</li>
+<li>竞争解决（处理碰撞，退避延时重发等）</li>
+</ul>
+<p>以太网使用带碰撞检测的载波侦听多路访问（CSMA&#x2F;CD）技术的总线型网络</p>
+<p><strong>多点接入</strong>——是总线网络，许多计算机以多点接入的方式连接在一根总线</p>
+<p><strong>载波监听</strong>——在发送数据之前要检测总线上是否有其他计算机在发送数据，如果有暂时不要发送，以避免发送碰撞</p>
+<p><strong>碰撞检测</strong></p>
+<ul>
+<li>计算机边发数据边检测信道上信号电压大小</li>
+<li>当检测到的电压摆动值超过门限值则表明发生了碰撞</li>
+</ul>
+<p><strong>传播时延对载波监听的影响</strong></p>
+<p>使用CSMA&#x2F;CD协议的以太网不能同时进行发送和接收</p>
+<p>每个站在自己发送数据后2t时间内，存在着遭遇碰撞的可能性，因此以太网不能保证在某一段时间内能够将自己的数据帧成功的发送出去，这称为发送的不确定性</p>
+<h2 id="MAC层的硬件地址"><a href="#MAC层的硬件地址" class="headerlink" title="MAC层的硬件地址"></a>MAC层的硬件地址</h2><p>MAC层地址指网卡上的地址，共48位，前24位是厂商代号，后24位由厂商自行指派。硬件地址又称物理地址或MAC地址。实际上就是网卡地址或网卡标识符<br>EU1-48。采用六字节表示，EUU为扩展惟一标识符。</p>
+<ul>
+<li>前三字节是机构惟一标识符OUI，</li>
+<li>后三字节称为扩展标识符。</li>
+</ul>
+<p>名字指我们所要寻找的那个资源<br>地址指出那个资源在何处<br>路由告诉我们如何到达该处</p>
+<p>所有的网卡都能够识别单播和广播地址，有的网卡通过编程的方法可以识别多播地址</p>
+<h2 id="CSMA-x2F-CD-技术"><a href="#CSMA-x2F-CD-技术" class="headerlink" title="CSMA&#x2F;CD 技术"></a>CSMA&#x2F;CD 技术</h2><p>CSMA（carrier sense multiple access：载波侦听多址接入）技术</p>
+<p>CSMA&#x2F;CD 带碰撞检测的载波侦听多址接入技术</p>
+<h3 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h3><p>任一个网络节点在它要发送帧之前，先监测一下广播信道中是否存在别的节点正在发送帧的载波信号。如果监测到这种信号，说明信道正忙，否则信道是空闲的。</p>
+<p>若测得空闲，或者立即将自己的帧发送出去，或者为慎重起见暂时不发送出去；</p>
+<p>若测得信道忙，或者继续坚持监测载波，或者暂时退避一段时间再监测</p>
+<ul>
+<li>非坚持型CSMA</li>
+<li>1-坚持型CSMA</li>
+<li>p-坚持型CSMA</li>
+</ul>
+<h3 id="非坚持CSMA"><a href="#非坚持CSMA" class="headerlink" title="非坚持CSMA"></a>非坚持CSMA</h3><p>当一个网络节点准备发送数据帧之前先监测信道，若测得信道空闲，立刻启动发送帧。若信道正忙，则暂时不坚持监测信道，随机延迟一段时间后再次监测信道状态。如此循环，直到将帧发送完为止。</p>
+<p><strong>特点</strong></p>
+<p>当监测到信道忙时，能主动地退避一段随机时间，有利于减少冲突机会，可提高吞吐率和信道的利用率。</p>
+<h3 id="1-坚持型CSMA"><a href="#1-坚持型CSMA" class="headerlink" title="1-坚持型CSMA"></a>1-坚持型CSMA</h3><p>当一个网络节点准备发送数据帧之前先监测信道，若测得信道空闲，立刻启动发送帧。若信道正忙，则坚持继续监测信道，直到监测到信道空闲时，立即启动发送帧。</p>
+<p>由于它在信道忙时要坚持监测信道，可能会有多个节点同时监测到信道空闲而同时采取发送行动，导致吞吐性能比非坚持型CSMA差。但由于控制简单，很有实用价值。</p>
+<h3 id="p-坚持型CSMA"><a href="#p-坚持型CSMA" class="headerlink" title="p-坚持型CSMA"></a>p-坚持型CSMA</h3><p>一方面坚特对信道状态的持续监测，及时确知信道忙闲情况，避免信道时间的浪费；</p>
+<p>另一方面，即使已监测到信道空闲，也不一定要立刻发送，要求任一节点以(1-P)的概率主动退避。</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205071947009.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p><strong>“边说边听”</strong>：任一站在发送数据帧期间要保持侦听信道的碰撞情况。一旦检测到碰撞，应立即中止发送。<br><strong>“强化干扰”</strong>：发送站在检测到碰撞并停止发送后，立即发送一段“强化干扰”信号，以加强碰撞检测效果。<br><strong>“基本等待时间”</strong>：任一站若能完整地发完一个帧，停顿一个时间(BWT&#x3D;2tpmax)并倾听信道情况。若在此期间未发生碰撞，则可确认该帧已发送成功。</p>
+<hr>
+<h1 id="交换式以太网"><a href="#交换式以太网" class="headerlink" title="交换式以太网"></a>交换式以太网</h1><h2 id="交换式以太网概述"><a href="#交换式以太网概述" class="headerlink" title="交换式以太网概述"></a>交换式以太网概述</h2><p>为提高网络可用性，保证各种终端设备间正常通信，常采用<strong>多条链路连接</strong>交换设备形成备份连接，以保证线路上的单点故障不会影响正常网络的通信。冗余链路会导致<strong>交换回路</strong>的产生，网络中必须有一个机制来阻止回路。</p>
+<p><strong>主要功能分为两部分：****建立虚连接</strong>和<strong>转发</strong>。</p>
+<ul>
+<li>当两个站点间有包要传送时，在这两个站点间临时建立一条<strong>点对点的连接</strong>，包发送完后，就立即拆除这条连接。</li>
+<li>在交换机内部保存了一张地址表，存储所连接的各站点所在的交换机端口号和MAC地址之间的对应关系。</li>
+<li><strong>过程：</strong>交换机从一个端口收到包→识别出包中的目的站MAC地址→查地址表一→得到目的站所在的端口号→在两个端口间建立一条虚连接→将包从源端口发送到目的端口→包发送完后→拆除这条虚连接。</li>
+</ul>
+<p><strong>包转发技术</strong><br>分三种：存储转发、切入法和改进切入法</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205081436843.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>为提高可靠性，常在局域网之间采用多台交换设备链接，以保证线路上的单点故障不会影响正常网络的通信。但网络中冗余链路的引入导致拓扑结构中产生了回路，出现帧的循环转发。</p>
+<p>主机发出一个带有未知目的地址的帧F，而对于未知目标地址的帧，交换机都采用扩散法</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205081437251.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<h2 id="生成树协议"><a href="#生成树协议" class="headerlink" title="生成树协议"></a>生成树协议</h2><p><strong>生成树协议的功能</strong></p>
+<ul>
+<li>解决网络中由备份链接产生的环路问题。</li>
+<li>生成树协议通过生成树算法(Spanning Tree Algorithm,STA)生成一个没有环路的网络。当主要链路出现故障时，能够自动切换到备份链路。</li>
+</ul>
+<p><strong>生成树协议的原理</strong></p>
+<ul>
+<li>当网络中存在环路时，通过一定的算法将交换机的某些端口进行阻塞，使网络形成一个无环路的树状结构</li>
+</ul>
+<p><strong>生成树协议的工作过程：</strong> </p>
+<p>在网络中选择一个交换机作为根交换机，比较优先级，比较MAC地址（较小的获胜）通过Hello BPDU</p>
+<ol>
+<li><p>根端口的选择<br>除根交换机以外的每台交换机都将选择一个“最靠近”根交换机的端口作为根端口(Root Port)</p>
+</li>
+<li><p>通过判断有<strong>最小根路径成本</strong>(Lowest Root Path Cost)的端口来实现的。端口根路径成本是指从该端口到根交换机的路径成本。</p>
+</li>
+<li><p>指定端口的选择<br>在每个网段选择一个交换机端口处理该段网络的流量，在网段内有最小根路径成本的端口就成为<strong>指定端口</strong>(Designated Port)。</p>
+</li>
+<li><p>删除桥接环<br>根端口和指定端口<strong>转发</strong>(Forwarding)<strong>状态</strong><br>既不是根端口也不是指定端口的交换机端口被设为<strong>阻塞状态</strong><br>这就断开了不设置阻塞而会形成的所有桥接环(Bridging Loop)。</p>
+</li>
+</ol>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205081447804.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p><strong>生成树协议的端口状态</strong></p>
+<ul>
+<li><strong>Disabled(禁用)：</strong>为了管理目的或因为发生故障将端口关闭。</li>
+<li><strong>Blocking(阻塞)：</strong>端口不能接收或传输数据，不能把MAC地址加入它的地址表，只能接收BPDU。</li>
+<li><strong>Listening(监听)：</strong>端口不能接收或传输数据，不能把MAC地址加入到地址表，只能接收或发送BPDU。</li>
+<li><strong>Learning(学习)：</strong>端口不能传输数据，但可以发送和接收BPDU。可以学习MAC地址，并将其加入到地址表中。</li>
+<li><strong>Forwarding(转发)：</strong>能够发送和接收数据，学习MAC地址，还能发送和接收BPDU</li>
+</ul>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205081450172.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p><strong>生成树协议的缺点</strong></p>
+<ul>
+<li>解决交换链路冗余问题。缺点是<strong>收敛速度慢</strong>。</li>
+<li>拓扑发生变化时<strong>产生时延</strong>，默认值15秒。所有交换机收到之前，若旧拓扑结构中处于转发的端口还没有发现，则可能存在<strong>临时环路</strong>。</li>
+<li>为了解决临时环路的问题，生成树使用了一种定时器策略，定时器策略至少<strong>两倍转发时延的收敛时间</strong>。</li>
+</ul>
+<p><strong>生成树性能的三个计时器</strong></p>
+<ul>
+<li>**Hello timer(BPDU发送间隔)**：定时发送BPDU报文的时间间隔，默认为2秒。</li>
+<li>**Forward-Delay timer(转发时延)**：端口从listening转为learning,或者从learning转为forwarding间隔为15秒。</li>
+<li>**Max-Age timer(最大保留时间)**：BPDU报文消息生存的最长时间。当超过这个时间，报文消息将被丢弃，默认为20秒。</li>
+</ul>
+<h2 id="快速以太网"><a href="#快速以太网" class="headerlink" title="快速以太网"></a>快速以太网</h2><p><strong>100BASE-T快速以太网</strong>(Fast Ethernet)，是在双绞线上传送100Mbit&#x2F;s基带信号的星型拓扑以太网。</p>
+<p>保留了传统以太网帧格式、介质访问控制方法CSMA&#x2F;CD、组网方法，最短帧长仍为64字节。每个比特发送时间由100ns降至10ns,它可以在原来的10BASE-T网上一起运行保护了原有的网络投资利益。其国际标准代号为802.3u。只要更换一张网卡，再配100Mb&#x2F;s的集线器，就可以由10BASE-T以太网直接升级到100BASE-T。</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205081507773.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<h2 id="高速以太网"><a href="#高速以太网" class="headerlink" title="高速以太网"></a>高速以太网</h2><p><strong>干兆以太网</strong></p>
+<p>其标准802.3z有以下几个要点</p>
+<ol>
+<li>在1Gbit&#x2F;s下全双工和半双工两种方式工作。</li>
+<li>使用802.3协议规定的帧格式。把Ethernet每个比特的发送时间由100ns降低到了1ns。</li>
+<li>在半双工方式下使用CSMA&#x2F;CD协议（全双工方式不需要使用CSMA&#x2F;CD协议）。</li>
+<li>与10BASE-T和100BASE-T技术向后兼容。从10Mb&#x2F;s的Ethernet升级到Fast Ethernet:或吉位以太网非常容易。</li>
+</ol>
+<p><strong>干兆以太网-1000BASE-X(802.3z标准)</strong></p>
+<ul>
+<li>1000BASE-SX:SX短波长，使用纤芯直径62.5μm和50μm多模光纤，传输距离为275m和550m。</li>
+<li>1000BASE-LX:LX长波长，使用纤芯直径62.5μm和50μm的多模光纤时，传输距离550m。使用纤芯直径为10um的单模光纤时，传输距离5km。</li>
+<li>1000BASE-CX:CX铜线，使用两对短距离的屏蔽双绞线电缆，传输距离为25m。</li>
+</ul>
+<p><strong>干兆以太网-1000BASE-T(802.3ab标准)</strong></p>
+<ul>
+<li>使用4对5类线UTP,传送距离为100m。</li>
+<li>工作在半双工方式时，必须进行碰撞检测。</li>
+<li>一个网段的最大长度为100m,采用了“”载波延伸”的办法，并增加了分组突发的功能。</li>
+<li>全双工方式时，不使用载波延伸和分组突发。</li>
+</ul>
+<p><strong>载波延伸(carrier extension)法</strong>来进行碰撞检测，最短帧长仍为64字节，将争用时间增大为512字节，不足用特殊字符填充在帧的后面。</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205081510419.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>**分组突发(packet bursting)**是有很多短帧要发送，第一个短帧采用载波延伸方法填充，随后短帧一个接一个地发送，直到达到1500字节或稍多一些为止。</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205081511140.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p><strong>10吉比特以太网</strong></p>
+<p>10吉比特以太网即万兆以太网，其标准为lEEE802.3ae。</p>
+<ul>
+<li>帧格式与802.3标准规定的帧格式完全相同</li>
+<li>保留802.3标准规定的以太网最小和最大帧长</li>
+<li>10吉比特以太网只使用光纤作为传输媒体</li>
+<li>10吉比特以太网只工作在全双工方式，不存在争用问题，也不使用CSMA&#x2F;CD协议</li>
+</ul>
+<p><strong>共享型以太数据帧处理如下：</strong></p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205081513257.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p><strong>交换型以太数据帧处理如下：</strong></p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205081514001.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>使用CAM表，CAM表指MAC地址与交换机端口的二元组映射关系。</p>
+<ul>
+<li>交换型以太网中，实现有针对性地数据帧转发</li>
+<li>基于源MAC地址学习，源MAC地址与端口建立映射关系</li>
+<li>基于目的MAC地址转发，得到响应的MAC地址与端口建立映射关系</li>
+</ul>
+<hr>
+<h1 id="虚拟局域网"><a href="#虚拟局域网" class="headerlink" title="虚拟局域网"></a>虚拟局域网</h1><h2 id="虚拟局域网概述"><a href="#虚拟局域网概述" class="headerlink" title="虚拟局域网概述"></a>虚拟局域网概述</h2><p>**虚拟局域网(Virtual LAN,VLAN)**，是由一些局域网网段构成的可跨越不同物理网段、不同网络类型的逻辑网络。每一个VLAN的帧都有一个明确的标识符，指明发送这个帧的工作站是属于哪一个VLAN.</p>
+<h2 id="VLAN的特点"><a href="#VLAN的特点" class="headerlink" title="VLAN的特点"></a>VLAN的特点</h2><p>一个虚拟工作组可以跨越不同的交换机来组成一个广播域。</p>
+<p>虚拟局域网支持任意多个站点间的组合，一个站点或工作组可以属于多个虚拟工作组。</p>
+<p>虚拟局域网可大大简化网络的管理</p>
+<p>虚拟局域网允许管理员在中央节点来配置和管理网络。</p>
+<p>虚拟局域网为网络设备的变更和扩充提供了一种有效的手段。</p>
+<h2 id="VLAN的信息交换方式"><a href="#VLAN的信息交换方式" class="headerlink" title="VLAN的信息交换方式"></a>VLAN的信息交换方式</h2><p><strong>端口交换：</strong> 把端口配置到一个或若干个背板连接共享HUB上，独立的由端口组合的共享网络段，每一个连接到端口上的用户被分配到其中一个段上。</p>
+<p><strong>帧交换：</strong> 交换机每一个端口能提供一个独立的共享网络端口，在此端口上既可以连接共享HUB,也可以连接单独客户站。</p>
+<p><strong>信元交换：</strong> 核心是由一个或多个ATM交换机组成，在ATM交换机上实现信元交换。</p>
+<h2 id="VLAN的分类"><a href="#VLAN的分类" class="headerlink" title="VLAN的分类"></a>VLAN的分类</h2><ol>
+<li><p><strong>按交换机端口划分：</strong>按交换机的端口来划分虚拟局域网，将同一虚拟工作组的端口设置成具有相同的广播域的虚拟子网，只允许同一广播域端口之间互相通信，各虚拟子网之间相对独立。由端口划分的虚拟局域网称为<strong>物理层虚拟局域网</strong>。</p>
+</li>
+<li><p><strong>按MAC地址划分：</strong>该虚拟工作组的广播域是按用户工作站的MAC地址来划分的，又称为<strong>链路层虚拟局域网</strong>。</p>
+</li>
+<li><p><strong>按P地址划分：</strong>是根据IP地址来定义虚拟局域网，又称为<strong>网络层虚拟局域网</strong>。</p>
+</li>
+<li><p><strong>按应用划分：</strong>根据应用所需的网络带宽和服务质量级别来定义虚拟局域网。</p>
+</li>
+</ol>
+<h2 id="虚拟局域网示意图"><a href="#虚拟局域网示意图" class="headerlink" title="虚拟局域网示意图"></a>虚拟局域网示意图</h2><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205081523755.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<h2 id="VLAN的路由"><a href="#VLAN的路由" class="headerlink" title="VLAN的路由"></a>VLAN的路由</h2><p>虚拟局域网主要采用<strong>集中式路由</strong>和<strong>分布式路由</strong></p>
+<ul>
+<li><p>集中式路由策略是指所有虚拟局域网都通过一个中心路由器实现互连。</p>
+</li>
+<li><p>分布式路由策略是将路由选择功能适当地分布在带有路由功能的交换机上。</p>
+</li>
+</ul>
+<h2 id="VLAN的管理"><a href="#VLAN的管理" class="headerlink" title="VLAN的管理"></a>VLAN的管理</h2><p>虚拟局域网是通过网络管理软件实现的。</p>
+<p>网络管理软件运行在与交换机相连的网管工作站上，负责网络配置、性能监控、故障检测与诊断以及网络安全性等方面的网络管理。</p>
+<p>网络管理软件通常采用图形化的用户界面(GUI)，易于操作和理解。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">yjr-1100</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://yjr-1100.github.io/2022/05/06/%E5%B1%80%E5%9F%9F%E7%BD%91%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0/">https://yjr-1100.github.io/2022/05/06/%E5%B1%80%E5%9F%9F%E7%BD%91%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://yjr-1100.github.io" target="_blank">YJR-1100</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/05/08/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">交换机工作原理学习</div></div></a></div><div class="next-post pull-right"><a href="/2022/05/06/%E7%BD%91%E7%BB%9C%E4%BC%A0%E8%BE%93%E4%BB%8B%E8%B4%A8/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">网络传输介质</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/05/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0/" title="计算机网络基本知识学习"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-05</div><div class="title">计算机网络基本知识学习</div></div></a></div><div><a href="/2022/05/06/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84%E7%A1%AC%E4%BB%B6%E5%92%8C%E8%BD%AF%E4%BB%B6/" title="计算机网络的硬件、软件及层次结构"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-06</div><div class="title">计算机网络的硬件、软件及层次结构</div></div></a></div><div><a href="/2022/05/06/%E7%BD%91%E7%BB%9C%E4%BC%A0%E8%BE%93%E4%BB%8B%E8%B4%A8/" title="网络传输介质"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-06</div><div class="title">网络传输介质</div></div></a></div><div><a href="/2022/05/08/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0/" title="交换机工作原理学习"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-08</div><div class="title">交换机工作原理学习</div></div></a></div><div><a href="/2022/04/26/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%A6%82%E8%BF%B0/" title="网络安全概述"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204262252594.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-26</div><div class="title">网络安全概述</div></div></a></div><div><a href="/2022/04/26/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%B3%95/" title="网络安全法"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204262312919.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-26</div><div class="title">网络安全法</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/mylogol2.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">yjr-1100</div><div class="author-info__description">一个俗人的博客</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">38</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/yjr-1100"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/yjr-1100" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:jiaruiyang221@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">总要记些什么证明我来过</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B1%80%E5%9F%9F%E7%BD%91%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">局域网概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B1%80%E5%9F%9F%E7%BD%91%E5%88%86%E7%B1%BB"><span class="toc-number">2.</span> <span class="toc-text">局域网分类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF%E5%9E%8B%E6%8B%93%E6%89%91"><span class="toc-number">2.1.</span> <span class="toc-text">总线型拓扑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%9E%8B%E6%8B%93%E6%89%91"><span class="toc-number">2.2.</span> <span class="toc-text">环型拓扑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%9F%E5%9E%8B%E6%8B%93%E6%89%91"><span class="toc-number">2.3.</span> <span class="toc-text">星型拓扑</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B1%80%E5%9F%9F%E7%BD%91%E6%8E%A5%E5%85%A5%E6%8E%A7%E5%88%B6%E6%8A%80%E6%9C%AF"><span class="toc-number">3.</span> <span class="toc-text">局域网接入控制技术</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BA%E5%AE%9A%E6%8E%A5%E5%85%A5%E7%B1%BB"><span class="toc-number">3.1.</span> <span class="toc-text">固定接入类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E4%B8%AD%E6%8E%A7%E5%88%B6%E6%8E%A5%E5%85%A5%E7%B1%BB"><span class="toc-number">3.2.</span> <span class="toc-text">集中控制接入类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E6%8E%A7%E5%88%B6%E6%8E%A5%E5%85%A5%E7%B1%BB"><span class="toc-number">3.3.</span> <span class="toc-text">分布控制接入类</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B1%80%E5%9F%9F%E7%BD%91%E5%8F%82%E8%80%83%E6%A8%A1%E5%9E%8B"><span class="toc-number">4.</span> <span class="toc-text">局域网参考模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E7%9A%84%E7%89%A9%E7%90%86%E5%B1%82%E5%92%8CMAC%E5%AD%90%E5%B1%82"><span class="toc-number">5.</span> <span class="toc-text">以太网的物理层和MAC子层</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#802-3%E4%BB%A5%E5%A4%AA%E7%BD%91%E6%A0%87%E5%87%86"><span class="toc-number">5.1.</span> <span class="toc-text">802.3以太网标准</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E5%A4%AA%E7%BD%91%E6%95%B0%E6%8D%AE%E5%B0%81%E8%A3%85%E6%A0%BC%E5%BC%8F"><span class="toc-number">5.2.</span> <span class="toc-text">以太网数据封装格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mac%E5%AD%90%E5%B1%82"><span class="toc-number">5.3.</span> <span class="toc-text">Mac子层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#802-3%E7%9A%84MAC%E5%AD%90%E5%B1%82%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8A%9F%E8%83%BD"><span class="toc-number">5.4.</span> <span class="toc-text">802.3的MAC子层的主要功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MAC%E5%B1%82%E7%9A%84%E7%A1%AC%E4%BB%B6%E5%9C%B0%E5%9D%80"><span class="toc-number">5.5.</span> <span class="toc-text">MAC层的硬件地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSMA-x2F-CD-%E6%8A%80%E6%9C%AF"><span class="toc-number">5.6.</span> <span class="toc-text">CSMA&#x2F;CD 技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-number">5.6.1.</span> <span class="toc-text">基本原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E5%9D%9A%E6%8C%81CSMA"><span class="toc-number">5.6.2.</span> <span class="toc-text">非坚持CSMA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%9D%9A%E6%8C%81%E5%9E%8BCSMA"><span class="toc-number">5.6.3.</span> <span class="toc-text">1-坚持型CSMA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#p-%E5%9D%9A%E6%8C%81%E5%9E%8BCSMA"><span class="toc-number">5.6.4.</span> <span class="toc-text">p-坚持型CSMA</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E5%BC%8F%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="toc-number">6.</span> <span class="toc-text">交换式以太网</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E5%BC%8F%E4%BB%A5%E5%A4%AA%E7%BD%91%E6%A6%82%E8%BF%B0"><span class="toc-number">6.1.</span> <span class="toc-text">交换式以太网概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E6%A0%91%E5%8D%8F%E8%AE%AE"><span class="toc-number">6.2.</span> <span class="toc-text">生成树协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="toc-number">6.3.</span> <span class="toc-text">快速以太网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AB%98%E9%80%9F%E4%BB%A5%E5%A4%AA%E7%BD%91"><span class="toc-number">6.4.</span> <span class="toc-text">高速以太网</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="toc-number">7.</span> <span class="toc-text">虚拟局域网</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%B1%80%E5%9F%9F%E7%BD%91%E6%A6%82%E8%BF%B0"><span class="toc-number">7.1.</span> <span class="toc-text">虚拟局域网概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VLAN%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-number">7.2.</span> <span class="toc-text">VLAN的特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VLAN%E7%9A%84%E4%BF%A1%E6%81%AF%E4%BA%A4%E6%8D%A2%E6%96%B9%E5%BC%8F"><span class="toc-number">7.3.</span> <span class="toc-text">VLAN的信息交换方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VLAN%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">7.4.</span> <span class="toc-text">VLAN的分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E5%B1%80%E5%9F%9F%E7%BD%91%E7%A4%BA%E6%84%8F%E5%9B%BE"><span class="toc-number">7.5.</span> <span class="toc-text">虚拟局域网示意图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VLAN%E7%9A%84%E8%B7%AF%E7%94%B1"><span class="toc-number">7.6.</span> <span class="toc-text">VLAN的路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VLAN%E7%9A%84%E7%AE%A1%E7%90%86"><span class="toc-number">7.7.</span> <span class="toc-text">VLAN的管理</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/05/08/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0/" title="交换机工作原理学习"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="交换机工作原理学习"/></a><div class="content"><a class="title" href="/2022/05/08/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0/" title="交换机工作原理学习">交换机工作原理学习</a><time datetime="2022-05-08T07:26:55.000Z" title="发表于 2022-05-08 15:26:55">2022-05-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/06/%E5%B1%80%E5%9F%9F%E7%BD%91%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0/" title="局域网知识学习"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="局域网知识学习"/></a><div class="content"><a class="title" href="/2022/05/06/%E5%B1%80%E5%9F%9F%E7%BD%91%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0/" title="局域网知识学习">局域网知识学习</a><time datetime="2022-05-06T12:21:08.000Z" title="发表于 2022-05-06 20:21:08">2022-05-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/06/%E7%BD%91%E7%BB%9C%E4%BC%A0%E8%BE%93%E4%BB%8B%E8%B4%A8/" title="网络传输介质"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="网络传输介质"/></a><div class="content"><a class="title" href="/2022/05/06/%E7%BD%91%E7%BB%9C%E4%BC%A0%E8%BE%93%E4%BB%8B%E8%B4%A8/" title="网络传输介质">网络传输介质</a><time datetime="2022-05-06T08:40:39.000Z" title="发表于 2022-05-06 16:40:39">2022-05-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/06/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84%E7%A1%AC%E4%BB%B6%E5%92%8C%E8%BD%AF%E4%BB%B6/" title="计算机网络的硬件、软件及层次结构"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机网络的硬件、软件及层次结构"/></a><div class="content"><a class="title" href="/2022/05/06/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84%E7%A1%AC%E4%BB%B6%E5%92%8C%E8%BD%AF%E4%BB%B6/" title="计算机网络的硬件、软件及层次结构">计算机网络的硬件、软件及层次结构</a><time datetime="2022-05-06T05:09:04.000Z" title="发表于 2022-05-06 13:09:04">2022-05-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0/" title="计算机网络基本知识学习"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="计算机网络基本知识学习"/></a><div class="content"><a class="title" href="/2022/05/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0/" title="计算机网络基本知识学习">计算机网络基本知识学习</a><time datetime="2022-05-05T02:51:31.000Z" title="发表于 2022-05-05 10:51:31">2022-05-05</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/background_4k.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022 By yjr-1100</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">你好有缘人</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())
+
+$('.yjr_wrap .yjr_menu').on('click',function (event) {
+// 判断标签是否li
+if (event.target.tagName === 'LI') {
+  $tar =$(event.target)
+  //获取子元素index
+  var index =  $tar.parent().children().index($tar);
+  $tar.parent().children().eq(index).addClass('yjr_itemSelected').siblings().removeClass('yjr_itemSelected')
+  if(index==1){
+      $tar.parent().parent().find('.yjr_code').attr('hidden',true)
+      $tar.parent().parent().find('.yjr_effect').attr('hidden',false)
+    }else{
+        $tar.parent().parent().find('.yjr_code').attr('hidden',false)
+      $tar.parent().parent().find('.yjr_effect').attr('hidden',true)
+    }
+  }
+})</script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
