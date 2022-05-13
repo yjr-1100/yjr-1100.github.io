@@ -1,0 +1,276 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>路由基础知识学习 | YJR-1100</title><meta name="keywords" content="网络安全,计算机网络"><meta name="author" content="yjr-1100"><meta name="copyright" content="yjr-1100"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="路由原理路由概述路由（route），为需要跨网络转发的数据包提供的路径信息，依据逻辑地址对跨网络的数据包执行转发。 路由器是工作在网络层的数据包转发设备，路由器的主要功能是路由选择，路由器可以连接多个网络或网段，对不同网络或网段之间的数据信息进行“翻译”，从而构成一个更大的网络 静态路由按照某种规则在一对源节点和目的节点之间的多条路由中选择一条最佳路由的方法叫做路由选择算法，简称路由算法 静态路由">
+<meta property="og:type" content="article">
+<meta property="og:title" content="路由基础知识学习">
+<meta property="og:url" content="https://yjr-1100.github.io/2022/05/09/%E8%B7%AF%E7%94%B1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="YJR-1100">
+<meta property="og:description" content="路由原理路由概述路由（route），为需要跨网络转发的数据包提供的路径信息，依据逻辑地址对跨网络的数据包执行转发。 路由器是工作在网络层的数据包转发设备，路由器的主要功能是路由选择，路由器可以连接多个网络或网段，对不同网络或网段之间的数据信息进行“翻译”，从而构成一个更大的网络 静态路由按照某种规则在一对源节点和目的节点之间的多条路由中选择一条最佳路由的方法叫做路由选择算法，简称路由算法 静态路由">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg">
+<meta property="article:published_time" content="2022-05-09T06:06:45.000Z">
+<meta property="article:modified_time" content="2022-05-09T11:40:20.309Z">
+<meta property="article:author" content="yjr-1100">
+<meta property="article:tag" content="网络安全">
+<meta property="article:tag" content="计算机网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://yjr-1100.github.io/2022/05/09/%E8%B7%AF%E7%94%B1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":150},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '路由基础知识学习',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-05-09 19:40:20'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/mylogol2.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">42</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/background_4k.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">YJR-1100</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">路由基础知识学习</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-05-09T06:06:45.000Z" title="发表于 2022-05-09 14:06:45">2022-05-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-05-09T11:40:20.309Z" title="更新于 2022-05-09 19:40:20">2022-05-09</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">3.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="路由基础知识学习"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="路由原理"><a href="#路由原理" class="headerlink" title="路由原理"></a>路由原理</h1><h2 id="路由概述"><a href="#路由概述" class="headerlink" title="路由概述"></a>路由概述</h2><p>路由（route），为需要跨网络转发的数据包提供的路径信息，依据逻辑地址对跨网络的数据包执行转发。</p>
+<p>路由器是工作在<strong>网络层</strong>的数据包转发设备，路由器的主要功能是<strong>路由选择</strong>，路由器可以连接多个网络或网段，对不同网络或网段之间的数据信息进行“翻译”，从而构成一个更大的网络</p>
+<h2 id="静态路由"><a href="#静态路由" class="headerlink" title="静态路由"></a>静态路由</h2><p>按照某种规则在一对源节点和目的节点之间的多条路由中选择一条最佳路由的方法叫做<strong>路由选择算法</strong>，简称<strong>路由算法</strong></p>
+<p>静态路由选择算法不用测量也不需要利用网络信息，路由选择在网络设计时或网络安装时已经设置好，是一种按照某种固定规则进行的路由选择。</p>
+<h3 id="扩散式路由选择"><a href="#扩散式路由选择" class="headerlink" title="扩散式路由选择"></a>扩散式路由选择</h3><p>一个网络节点从某条线路收到一个分组后，向除该线路外的所有线路重复发送收到的分组。</p>
+<p>基本思想：把分组发送给除发送节点以外的所有邻节点，各节点收到重复分组时都有废弃能力（扩散式，全路发送）</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205091442185.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<ol>
+<li>各节点第一次收到分组时，就继续向目的地方向发送，经其他节点，直至目的地节点；</li>
+<li>除了第一次收到的分组外，其它重复收到的分组将被废弃；</li>
+<li>网络资源利用率低，但可靠性高。</li>
+</ol>
+<p>适用范围：规模小，负荷轻的网络</p>
+<h3 id="固定式路由选择"><a href="#固定式路由选择" class="headerlink" title="固定式路由选择"></a>固定式路由选择</h3><p>网络中的网络控制中心按照最佳路由选择算法求出每对源、目的节点之间的最佳路由，为每个节点构造一个固定路由表并分发给各节点，每个网络节点的表格中每一项记录着对应某个目的节点的下一个节点或链路</p>
+<p>优点：简便易行，在负载稳定，拓扑结构变化不大的网络中运行效果较好</p>
+<p>缺点：灵活性差</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205091517106.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<h3 id="随机路由选择"><a href="#随机路由选择" class="headerlink" title="随机路由选择"></a>随机路由选择</h3><p>转发节点随机地选择一个链路发送分组，如果选择各个链路的概率相同，则可用循环方式轮流的把各个分组转发到所有相邻的节点。</p>
+<p>优点：是简单易行，对网络负载的增加小。</p>
+<p>缺点：是分组在网络中迂回旅行的时间过长。</p>
+<p>静态路由选择算法只适宜小型的、结构相对稳定的计算机网络。</p>
+<h2 id="动态路由"><a href="#动态路由" class="headerlink" title="动态路由"></a>动态路由</h2><p>动态路由选择算法的节点的路由选择要依靠网络当前的状态信息来决定。它能较好地适应<strong>网络流量</strong>、<strong>拓扑结构的变化</strong>，有利于改善网络的性能，因此又称为自适应路由选择算法。</p>
+<p>独立路由选择：利用本地信息进行分布式控制；</p>
+<p>集中路由选择：利用相邻节点的信息进行集中式控制：</p>
+<p>分布路由选择：利用全网节点的信息进行分布式控制；</p>
+<h2 id="路由选择协议"><a href="#路由选择协议" class="headerlink" title="路由选择协议"></a>路由选择协议</h2><p>路由选择协议也称为<strong>路由协议</strong>，是执行路由选择算法的协议，是路由器之间实现路由信息共享的一种机制，它允许路由器之间相互交换和维护各自的路由表。</p>
+<p>TCP&#x2F;IP网络的路由协议分为两大类：<strong>内部网关协议IGP</strong>(Interior Gateway Protocol)和<strong>外部网关协议EGP</strong>(External Gateway Protocol)。IGP用于自治系统或管理域之内，而EGP用于自治系统之间或管理域之间。</p>
+<p>内部网关协议IGP:具体的协议有多种，如<strong>RIP</strong>和<strong>OSPF</strong>等。</p>
+<p>外部网关协议EGP:目前使用的协议是<strong>BGP</strong>。</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205091524140.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>适用于单播的路由算法分为：V-D(向量距离)和L-S(链路状态)两大类；</p>
+<p>适用于组播的路由算法分位：SBT(源树路由)和CBT(核心树路由)两大类。</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205091527940.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<h2 id="路由表与路由条目"><a href="#路由表与路由条目" class="headerlink" title="路由表与路由条目"></a>路由表与路由条目</h2><p>路由表：路由条目的集合</p>
+<p>路由条目：记录特定IP地址与转发接口的某类表项</p>
+<p>每台路由设备中都至少维护着一张路由表：路由器必须依赖路由表中的信息来转发数据包；如果路由表中没有与数据包目的IP地址相关的路由条目，路由器就只能丢弃数据包；如果路由表中有多条与数据包目的1P地址相关的路由条目，路由器需要依据一些规则选出“最优路由”，并以此执行转发。</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205091626010.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<h2 id="路由来源与优先级"><a href="#路由来源与优先级" class="headerlink" title="路由来源与优先级"></a>路由来源与优先级</h2><p>优先级数值越小，来源越可靠，管理员可以修改优先级值（直连路由除外）</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205091628674.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p><strong>路由开销：</strong> 路由开销值越小，路由越优，对于每种动态路由协议来说，路由开销的参数各不相同，当多条路由的路由来源相同时，通过路由开销来选出最优路由</p>
+<hr>
+<h1 id="RIP协议"><a href="#RIP协议" class="headerlink" title="RIP协议"></a>RIP协议</h1><h2 id="RIP路由协议概述"><a href="#RIP路由协议概述" class="headerlink" title="RIP路由协议概述"></a>RIP路由协议概述</h2><p>RIP是一种内部网关协议，结构简单，适用于小型网络。它运行于<strong>UDP</strong>之上，缺省的端口号是512。RIP是一种分布式的基于距离向量的路由选择协议，RIP协议的”距离”也称为“<strong>跳数(hop count)<strong>”。<br>从一路由器到直接连接的网络的距离定义为0。从一路由器到非直接连接的网络的距离定义为所经过路由器数加1。RIP支持的最大跳数是15，跳数为16的网络被认为不可达。因此RIP只</strong>适用于小型互联网</strong>。</p>
+<h2 id="交换路由信息"><a href="#交换路由信息" class="headerlink" title="交换路由信息"></a>交换路由信息</h2><p>如果两个路由器之间的通信不需要金国另一个路由器，则他们是相邻的，两个相邻路由器在同一个网络上都有自己的接口</p>
+<p>RIP 协议规定，对于不相邻的路由器就不交换信息，交换的信息是到本自治系统中所有网络的最短距离，以及到每个网络应该经过的下一跳路由器，RIP协议交换的是当前本路由器所知道的全部信息，即路由表。RIP协议按固定的时间间隔交换路由信息。然后路由器根据收到的路由信息更新路由表。</p>
+<p>当网络拓扑发生变化时，路由器也及时向相邻路由器通告拓扑变化后的路由信息</p>
+<h2 id="RIP协议的特点"><a href="#RIP协议的特点" class="headerlink" title="RIP协议的特点"></a>RIP协议的特点</h2><ol>
+<li>仅和相邻路由器交换信息</li>
+<li>交换的信息是当前路由器知道的全部信息，即自己的<strong>路由表</strong></li>
+<li>按固定的时间间隔交换路由信息，当网络拓扑发生变化时，也要及时向相邻路由器通告拓扑变化后的路由信息</li>
+<li>RIP不能在两个网络之间同时使用多条路由，RIP选择一条具有最少路由器的路由。</li>
+<li>RIP协议的每个路由器都要不断的和其他路由器交换路由信息</li>
+</ol>
+<h2 id="路由表的初始化"><a href="#路由表的初始化" class="headerlink" title="路由表的初始化"></a>路由表的初始化</h2><p>路由器启动时对路由表进行初始化，为与自己直接相连的每个网络生成一个表项，路由表中最主要的信息是：到某个网络的距离，以及经过的下一跳地址</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205091922524.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+
+<h2 id="RIP协议的缺点"><a href="#RIP协议的缺点" class="headerlink" title="RIP协议的缺点"></a>RIP协议的缺点</h2><ol>
+<li>限制了网络的规模，它最大只有15跳。</li>
+<li>路由器之间交换的路由信息是路由器中的完整路由表，因而随着网络规模的扩大，开销也就增加</li>
+<li>“坏消息传的慢”，更新过程的收敛时间过长</li>
+<li>依赖于固定的路由度量，不考虑真是距离和带宽</li>
+</ol>
+<hr>
+<h1 id="OSPF协议"><a href="#OSPF协议" class="headerlink" title="OSPF协议"></a>OSPF协议</h1><h2 id="OSPF协议概述"><a href="#OSPF协议概述" class="headerlink" title="OSPF协议概述"></a>OSPF协议概述</h2><p>开放最短路径优先协议OSPF(Open Shortest Path First)是一个典型的基于L-S算法的路由协议，它运行在IP协议之上，协议号为89。</p>
+<p>OSPF最主要的特征是使用分布式的<strong>链路状态协议</strong>。“链路状态”是说明本路由器和哪些路由器相邻，以及该链路的”度量(metric)</p>
+<h2 id="OSPF协议特点"><a href="#OSPF协议特点" class="headerlink" title="OSPF协议特点"></a>OSPF协议特点</h2><p>OSPF能提供负载均衡功能</p>
+<p>OSPF允许将AS中的网络分成若干区域</p>
+<p>OSPF允许灵活配置IP子网，支持无分类路由和特定分类网络的路由</p>
+<p>OSPF支持最佳（最长或最具体的）地址匹配</p>
+<p>所有OSPF协议交换都要被鉴别</p>
+<p>从外部得到的路由选择数据要在整个自治系统中通告</p>
+<h2 id="OSPF区域划分和路由类别"><a href="#OSPF区域划分和路由类别" class="headerlink" title="OSPF区域划分和路由类别"></a>OSPF区域划分和路由类别</h2><p>OSPF使用层次结构的区域划分。在上层的区域叫做主干区域，其作用是连通其他在下层的区域。从其他区域来的信息都由<strong>区域边界路由器</strong>进行概括。</p>
+<p>OSPF将一个规模很大的自治系统划分为若干个小的区域，每一个区域都有一个32bt的<strong>区域标识符</strong>。在一个区域内的路由器最好不超过200个。</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205091928714.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>【R6】ASBR(Autonomous System Boundary Router)<strong>自治系统边界路由器</strong>：和属于其它自治系统的路由器交换路由信息的路由器。在自治系统中的每一个路由器都知道到ASBR的路径。<br>【R5】BR(Backbone Router)<strong>骨干路由器</strong>：有一个接口连到骨干区域的路由器。<br>【R7】ABR(Area Border Router)<strong>区边界路由器</strong>：连接到多个区域的路由器。<br>【R9】IR(Internal Router)<strong>内部路由器</strong>：路由器连接的所有网络都在同一个区域内。</p>
+<h2 id="OSPF基本路由选择算法"><a href="#OSPF基本路由选择算法" class="headerlink" title="OSPF基本路由选择算法"></a>OSPF基本路由选择算法</h2><ol>
+<li>当路由器启动时，首先初始化路由协议数据结构</li>
+<li>路由器使用OSPF的Hello协议获得邻居</li>
+<li>路由器尝试与其新获得的邻居中的一些形成邻接。OSPF仅在邻接路由器上收发路由更新</li>
+<li>路由器周期性地通告它的链路状态LSA</li>
+<li>LSA在整个区域内洪泛发送。确保一个区域中的所有路由器有完全相同的链路状态数据库</li>
+</ol>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205091933884.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205091934086.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<h2 id="OSPF报文类型"><a href="#OSPF报文类型" class="headerlink" title="OSPF报文类型"></a>OSPF报文类型</h2><p>Hello报文。路由器之间定时交换Hello报文，发现相邻路由器，维护邻居关系，确定链路状态。另外，在具有多播或广播性能的物理网络，Hello包使用<strong>多播</strong>方式发送，允许动态地发现邻居路由器。</p>
+<p>OSPF规定两个相邻路由器每隔10秒钟交换一次问候分组，以确定哪些邻站是可达的。</p>
+<p>只有可达邻站的链路状态信息才存入链路状态数据库。</p>
+<p>若40秒钟没有收到某个相邻路由器发来的问候分组，则认为该相邻路由器是不可达的，应立即修改链路状态数据库，并重新计算路由表。</p>
+<p><strong>Link State Update(链路状态更新包)：</strong>链路状态更新报文用于节点之间广播的L-S信息。</p>
+<p><strong>Link State Acknowledgement(链路状态确认包)：</strong>节点收到Link StateUpdate报文后必须应答该报文。</p>
+<p><strong>Link State Request(链路状态请求包)：</strong>局域网上一个路由器启动后向值班路由器发出该请求。</p>
+<p><strong>Database Description(数据库描述包)：</strong>值班路由器以该报文响应Link State Request报文，将自己的所有L-S信息下载给非值班路由器。</p>
+<h2 id="OSPF规定"><a href="#OSPF规定" class="headerlink" title="OSPF规定"></a>OSPF规定</h2><p>两个同步的路由器叫做“完全邻接的”(fully adjacent)路由器。<br>OSPF每一个路由器用数据库描述分组与相邻路由器交换本数据库中已有的链路状态摘要信息。<br>为了确保链路状态数据库与全网的状态保持一致，OSPF每隔30min刷新一次数据库中的链路状态。<br>通过路由器之间交换的链路状态信息，每个路由器都可得出该互联网的链路状态数据库，算出以自己为根的最短路径树。<strong>根据最短路径树得出路由表。</strong></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">yjr-1100</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://yjr-1100.github.io/2022/05/09/%E8%B7%AF%E7%94%B1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0/">https://yjr-1100.github.io/2022/05/09/%E8%B7%AF%E7%94%B1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://yjr-1100.github.io" target="_blank">YJR-1100</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/05/10/%E4%BC%A0%E8%BE%93%E5%B1%82%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">传输层协议学习</div></div></a></div><div class="next-post pull-right"><a href="/2022/05/09/%E7%BD%91%E7%BB%9C%E5%B1%82%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">网络层协议基础学习</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/05/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0/" title="计算机网络基本知识学习"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-05</div><div class="title">计算机网络基本知识学习</div></div></a></div><div><a href="/2022/05/06/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E7%9A%84%E7%A1%AC%E4%BB%B6%E5%92%8C%E8%BD%AF%E4%BB%B6/" title="计算机网络的硬件、软件及层次结构"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-06</div><div class="title">计算机网络的硬件、软件及层次结构</div></div></a></div><div><a href="/2022/05/06/%E7%BD%91%E7%BB%9C%E4%BC%A0%E8%BE%93%E4%BB%8B%E8%B4%A8/" title="网络传输介质"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-06</div><div class="title">网络传输介质</div></div></a></div><div><a href="/2022/05/06/%E5%B1%80%E5%9F%9F%E7%BD%91%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0/" title="局域网知识学习"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-06</div><div class="title">局域网知识学习</div></div></a></div><div><a href="/2022/05/08/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0/" title="交换机工作原理学习"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-08</div><div class="title">交换机工作原理学习</div></div></a></div><div><a href="/2022/05/09/%E7%BD%91%E7%BB%9C%E5%B1%82%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0/" title="网络层协议基础学习"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-09</div><div class="title">网络层协议基础学习</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/mylogol2.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">yjr-1100</div><div class="author-info__description">一个俗人的博客</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">42</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/yjr-1100"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/yjr-1100" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:jiaruiyang221@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">总要记些什么证明我来过</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E5%8E%9F%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">路由原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E6%A6%82%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text">路由概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1"><span class="toc-number">1.2.</span> <span class="toc-text">静态路由</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A9%E6%95%A3%E5%BC%8F%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9"><span class="toc-number">1.2.1.</span> <span class="toc-text">扩散式路由选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BA%E5%AE%9A%E5%BC%8F%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9"><span class="toc-number">1.2.2.</span> <span class="toc-text">固定式路由选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9"><span class="toc-number">1.2.3.</span> <span class="toc-text">随机路由选择</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1"><span class="toc-number">1.3.</span> <span class="toc-text">动态路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.4.</span> <span class="toc-text">路由选择协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E8%A1%A8%E4%B8%8E%E8%B7%AF%E7%94%B1%E6%9D%A1%E7%9B%AE"><span class="toc-number">1.5.</span> <span class="toc-text">路由表与路由条目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E6%9D%A5%E6%BA%90%E4%B8%8E%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-number">1.6.</span> <span class="toc-text">路由来源与优先级</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#RIP%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.</span> <span class="toc-text">RIP协议</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RIP%E8%B7%AF%E7%94%B1%E5%8D%8F%E8%AE%AE%E6%A6%82%E8%BF%B0"><span class="toc-number">2.1.</span> <span class="toc-text">RIP路由协议概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E8%B7%AF%E7%94%B1%E4%BF%A1%E6%81%AF"><span class="toc-number">2.2.</span> <span class="toc-text">交换路由信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RIP%E5%8D%8F%E8%AE%AE%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-number">2.3.</span> <span class="toc-text">RIP协议的特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E8%A1%A8%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">2.4.</span> <span class="toc-text">路由表的初始化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RIP%E5%8D%8F%E8%AE%AE%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="toc-number">2.5.</span> <span class="toc-text">RIP协议的缺点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#OSPF%E5%8D%8F%E8%AE%AE"><span class="toc-number">3.</span> <span class="toc-text">OSPF协议</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#OSPF%E5%8D%8F%E8%AE%AE%E6%A6%82%E8%BF%B0"><span class="toc-number">3.1.</span> <span class="toc-text">OSPF协议概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSPF%E5%8D%8F%E8%AE%AE%E7%89%B9%E7%82%B9"><span class="toc-number">3.2.</span> <span class="toc-text">OSPF协议特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSPF%E5%8C%BA%E5%9F%9F%E5%88%92%E5%88%86%E5%92%8C%E8%B7%AF%E7%94%B1%E7%B1%BB%E5%88%AB"><span class="toc-number">3.3.</span> <span class="toc-text">OSPF区域划分和路由类别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSPF%E5%9F%BA%E6%9C%AC%E8%B7%AF%E7%94%B1%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95"><span class="toc-number">3.4.</span> <span class="toc-text">OSPF基本路由选择算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSPF%E6%8A%A5%E6%96%87%E7%B1%BB%E5%9E%8B"><span class="toc-number">3.5.</span> <span class="toc-text">OSPF报文类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OSPF%E8%A7%84%E5%AE%9A"><span class="toc-number">3.6.</span> <span class="toc-text">OSPF规定</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/05/11/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/" title="密码学基础学习"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205111412740.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="密码学基础学习"/></a><div class="content"><a class="title" href="/2022/05/11/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/" title="密码学基础学习">密码学基础学习</a><time datetime="2022-05-11T06:09:28.000Z" title="发表于 2022-05-11 14:09:28">2022-05-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/10/%E4%BC%A0%E8%BE%93%E5%B1%82%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0/" title="传输层协议学习"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="传输层协议学习"/></a><div class="content"><a class="title" href="/2022/05/10/%E4%BC%A0%E8%BE%93%E5%B1%82%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0/" title="传输层协议学习">传输层协议学习</a><time datetime="2022-05-10T07:10:21.000Z" title="发表于 2022-05-10 15:10:21">2022-05-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/09/%E8%B7%AF%E7%94%B1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0/" title="路由基础知识学习"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="路由基础知识学习"/></a><div class="content"><a class="title" href="/2022/05/09/%E8%B7%AF%E7%94%B1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0/" title="路由基础知识学习">路由基础知识学习</a><time datetime="2022-05-09T06:06:45.000Z" title="发表于 2022-05-09 14:06:45">2022-05-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/09/%E7%BD%91%E7%BB%9C%E5%B1%82%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0/" title="网络层协议基础学习"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="网络层协议基础学习"/></a><div class="content"><a class="title" href="/2022/05/09/%E7%BD%91%E7%BB%9C%E5%B1%82%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0/" title="网络层协议基础学习">网络层协议基础学习</a><time datetime="2022-05-09T02:51:00.000Z" title="发表于 2022-05-09 10:51:00">2022-05-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/08/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0/" title="交换机工作原理学习"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="交换机工作原理学习"/></a><div class="content"><a class="title" href="/2022/05/08/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0/" title="交换机工作原理学习">交换机工作原理学习</a><time datetime="2022-05-08T07:26:55.000Z" title="发表于 2022-05-08 15:26:55">2022-05-08</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/background_4k.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022 By yjr-1100</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">你好有缘人</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())
+
+$('.yjr_wrap .yjr_menu').on('click',function (event) {
+// 判断标签是否li
+if (event.target.tagName === 'LI') {
+  $tar =$(event.target)
+  //获取子元素index
+  var index =  $tar.parent().children().index($tar);
+  $tar.parent().children().eq(index).addClass('yjr_itemSelected').siblings().removeClass('yjr_itemSelected')
+  if(index==1){
+      $tar.parent().parent().find('.yjr_code').attr('hidden',true)
+      $tar.parent().parent().find('.yjr_effect').attr('hidden',false)
+    }else{
+        $tar.parent().parent().find('.yjr_code').attr('hidden',false)
+      $tar.parent().parent().find('.yjr_effect').attr('hidden',true)
+    }
+  }
+})</script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

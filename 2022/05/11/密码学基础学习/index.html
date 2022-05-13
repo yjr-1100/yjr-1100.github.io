@@ -1,0 +1,539 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>密码学基础学习 | YJR-1100</title><meta name="keywords" content="网络安全,密码学"><meta name="author" content="yjr-1100"><meta name="copyright" content="yjr-1100"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="密码学概述密码学是研究编制密码和破译密码的技术科学，使信息保密的技术和科学叫密码编码学，破译密文的科学与技术叫密码分析学 密码学是数学和计算机科学的分支，同时其原理大量涉及信息论。 著名的密码学者罗纳德•李维斯特——密码学是关于如何在敌人存在的环境中通信。 信息安全的基本模型   加密密码示意图  密码学的历史与发展第一阶段（1949年前）古典密码发展阶段  隐写术，暗语、隐语、藏头诗等&gt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="密码学基础学习">
+<meta property="og:url" content="https://yjr-1100.github.io/2022/05/11/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="YJR-1100">
+<meta property="og:description" content="密码学概述密码学是研究编制密码和破译密码的技术科学，使信息保密的技术和科学叫密码编码学，破译密文的科学与技术叫密码分析学 密码学是数学和计算机科学的分支，同时其原理大量涉及信息论。 著名的密码学者罗纳德•李维斯特——密码学是关于如何在敌人存在的环境中通信。 信息安全的基本模型   加密密码示意图  密码学的历史与发展第一阶段（1949年前）古典密码发展阶段  隐写术，暗语、隐语、藏头诗等&gt;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205111412740.jpg">
+<meta property="article:published_time" content="2022-05-11T06:09:28.000Z">
+<meta property="article:modified_time" content="2022-05-13T12:24:03.524Z">
+<meta property="article:author" content="yjr-1100">
+<meta property="article:tag" content="网络安全">
+<meta property="article:tag" content="密码学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205111412740.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://yjr-1100.github.io/2022/05/11/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":150},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '密码学基础学习',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-05-13 20:24:03'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/mylogol2.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">42</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/background_4k.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">YJR-1100</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">密码学基础学习</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-05-11T06:09:28.000Z" title="发表于 2022-05-11 14:09:28">2022-05-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-05-13T12:24:03.524Z" title="更新于 2022-05-13 20:24:03">2022-05-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/">密码学</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">7.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>22分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="密码学基础学习"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="密码学概述"><a href="#密码学概述" class="headerlink" title="密码学概述"></a>密码学概述</h1><p>密码学是研究<strong>编制密码</strong>和<strong>破译密码</strong>的技术科学，使信息保密的技术和科学叫<strong>密码编码学</strong>，破译密文的科学与技术叫<strong>密码分析学</strong></p>
+<p>密码学是数学和计算机科学的分支，同时其原理大量涉及<strong>信息论</strong>。</p>
+<p>著名的密码学者罗纳德•李维斯特——密码学是关于如何在敌人存在的环境中通信。</p>
+<h2 id="信息安全的基本模型"><a href="#信息安全的基本模型" class="headerlink" title="信息安全的基本模型"></a>信息安全的基本模型</h2><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205111416806.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+
+<h2 id="加密密码示意图"><a href="#加密密码示意图" class="headerlink" title="加密密码示意图"></a>加密密码示意图</h2><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205111417214.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<h2 id="密码学的历史与发展"><a href="#密码学的历史与发展" class="headerlink" title="密码学的历史与发展"></a>密码学的历史与发展</h2><p><strong>第一阶段（1949年前）古典密码发展阶段</strong></p>
+<ul>
+<li>隐写术，暗语、隐语、藏头诗等&gt;</li>
+<li>采用手工或机械变换的方式实现</li>
+<li>单表代换密码：Caesar密码、仿射密码</li>
+<li>多表代换密码：Vigenere、Hill密码等</li>
+<li>转轮密码：Enigma、Red密码等</li>
+</ul>
+<p><strong>第二阶段：近代密码学阶段(1949~1976)</strong></p>
+<ul>
+<li>1949年，Shannon发表了《保密系统的通信理论》，用信息论的观点分析了密码学的基本原理，奠定了密码学的理论基础。</li>
+<li>1967年David Kahn出版了《破译者》一书。</li>
+</ul>
+<p><strong>第三阶段：现代密码学阶段(1976~至今)</strong></p>
+<ul>
+<li>1976年，Diffie、Hellman发表《密码学新方向》，开辟了公钥密码学的新领域；</li>
+<li>1976年，美国建立DES为联邦标准</li>
+<li>现代密码学的主要方向<ul>
+<li>混沌密码学：混沌加密的基本原理是利用混沌系统产生混沌序列作为密钥序列，接收方用混沌同步的方法将明文信号提取出来实现解密。</li>
+<li>量子密码学：量子密码学泛指利用量子力学的特性来加密的科学。任何试图尝试读取量子态的行动，都会改变量子态本身</li>
+</ul>
+</li>
+</ul>
+<h2 id="密码体制分类"><a href="#密码体制分类" class="headerlink" title="密码体制分类"></a>密码体制分类</h2><p><strong>受限制的(restricted)算法</strong>：算法的保密性基于保持算法的秘密，<br><strong>基于密钥(key-based)的算法</strong>：算法的保密性基于对密钥的保密。</p>
+<p><strong>优秀密码算法应该是基于密钥的保密，而非算法的保密。</strong></p>
+<p>现代密码学用密钥解决问题，密钥用K表示。K可以是很多值里的任意值,密钥K的可能值的范围叫做<strong>密钥空间</strong>(keyspace)。</p>
+<p>如加密和解密都用一个密钥，加&#x2F;解密函数变成：</p>
+<blockquote>
+<p>E<sub>K</sub>(M)&#x3D;C<br>D<sub>k</sub>(C)&#x3D;M<br>D<sub>k</sub>(E<sub>k</sub>(M))&#x3D;M</p>
+</blockquote>
+<p><strong>单钥体制，对称加密</strong></p>
+<ul>
+<li>加密密钥和解密密钥相同</li>
+<li>流密码</li>
+<li>分组密码</li>
+</ul>
+<p><strong>双钥体制，非对称加密</strong></p>
+<ul>
+<li>1976年，Diffie和Hellman首先引入</li>
+<li>一对密钥：公钥和私钥</li>
+</ul>
+<h2 id="密码攻击概述"><a href="#密码攻击概述" class="headerlink" title="密码攻击概述"></a>密码攻击概述</h2><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205111425249.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>算法的安全性</p>
+<p>如果破译算法的代价大于加密数据价值，那么加密算法是安全的。</p>
+<p>如果破译算法所需的时间比加密数据保密的时间长，那么你可能是安全的。</p>
+<hr>
+<h1 id="编码与密码"><a href="#编码与密码" class="headerlink" title="编码与密码"></a>编码与密码</h1><h2 id="编码基础"><a href="#编码基础" class="headerlink" title="编码基础"></a>编码基础</h2><h3 id="ASCII-编码"><a href="#ASCII-编码" class="headerlink" title="ASCII 编码"></a>ASCII 编码</h3><p>ASCII (American Standard Code for Information Interchange,美国信息交换标准代码)是基于拉丁字母的一套电脑编码系统，主要用于显示现代英语和其他西欧语言。</p>
+<p>ASCII是现今最通用的单字节编码系统，并等同于国际标准ISO&#x2F;IEC 646。</p>
+<p>标准ASCI川码也叫基础ASCII码，使用7位二进制数（剩下的1位二进制为0）来表示所有的大写和小写字母，数字0到9、标点符号。</p>
+<p>后128个称为扩展ASCII码。许多基于x86的系统都支持使用扩展ASCII。扩展ASCII码允许将每个字符的第8位用于确定附加的128个特殊符号字符、外来语字母和图形符号。</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205111431791.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+
+<h3 id="Unicode编码"><a href="#Unicode编码" class="headerlink" title="Unicode编码"></a>Unicode编码</h3><p>ASC川因为只有8位长，只能表达256种字符。所以不能满足其它国家需求，Unicode是国际组织制定的可以容纳世界上所有文字和符号的字符编码方案。使用16位的编码空间。也就是每个字符占用2个字节。</p>
+<p>**UTF-8(8-bit Unicode Transformation Format)**是一种针对Unicode的可变长度字符编码，在实际传输过程中，由于不同系统平台的设计不一定一致，以及出于节省空间的目的，对Unicode编码的实现方式有所不同，所以有UTF。UTF-8使用一至六个字节为每个字符编码</p>
+<h3 id="Base64"><a href="#Base64" class="headerlink" title="Base64"></a>Base64</h3><p>Base64是一种基于64个可打印字符来表示二进制数据的表示方法。每6个比特为一个单元，对应某个可打印字符除了A-Z,a-z,0-9共62个字符还有<code>+</code>、<code>/</code>，最后用<code>=</code>填充不能被3整除的空位。</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205111438905.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<h2 id="古典密码学"><a href="#古典密码学" class="headerlink" title="古典密码学"></a>古典密码学</h2><p>主要考虑消息的保密性，对于完整性和不可否认性没有太多考虑</p>
+<p>古典密码的加密是将明文的每个字母代换为字母表中的另一个字母，根据代换是对每个字母逐个进行还是对多个字母同时进行，古典密码又分为<strong>单表代换</strong>和<strong>多表代换</strong></p>
+<h2 id="单表代换"><a href="#单表代换" class="headerlink" title="单表代换"></a>单表代换</h2><p>通用特点：对每个字母逐个进行替换</p>
+<h3 id="凯撒密码"><a href="#凯撒密码" class="headerlink" title="凯撒密码"></a>凯撒密码</h3><p>凯撒密码加密时将明文中的每个字母按字母表顺序向前或向后移动固定数目，作为密文。</p>
+<p><strong>如偏移量是左移3为例</strong></p>
+<blockquote>
+<p>明文：ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>密文：DEFGHIJKLMNOPQRSTUVWXYZABC</p>
+</blockquote>
+<h3 id="移位密码"><a href="#移位密码" class="headerlink" title="移位密码"></a>移位密码</h3><p>与凯撒密码类似，最早的凯撒密码是固定左移3位。</p>
+<p>区别在于移位密码可以任意移动，后期不仅处理26个字母，还会处理数字和特殊字符。参照ASCII码表进行位移。</p>
+<h3 id="仿射密码"><a href="#仿射密码" class="headerlink" title="仿射密码"></a>仿射密码</h3><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205111507869.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>乘法逆元： <strong>a*a<sup>-1</sup>(mod m) &#x3D; 1</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205111508578.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205111509698.png"></p>
+<h2 id="多表替换"><a href="#多表替换" class="headerlink" title="多表替换"></a>多表替换</h2><p>加密方式使用多个表，解决单表加密的频率分析问题</p>
+<h3 id="Playfair"><a href="#Playfair" class="headerlink" title="Playfair"></a>Playfair</h3><p>该算法基于5*5的字母矩阵，该矩阵使用一个<strong>关键词构造</strong>（即密钥），从左到右、从上到下顺序，填入关键词的字母（去除重复字母）后，将字母表其作余字母填入。(I&#x3D;J)</p>
+<p>将明文两个分为一组，若出现相同字母，则用X替代最后字母。</p>
+<p><strong>在每组中，查找矩阵替换：</strong></p>
+<ul>
+<li>若两个字母同行，则用右方字母替换若</li>
+<li>两个字母同列，则用下方字母替换</li>
+<li>若即不同行也不同列，则用矩阵对角字母替换</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205111518402.png"></p>
+<h3 id="polybius"><a href="#polybius" class="headerlink" title="polybius"></a>polybius</h3><p>又称棋盘密码。将给定明文加密为两两组合的特征加密后结果只有5种字符,ADFGX密码是德军在一战中使用的栏块密码</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205111519575.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">明文：A  T  T  A  C  K  A  T  O  N  C  E</span><br><span class="line">密文：AF AD AD AF GF DX AF AD DF FX GF XF</span><br></pre></td></tr></table></figure>
+
+<h3 id="vigenere"><a href="#vigenere" class="headerlink" title="vigenere"></a>vigenere</h3><p>使用26个字母构成字母矩阵横行为明文列，纵向为密钥列</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205111525105.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>明文：come greatwall<br>密钥：crypto</p>
+<p>扩充密钥与明文一样长：efktzferrltzn</p>
+<h2 id="其他类型密码"><a href="#其他类型密码" class="headerlink" title="其他类型密码"></a>其他类型密码</h2><h3 id="培根密码"><a href="#培根密码" class="headerlink" title="培根密码"></a>培根密码</h3><p>用两种不同的字体，代表A和B，或者0和1，结合加密表进行加密。</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205111527343.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>明文：steganography<br>正常字体是A，粗体是B，加密结果如图</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205111528963.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+
+<h3 id="栅栏密码"><a href="#栅栏密码" class="headerlink" title="栅栏密码"></a>栅栏密码</h3><p>把明文分成N个一组，然后每组的第1个字连起来，然后连第2个….</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205111530092.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+
+<h3 id="摩斯密码"><a href="#摩斯密码" class="headerlink" title="摩斯密码"></a>摩斯密码</h3><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205111531242.jpg" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+
+
+<hr>
+<h1 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h1><p><strong>对称密码主要特征就是加密和解密使用相同的密钥，也叫单密钥加密</strong></p>
+<p><strong>根据加密对象分为</strong></p>
+<ol>
+<li><p>流加密，每次加密都通过密钥生成一个密钥流，解密也是使用同一个密钥流明文与同样长度的密钥流进行异或运算得到密文，密文与同样的密钥流进行异或运算得到明文。典型算法<strong>RC4</strong></p>
+</li>
+<li><p>块加密，块密码算法也叫分组密码算法，从字面意思就可以知道，它把加密和解密序列分成了一个个分组，最后把每一块序列合并到一起，形成明文或者密文。根据不同的分组加密方式，每个分组之间可以有联系，也可以没有联系。典型算法是<strong>DES和AES</strong></p>
+</li>
+</ol>
+<h2 id="RC4"><a href="#RC4" class="headerlink" title="RC4"></a>RC4</h2><p>RC4应用广泛，是典型的流加密算法。常见用于SSL&#x2F;TLS,及802.11和WAP中。</p>
+<p>流加密会逐字节加密数据，RC4本质是以密钥为种子(seed)产生的随机数来对明文进行逐字节异或，分组密码与流密码的区别就在于有无记忆性。</p>
+<p>每次只加密明文中的一个字节，密钥长度可变，1-256字节</p>
+<p>介绍RC4算法的几个关键变量：</p>
+<ol>
+<li><p>密钥流：RC4算法的关键是根据明文和密钥生成相应的密钥流，密钥流的长度和明文的长度是对应的，也就是说明文的长度是500字节，那么密钥流也是500字节。当然，加密生成的密文也是500字节，因为密文第i字节&#x3D;明文第i字节^密钥流第i字节； </p>
+</li>
+<li><p>状态向量S：长度为256，S[0],S[1]…..S[255]。每个单元都是一个字节，算法运行的任何时候，S都包括0-255的8比特数的排列组合，只不过值的位置发生了变换；</p>
+</li>
+<li><p>临时向量T：长度也为256，每个单元也是一个字节。如果密钥的长度是256字节，就直接把密钥的值赋给T，否则，轮转地将密钥的每个字节赋给T；</p>
+</li>
+<li><p>密钥K：长度为1-256字节，注意密钥的长度keylen与明文长度、密钥流的长度没有必然关系，通常密钥的长度16字节（128比特）。</p>
+</li>
+</ol>
+<p><strong>基本流程</strong></p>
+<ol>
+<li>初始化S和T</li>
+<li>计算排列S,j从0到255</li>
+<li>产生与明文等长的密钥流</li>
+<li>加密运算</li>
+</ol>
+<p><strong>算法描述</strong></p>
+<p><strong>S和T的初始状态：</strong> S中元素的值按升序被置为0-255，同时建立一个临时向量T。将密钥的值循环复制到T向量中。</p>
+<p>S的初始置换，用T产生S的初始置换，伪代码如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">j=0</span><br><span class="line">for (i = 0;i&lt;256;i++)&#123;</span><br><span class="line">    j = (j+S[i]+T[i]) mod 256;</span><br><span class="line">    swap(S[i],S[j]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>密钥流生成伪代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">i,j = 0;</span><br><span class="line">while(true)&#123;</span><br><span class="line">    i = (i+1)mod 256</span><br><span class="line">    j = (j+S[i]) mod 256;</span><br><span class="line">    swap(S[i],S[j]);</span><br><span class="line">    t = (S[i]+S[j]) mod 256;</span><br><span class="line">    k = S[t];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205111903439.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+
+<h2 id="DES"><a href="#DES" class="headerlink" title="DES"></a>DES</h2><p>数据加密标准(data encryption standard,DES)是迄今为止世界上最为广泛使用和流行的一种分组密码算法,它的分组长度为64比特，密钥长度为56比特，由美国IBM公司研制</p>
+<p>DES在1975年3月17日首次被公布在联邦记录中，经过大量的公开讨论后于1977年1月15日被正式批准并作为美国联邦信息处理标准</p>
+<p>1998年5月美国EFF(electronics frontier foundation)宣布，他们以一台价值20万美元的计算机改装成的专用解密机，用56小时破译了56比特密钥的DES</p>
+<p><strong>DES介绍</strong></p>
+<p>明文分组长 64 bit</p>
+<p>密钥 56 bit</p>
+<p>明文处理：3个阶段</p>
+<ul>
+<li>初始置换IP</li>
+<li>16轮变换</li>
+<li>逆初始置换1P<sup>-1</sup></li>
+</ul>
+<p>密钥处理：</p>
+<ul>
+<li>置换函数</li>
+<li>左循环移位+置换-&gt;子密钥</li>
+</ul>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205111906040.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205111911398.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205111912808.png"></p>
+<p>F中的代换由8个S盒组成，每个S盒的输入比特为6bit，输出长为4bit，其变换关系由表定义，每个S盒给出了4个代换</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205111914972.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p><strong>密钥的产生：</strong></p>
+<p>56比特密钥首先经过一个<strong>置换运算</strong>，然后将置换后的56比特分为各为28比特的左、右两半，分别记为C0和D0。</p>
+<p>在第i轮分别对C<sub>i-1</sub>和D<sub>i-1</sub>进行左循环移位，所移位数由表给出。</p>
+<p>移位后的结果作为求下一轮子密钥的输入，同时也作为置换选择2的输入。通过置换选择2产生的48比特的Ki,即为本轮的子密钥，作为函数F(R<sub>i-1</sub>,K)的输入。其中置换选择2由表定义。</p>
+<p>为了提高DES的安全性，并利用实现DES的现有软硬件，可将DES算法在多密钥下多重使用，比如2DES、3DES</p>
+<p><strong>DES的加密模式</strong></p>
+<p>分组密码在加密时，明文分组的长度是固定的，而实际应用中待加密消息的数据量是不定的，数据格式可能是多种多样的。为了能在各种应用场合使用DES,美国在FIPS PUS74和81中定义了DES的4种运行模式</p>
+<p>这些加密模式大都可以归类为两种，即<strong>ECB模式</strong>和<strong>CBC模式</strong></p>
+<ol>
+<li><p><strong>ECB</strong>全称为Electronic CodeBook,是块加密中比较简单的加密模式。在ECB模式中，每一块明文数据都被独立地进行加密来生成加密块。这意味着如果你发现两个加密块有相同的内容，那么就可以确定这两个加密块的原文也是相同</p>
+</li>
+<li><p><strong>CBC</strong>全称为Cipher-Block Chaining,算是最常见的块加密模式了。在CBC模式中，每个明文块都会在加密前被使用前一个明文块的秘文进行异或；解密过程侧正好相反。其中第一个明文块会使用V即初始化向量进行异或。</p>
+</li>
+</ol>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205111923347.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<h2 id="AES介绍"><a href="#AES介绍" class="headerlink" title="AES介绍"></a>AES介绍</h2><p>1997年4月15日，美国ANSl发起征集AES(advanced encryptionstandard)的活动，并为此成立了AES工作小组。</p>
+<p>1998年8月，在首届AES候选会议上公布了AES的15个候选算法。</p>
+<p>1999年3月，在第2届AES候选会议上经过对全球各密码机构和个人对候选算法分析结果的讨论，从15个候选算法中选出了5个。</p>
+<p>2000年10月，NIST宣布Rijndael作为新的AES。至此，经过3年多的讨论，Rijndael终于脱颖而出。</p>
+<h3 id="Rijndael"><a href="#Rijndael" class="headerlink" title="Rijndael"></a>Rijndael</h3><p>Rijndael由比利时的Joan DDaemen和Vincent Rijmen设计，算法的原型是Square.算法，它的设计策略是宽轨迹策略。</p>
+<p>宽轨迹策略是针对差分分析和线性分析提出的，它的最大优点是可以给出算法的最佳差分特征的概率及最佳线性逼近的偏差的界。</p>
+<p>Rijndael密码的设计力求满足以下3条标准：</p>
+<ul>
+<li>抵抗所有已知的攻击。</li>
+<li>在多个平台上速度快，编码紧凑</li>
+<li>设计简单。</li>
+</ul>
+<p>优点：加解密速度快、安全性好、适合大量数据加密</p>
+<h2 id="密码分析"><a href="#密码分析" class="headerlink" title="密码分析"></a>密码分析</h2><p>差分密码分析是迄今已知的攻击迭代密码最有效的方法之一，其基本思想是：<strong>通过分析明文对的差值对密文对的差值的影响来恢复某些密钥比特。</strong></p>
+<p>线性密码分析是对迭代密码的一种已知明文攻击，它利用的是密码算法中的“不平衡（有效）的线性逼近”</p>
+<hr>
+<h1 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h1><p>1976年以前，所有的加密方法都是同一种模式：加解密双方使用相同算法，相同密钥来进行运算得到结果。这种加密模式有一个最大弱点：甲方必须把加密规则与密钥告诉乙方，否则无法解密。保存和传递密钥，就成了最头疼的问题。</p>
+<p>公钥密码体制以<strong>非对称</strong>的形式解决单钥密码体制中最难解决的两个问题：<strong>密钥分配</strong>和<strong>数字签名</strong></p>
+<p>1976年，Diffie和Hellman提出公钥密码思想，可以在不直接传递密钥的情况下，完成解密。这被称为”Diffie-Hellman密钥交换算法”</p>
+<p>RSA算法是1978年由R.Rivest,A.Shamir和L.Adleman提出的一种用数论构造的、也是迄今为止理论上最为成熟完善的公钥密码体制，该体制已得到广泛的应用。</p>
+<h2 id="公钥密码体制算法条件"><a href="#公钥密码体制算法条件" class="headerlink" title="公钥密码体制算法条件"></a>公钥密码体制算法条件</h2><p>产生一对密钥是计算可行的</p>
+<p>已知公钥、明文，产生密文是计算可行的</p>
+<p>利用私钥、密文，得到明文是计算可行的</p>
+<p>利用公钥来推断私钥是计算不可行的</p>
+<p>利用公钥、密文，得到明文是计算不可行的</p>
+<h2 id="RSA算法"><a href="#RSA算法" class="headerlink" title="RSA算法"></a>RSA算法</h2><p><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205121026040.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205121029598.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205121029522.png"></p>
+<hr>
+<h1 id="密钥交换"><a href="#密钥交换" class="headerlink" title="密钥交换"></a>密钥交换</h1><h2 id="公钥体制的密钥管理"><a href="#公钥体制的密钥管理" class="headerlink" title="公钥体制的密钥管理"></a>公钥体制的密钥管理</h2><p>公钥的分配方法：公开发布、公用目录表、公钥管理机构、公钥证书</p>
+<p>公钥分配完成后，用户就可以使用公钥体制进行保密通信。但是公钥加密速度慢，进行通信时不太合适。此时更适合使用<strong>对称加密</strong>来通信。由此引申出<strong>对称加密的密钥分配管理问题</strong>。</p>
+<p>Diffie-Hellman密钥交换是W.Diffie和M.Hellman于1976年提出的第一个<strong>公钥密码算法</strong>，算法的惟一目的是使得两个用户能够安全地<strong>交换密钥</strong>，<strong>得到一个共享的会话密钥</strong>，算法本身不能用于加、解密。算法的<strong>安全性基于求离散对数的困难性</strong>。</p>
+<h2 id="Diffie-Hellman算法"><a href="#Diffie-Hellman算法" class="headerlink" title="Diffie-Hellman算法"></a>Diffie-Hellman算法</h2><p><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205121454844.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205121454051.png"></p>
+<h2 id="单密钥加密体制密钥分配"><a href="#单密钥加密体制密钥分配" class="headerlink" title="单密钥加密体制密钥分配"></a>单密钥加密体制密钥分配</h2><p>在大量用户需要互相通信时，单密钥体制，会使用大量密钥。如有n个用户要互相通信，此时需要<strong>n(n-1)&#x2F;2</strong>个密钥此时密钥管理是一个严重的风险问题。</p>
+<p>引入KDC来解决这个问题，<strong>密钥分发中心KDC</strong>和每个终端用户都共享一对唯一的主密钥（用物理的方式传递，如U盾)。终端用户之间每次会话，都要向KDC申请唯一的会话密钥，<strong>会话密钥通过与KDC共享的主密钥加密来完成传递。</strong></p>
+<h3 id="基于KDC的单密钥分配"><a href="#基于KDC的单密钥分配" class="headerlink" title="基于KDC的单密钥分配"></a>基于KDC的单密钥分配</h3><p><strong>建立一个共享的一次性会话密钥，可通过以下几步来完成：</strong></p>
+<ol>
+<li>A向KDC发出会话密钥请求。表示请求的消息由两个数据项组成，第1项是A和B的身份，第2项是这次业务的惟一识别符N1。</li>
+<li>KDC为A的请求发出应答。应答是由KA加密的消息，因此只有A才能成功地对这一消息解密，并且A可相信这一消息的确是由KDC发出的。</li>
+<li>A存储会话密钥，并向B转发E<sub>KB</sub>[K<sub>S</sub> ||ID<sub>A</sub>]。因为转发的是由K加密后的密文,所以转发过程不会被窃听。B收到后，可得会话密钥K<sub>S</sub>,并从ID<sub>A</sub>可知另一方是A,而且还从E<sub>KB</sub>知道K<sub>S</sub>的确来自KDC。</li>
+<li>B用会话密钥K<sub>S</sub>加密另一个一次性随机数N2,并将加密结果发送给A。</li>
+<li>A以f(N2)作为对B的应答，其中f是对N2进行某种变换（例如加1）的函数，并将应答用会话密钥加密后发送给B。</li>
+</ol>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205121502661.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+
+
+<h3 id="无KDC的密钥分配"><a href="#无KDC的密钥分配" class="headerlink" title="无KDC的密钥分配"></a>无KDC的密钥分配</h3><p>两个用户A和B建立会话密钥需经过以下3步(A与B已经有共享主密钥)</p>
+<ol>
+<li>A向B发出建立会话密钥的请求和一个一次性随机数N1。</li>
+<li>B用与A共享的主密钥MKm对应答的消息加密，并发送给A。应答的消息中有B选取的会话密钥、B的身份、f(N1)和另一个一次性随机数N2。</li>
+<li>A使用新建立的会话密钥Ks对f(N,)加密后返回给B。</li>
+</ol>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205121504128.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+
+<h2 id="公钥加密体制的密钥管理"><a href="#公钥加密体制的密钥管理" class="headerlink" title="公钥加密体制的密钥管理"></a>公钥加密体制的密钥管理</h2><h3 id="基于公钥管理机构的公钥分配"><a href="#基于公钥管理机构的公钥分配" class="headerlink" title="基于公钥管理机构的公钥分配"></a>基于公钥管理机构的公钥分配</h3><ol>
+<li>用户A向公钥管理机构发送带时戳的消息，请求获取用户B的公钥。</li>
+<li>管理机构作出应答，该消息由管理机构用自己的私钥SKAU加密，因此A能用管理机构的公开钥解密，并确认该消息的真实性。</li>
+<li>A用B的公钥对一个消息加密发往B,这个消息有两个数据项：一是A的身份IDA,二是一个一次性随机数N1,用于惟一地标识这次业务。</li>
+<li>B以相同方式从管理机构获取A的公开钥（与步骤①、②类似）。这时，A和B都已安全地得到了对方的<strong>公钥</strong>，所以可进行保密通信。</li>
+<li>B用PKA对一个消息加密后发往A,该消息的数据项有A的一次性随机数N1和B产生的一个一次性随机数N2。因为只有B能解密③的消息，所以A收到的消息中的N1可使其相信通信的另一方的确是B。</li>
+<li>A用B的公开钥对N2加密后返回给B,可使B相信通信的另一方的确是A。</li>
+</ol>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205121511645.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+
+
+<h3 id="基于公钥证书管理公钥"><a href="#基于公钥证书管理公钥" class="headerlink" title="基于公钥证书管理公钥"></a>基于公钥证书管理公钥</h3><p>用户通过公钥证书来互相交换自己的公钥而无须与公钥管理机构联系。公钥证书由证书管理机构CA(certificate authority)为用户建立，其中的数据项有与该用户的秘密钥相匹配的公开钥及用户的身份和时戳等。</p>
+<p>所有的数据项经CA用自己的秘密钥签字后就形成证书，即证书的形式为：CA&#x3D;E<sub>SKCA</sub>[T,ID<sub>A</sub> ,PK<sub>A</sub>]</p>
+<p>ID<sub>A</sub>是用户A的身份，PK<sub>A</sub>是A的公钥，T是当前时戳，SK<sub>CA</sub>是CA的秘密钥，CA即是为用户A产生的证书</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205121548445.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+
+
+<hr>
+<h1 id="哈希算法"><a href="#哈希算法" class="headerlink" title="哈希算法"></a>哈希算法</h1><p>哈希函数也可以称为<strong>杂凑函数</strong><br>哈希函数H是公开函数，用于将任意长的消息M映射为较短的、固定长度的一个值H(M),称函数值H(M)为杂凑值、哈希值或消息摘要。</p>
+<h2 id="哈希算法的条件"><a href="#哈希算法的条件" class="headerlink" title="哈希算法的条件"></a>哈希算法的条件</h2><p>哈希函数的目的是为需认证的数据产生一个“指纹”。为了能够实现对数据的认证，哈希函数应满足以下条件：</p>
+<ol>
+<li>函数的输入可以是任意长。</li>
+<li>函数的输出是固定长。</li>
+<li>已知x,求H()较为容易，可用硬件或软件实现。</li>
+<li>已知h,求使得H(x)&#x3D;h的x在计算上是不可行的，这一性质称为函数的单向性，称H(X)为单向杂凑函数。</li>
+<li>已知x,找出y(y≠x)使得H(y)&#x3D;H(x)在计算上是不可行的。如果单向杂凑函数满足这一性质，则称其为弱单向杂凑函数。</li>
+<li>找出任意两个不同的输入X、y,使得H(y)&#x3D;H(x)在计算上是不可行的。如果单向杂凑函数满足这一性质，则称其为强单向杂凑函数。</li>
+</ol>
+<p><strong>第⑤和第⑥个条件给出了杂凑函数无碰撞性的概念，如果杂凑函数对不同的输入可产生相同的输出，则称该函数具有碰撞性。</strong></p>
+<h2 id="MD5算法"><a href="#MD5算法" class="headerlink" title="MD5算法"></a>MD5算法</h2><p>MD5算法采用迭代型杂凑函数的一般结构。算法的输入为任意长的消息，分为512比特长的分组，输出为128比特的消息摘要。</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205121603185.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p><strong>MD5的处理步骤</strong></p>
+<ol>
+<li>对消息填充，使得其比特长在模512下为448。</li>
+<li>附加消息的长度用步骤①留出的64比特以little-endian方式来表示消息被填充前的长度。如果消息长度大于264，则以264为模数取模。</li>
+<li>对MD缓冲区初始化算法使用128比特长的缓冲区以存储中间结果和最终杂凑值，缓冲区可表示为4个32比特长的寄存器（A,B,C,D）</li>
+<li>以分组为单位对消息进行处理每一分组都经一压缩函数HMD5处理。H<sub>MD5</sub>是算法的核心。</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205121605834.png"></p>
+<h2 id="MD5的安全性"><a href="#MD5的安全性" class="headerlink" title="MD5的安全性"></a>MD5的安全性</h2><p>目前对MD5的攻击已取得以下结果</p>
+<ol>
+<li>对单轮MD5使用差分密码分析，可在合理的时间内找出具有相同杂凑值的两个消息。</li>
+<li>可找出一个消息分组和两个相关的链接变量（即缓冲区变量ABCD)，使得算法产生出相同的输出。</li>
+<li>对单个512比特长的消息分组已成功地找出了碰撞，即可找出另一个消息分组，使得算法对两个消息分组的128比特长的输出相同。</li>
+</ol>
+<hr>
+<h1 id="数字签名和电子证书"><a href="#数字签名和电子证书" class="headerlink" title="数字签名和电子证书"></a>数字签名和电子证书</h1><h2 id="数字签名的性质"><a href="#数字签名的性质" class="headerlink" title="数字签名的性质"></a>数字签名的性质</h2><ol>
+<li><p>能够验证签字产生者的身份，以及产生签字的日期和时间</p>
+</li>
+<li><p>能够用于证实被签消息的内容</p>
+</li>
+<li><p>数字签字可由第三方验证，从而能够解决通信双方的争议</p>
+</li>
+</ol>
+<h2 id="数字签名的要求"><a href="#数字签名的要求" class="headerlink" title="数字签名的要求"></a>数字签名的要求</h2><p>为了实现上述的3个性质，数字签名应该满足以下要求：</p>
+<p>签字的产生必须使用发方独有的一些信息以防伪造和否认。</p>
+<p>签字的产生应较为容易。</p>
+<p>签字的识别和验证应较为容易。</p>
+<p>对已知的数字签字构造一新的消息或对已知的消息构造一假冒的数字签字在计算上都是不可行的。</p>
+<h2 id="数字签名标准"><a href="#数字签名标准" class="headerlink" title="数字签名标准"></a>数字签名标准</h2><p>数字签字标准DSS(Digital Signature Standard)是由美国NIST公布的联邦信息处理标准FIPS PUB186,其中采用了上一章介绍的SHA和一种新的签字技术，称为DSA(Digital Signature Algorithm)。DSS最初于1991年公布，在考虑了公众对其安全性的反馈意见后，于1993年公布了其修改版。</p>
+<p><strong>DSS与RSA</strong><br>RSA算法既能用于加密和签名，又能用于密钥交换<br>DSS使用的算法只能提供数字签字功能</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205131952912.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+
+<p><strong>DSA步骤</strong></p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205131953995.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>p g q为全局公开钥,x为用户私钥,y为用户公钥,k为用户秘密选取的随机数。最终签名为(r,s)，r由一系列公钥算出，s由消息原文算出。r可用于第三方验证s用于完整性与真实性</p>
+<h2 id="X-509证书"><a href="#X-509证书" class="headerlink" title="X.509证书"></a>X.509证书</h2><p>X.509是密码学里公钥证书的格式标准</p>
+<p>X.509证书己应用在包括TLS&#x2F;SSL在内的众多Intenet协议里</p>
+<p>X.509证书里含有公钥、身份信息（比如网络主机名，组织的名称或个体名称等）和签名信息</p>
+<p>X.509的格式</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205131955750.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>X.509有多种常用的扩展名。但具有这个扩展名的文件可能并不是证书，比如说可能只是保存了私钥</p>
+<p><code>.pem</code> DER编码的证书再进行Base64编码后存放在”<strong>—BEG引NCERTIFICATE—</strong>“和”<strong>—END CERTIFICATE—</strong>“之中<br><code>.cer</code>,<code>.crt</code>,<code>.der</code> 通常是DER二进制格式的，也可Base64编码。<br><code>.p7b</code>,<code>.p7c</code> PKCS#7是签名或加密数据的格式标准，不包含数据<br><code>.p12</code> PKCS#12格式，包含证书的同时可能还有带密码保护的私钥<br><code>.pfx</code> PFX,PKCS#12之前的格式（通常用PKCS#12格式，比如那些由IIS产生的PFX文件）</p>
+<p><strong>X.509申请过程</strong></p>
+<p>组织机构通过发起证书签名请求(CSR)来得到一份签名的证书。</p>
+<p>CSR包含有请求发起者的身份信息，用来对此请求进行验真的的公钥以及所请求证书专有名称。</p>
+<p>CA对这个专有名称发布一份证书，并绑定一个公钥。</p>
+<p>组织机构可以把受信的根证书分发给所有的成员（现在操作系统、浏览器都已内置了知名的CA根证书）</p>
+<h2 id="SSL-x2F-TLS"><a href="#SSL-x2F-TLS" class="headerlink" title="SSL&#x2F;TLS"></a>SSL&#x2F;TLS</h2><p>X.509证书广泛应用在SSL&#x2F;TLS协议中，即我们常见的HTTPS站点</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205132000343.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<ol>
+<li><p>client hello<br>客户端发起请求，以明文传输请求信息，包含版本信息，加密套件候选列表，压缩算法候选列表，随机数，扩展字段等信息，支持的最高TSL协议版本version,从低到高依次SSLv2 SSLv3 TLSv1 TLSv1.1 TLSv1.2<br>客户端支持的加密套件cipher suites列表，每个加密套件对应四个功能的组合：认证算法Au(身份验证)、密钥交换算法KeyExchange、对称加密算法和信息摘要Mac<br>随机数random C,用于后续的密钥的生成</p>
+</li>
+<li><p>server_hello+server_certificate+sever_hello_done<br>server_hello,服务端返回协商的信息结果<br>server_certificates,服务器端配置对应的证书链，用于身份验证与密钥交换；<br>server_hello_done,通知客户端server hello信息发送结束；</p>
+</li>
+<li><p>证书校验<br>客户端验证证书的合法性，如果验证通过才会进行后续通信，否则根据错误情况不同做出提示和操作，合法性验证包括如下：</p>
+<ul>
+<li><strong>证书链</strong>的可信性trusted certificate path,方法如前文所述；</li>
+<li><strong>证书是否吊销</strong>revocation,有两类方式离线CRL与在线OCSP,不同的客户端行为会不同；</li>
+<li><strong>有效期</strong>expiry date,证书是否在有效时间范围：</li>
+<li><strong>域名</strong>domain,核查证书域名是否与当前的访问域名匹配；</li>
+</ul>
+</li>
+<li><p>client_key_exchange+change_cipher_spec+encrypted_handshake_message</p>
+</li>
+<li><p>change_cipher_spec+encrypted_handshake_message</p>
+</li>
+<li><p>握手结束</p>
+</li>
+<li><p>加密通信<br>服务器也可以要求验证客户端，即<strong>双向认证</strong>，可以在过程2要发送client_certificate_request信息。在4中回复信息。</p>
+</li>
+</ol>
+<p>4和5主要用于交换密钥</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">yjr-1100</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://yjr-1100.github.io/2022/05/11/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/">https://yjr-1100.github.io/2022/05/11/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://yjr-1100.github.io" target="_blank">YJR-1100</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a><a class="post-meta__tags" href="/tags/%E5%AF%86%E7%A0%81%E5%AD%A6/">密码学</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205111412740.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2022/05/10/%E4%BC%A0%E8%BE%93%E5%B1%82%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">传输层协议学习</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/04/26/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%A6%82%E8%BF%B0/" title="网络安全概述"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204262252594.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-26</div><div class="title">网络安全概述</div></div></a></div><div><a href="/2022/04/26/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E6%B3%95/" title="网络安全法"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204262312919.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-26</div><div class="title">网络安全法</div></div></a></div><div><a href="/2022/04/27/windows%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0/" title="windows操作系统学习"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204272319402.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-27</div><div class="title">windows操作系统学习</div></div></a></div><div><a href="/2022/04/28/DNS%E6%9C%8D%E5%8A%A1/" title="windows server2012 DNS服务"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204282316431.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-28</div><div class="title">windows server2012 DNS服务</div></div></a></div><div><a href="/2022/04/29/DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="windows server2012 DHCP服务器"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204291349661.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-29</div><div class="title">windows server2012 DHCP服务器</div></div></a></div><div><a href="/2022/04/29/%E6%B4%BB%E5%8A%A8%E7%9B%AE%E5%BD%95/" title="windows server2012 活动目录"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204291606278.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-29</div><div class="title">windows server2012 活动目录</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/mylogol2.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">yjr-1100</div><div class="author-info__description">一个俗人的博客</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">42</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">18</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">12</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/yjr-1100"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/yjr-1100" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:jiaruiyang221@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">总要记些什么证明我来过</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">密码学概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.1.</span> <span class="toc-text">信息安全的基本模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A0%E5%AF%86%E5%AF%86%E7%A0%81%E7%A4%BA%E6%84%8F%E5%9B%BE"><span class="toc-number">1.2.</span> <span class="toc-text">加密密码示意图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%86%E7%A0%81%E5%AD%A6%E7%9A%84%E5%8E%86%E5%8F%B2%E4%B8%8E%E5%8F%91%E5%B1%95"><span class="toc-number">1.3.</span> <span class="toc-text">密码学的历史与发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%86%E7%A0%81%E4%BD%93%E5%88%B6%E5%88%86%E7%B1%BB"><span class="toc-number">1.4.</span> <span class="toc-text">密码体制分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%86%E7%A0%81%E6%94%BB%E5%87%BB%E6%A6%82%E8%BF%B0"><span class="toc-number">1.5.</span> <span class="toc-text">密码攻击概述</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E4%B8%8E%E5%AF%86%E7%A0%81"><span class="toc-number">2.</span> <span class="toc-text">编码与密码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E5%9F%BA%E7%A1%80"><span class="toc-number">2.1.</span> <span class="toc-text">编码基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ASCII-%E7%BC%96%E7%A0%81"><span class="toc-number">2.1.1.</span> <span class="toc-text">ASCII 编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Unicode%E7%BC%96%E7%A0%81"><span class="toc-number">2.1.2.</span> <span class="toc-text">Unicode编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Base64"><span class="toc-number">2.1.3.</span> <span class="toc-text">Base64</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%A4%E5%85%B8%E5%AF%86%E7%A0%81%E5%AD%A6"><span class="toc-number">2.2.</span> <span class="toc-text">古典密码学</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E8%A1%A8%E4%BB%A3%E6%8D%A2"><span class="toc-number">2.3.</span> <span class="toc-text">单表代换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%AF%E6%92%92%E5%AF%86%E7%A0%81"><span class="toc-number">2.3.1.</span> <span class="toc-text">凯撒密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%BB%E4%BD%8D%E5%AF%86%E7%A0%81"><span class="toc-number">2.3.2.</span> <span class="toc-text">移位密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%BF%E5%B0%84%E5%AF%86%E7%A0%81"><span class="toc-number">2.3.3.</span> <span class="toc-text">仿射密码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E8%A1%A8%E6%9B%BF%E6%8D%A2"><span class="toc-number">2.4.</span> <span class="toc-text">多表替换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Playfair"><span class="toc-number">2.4.1.</span> <span class="toc-text">Playfair</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#polybius"><span class="toc-number">2.4.2.</span> <span class="toc-text">polybius</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vigenere"><span class="toc-number">2.4.3.</span> <span class="toc-text">vigenere</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E7%B1%BB%E5%9E%8B%E5%AF%86%E7%A0%81"><span class="toc-number">2.5.</span> <span class="toc-text">其他类型密码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%B9%E6%A0%B9%E5%AF%86%E7%A0%81"><span class="toc-number">2.5.1.</span> <span class="toc-text">培根密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%85%E6%A0%8F%E5%AF%86%E7%A0%81"><span class="toc-number">2.5.2.</span> <span class="toc-text">栅栏密码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%91%A9%E6%96%AF%E5%AF%86%E7%A0%81"><span class="toc-number">2.5.3.</span> <span class="toc-text">摩斯密码</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86"><span class="toc-number">3.</span> <span class="toc-text">对称加密</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#RC4"><span class="toc-number">3.1.</span> <span class="toc-text">RC4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DES"><span class="toc-number">3.2.</span> <span class="toc-text">DES</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AES%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.3.</span> <span class="toc-text">AES介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Rijndael"><span class="toc-number">3.3.1.</span> <span class="toc-text">Rijndael</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%86%E7%A0%81%E5%88%86%E6%9E%90"><span class="toc-number">3.4.</span> <span class="toc-text">密码分析</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86"><span class="toc-number">4.</span> <span class="toc-text">非对称加密</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AC%E9%92%A5%E5%AF%86%E7%A0%81%E4%BD%93%E5%88%B6%E7%AE%97%E6%B3%95%E6%9D%A1%E4%BB%B6"><span class="toc-number">4.1.</span> <span class="toc-text">公钥密码体制算法条件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RSA%E7%AE%97%E6%B3%95"><span class="toc-number">4.2.</span> <span class="toc-text">RSA算法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%86%E9%92%A5%E4%BA%A4%E6%8D%A2"><span class="toc-number">5.</span> <span class="toc-text">密钥交换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AC%E9%92%A5%E4%BD%93%E5%88%B6%E7%9A%84%E5%AF%86%E9%92%A5%E7%AE%A1%E7%90%86"><span class="toc-number">5.1.</span> <span class="toc-text">公钥体制的密钥管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Diffie-Hellman%E7%AE%97%E6%B3%95"><span class="toc-number">5.2.</span> <span class="toc-text">Diffie-Hellman算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E5%AF%86%E9%92%A5%E5%8A%A0%E5%AF%86%E4%BD%93%E5%88%B6%E5%AF%86%E9%92%A5%E5%88%86%E9%85%8D"><span class="toc-number">5.3.</span> <span class="toc-text">单密钥加密体制密钥分配</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8EKDC%E7%9A%84%E5%8D%95%E5%AF%86%E9%92%A5%E5%88%86%E9%85%8D"><span class="toc-number">5.3.1.</span> <span class="toc-text">基于KDC的单密钥分配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0KDC%E7%9A%84%E5%AF%86%E9%92%A5%E5%88%86%E9%85%8D"><span class="toc-number">5.3.2.</span> <span class="toc-text">无KDC的密钥分配</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AC%E9%92%A5%E5%8A%A0%E5%AF%86%E4%BD%93%E5%88%B6%E7%9A%84%E5%AF%86%E9%92%A5%E7%AE%A1%E7%90%86"><span class="toc-number">5.4.</span> <span class="toc-text">公钥加密体制的密钥管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E5%85%AC%E9%92%A5%E7%AE%A1%E7%90%86%E6%9C%BA%E6%9E%84%E7%9A%84%E5%85%AC%E9%92%A5%E5%88%86%E9%85%8D"><span class="toc-number">5.4.1.</span> <span class="toc-text">基于公钥管理机构的公钥分配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E5%85%AC%E9%92%A5%E8%AF%81%E4%B9%A6%E7%AE%A1%E7%90%86%E5%85%AC%E9%92%A5"><span class="toc-number">5.4.2.</span> <span class="toc-text">基于公钥证书管理公钥</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95"><span class="toc-number">6.</span> <span class="toc-text">哈希算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%93%88%E5%B8%8C%E7%AE%97%E6%B3%95%E7%9A%84%E6%9D%A1%E4%BB%B6"><span class="toc-number">6.1.</span> <span class="toc-text">哈希算法的条件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MD5%E7%AE%97%E6%B3%95"><span class="toc-number">6.2.</span> <span class="toc-text">MD5算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MD5%E7%9A%84%E5%AE%89%E5%85%A8%E6%80%A7"><span class="toc-number">6.3.</span> <span class="toc-text">MD5的安全性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E5%92%8C%E7%94%B5%E5%AD%90%E8%AF%81%E4%B9%A6"><span class="toc-number">7.</span> <span class="toc-text">数字签名和电子证书</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="toc-number">7.1.</span> <span class="toc-text">数字签名的性质</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E7%9A%84%E8%A6%81%E6%B1%82"><span class="toc-number">7.2.</span> <span class="toc-text">数字签名的要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E6%A0%87%E5%87%86"><span class="toc-number">7.3.</span> <span class="toc-text">数字签名标准</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#X-509%E8%AF%81%E4%B9%A6"><span class="toc-number">7.4.</span> <span class="toc-text">X.509证书</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SSL-x2F-TLS"><span class="toc-number">7.5.</span> <span class="toc-text">SSL&#x2F;TLS</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/05/11/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/" title="密码学基础学习"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205111412740.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="密码学基础学习"/></a><div class="content"><a class="title" href="/2022/05/11/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/" title="密码学基础学习">密码学基础学习</a><time datetime="2022-05-11T06:09:28.000Z" title="发表于 2022-05-11 14:09:28">2022-05-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/10/%E4%BC%A0%E8%BE%93%E5%B1%82%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0/" title="传输层协议学习"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="传输层协议学习"/></a><div class="content"><a class="title" href="/2022/05/10/%E4%BC%A0%E8%BE%93%E5%B1%82%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0/" title="传输层协议学习">传输层协议学习</a><time datetime="2022-05-10T07:10:21.000Z" title="发表于 2022-05-10 15:10:21">2022-05-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/09/%E8%B7%AF%E7%94%B1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0/" title="路由基础知识学习"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="路由基础知识学习"/></a><div class="content"><a class="title" href="/2022/05/09/%E8%B7%AF%E7%94%B1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0/" title="路由基础知识学习">路由基础知识学习</a><time datetime="2022-05-09T06:06:45.000Z" title="发表于 2022-05-09 14:06:45">2022-05-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/09/%E7%BD%91%E7%BB%9C%E5%B1%82%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0/" title="网络层协议基础学习"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="网络层协议基础学习"/></a><div class="content"><a class="title" href="/2022/05/09/%E7%BD%91%E7%BB%9C%E5%B1%82%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0/" title="网络层协议基础学习">网络层协议基础学习</a><time datetime="2022-05-09T02:51:00.000Z" title="发表于 2022-05-09 10:51:00">2022-05-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/05/08/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0/" title="交换机工作原理学习"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="交换机工作原理学习"/></a><div class="content"><a class="title" href="/2022/05/08/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0/" title="交换机工作原理学习">交换机工作原理学习</a><time datetime="2022-05-08T07:26:55.000Z" title="发表于 2022-05-08 15:26:55">2022-05-08</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/background_4k.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022 By yjr-1100</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">你好有缘人</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())
+
+$('.yjr_wrap .yjr_menu').on('click',function (event) {
+// 判断标签是否li
+if (event.target.tagName === 'LI') {
+  $tar =$(event.target)
+  //获取子元素index
+  var index =  $tar.parent().children().index($tar);
+  $tar.parent().children().eq(index).addClass('yjr_itemSelected').siblings().removeClass('yjr_itemSelected')
+  if(index==1){
+      $tar.parent().parent().find('.yjr_code').attr('hidden',true)
+      $tar.parent().parent().find('.yjr_effect').attr('hidden',false)
+    }else{
+        $tar.parent().parent().find('.yjr_code').attr('hidden',false)
+      $tar.parent().parent().find('.yjr_effect').attr('hidden',true)
+    }
+  }
+})</script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
