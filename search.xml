@@ -930,6 +930,33 @@
     
     
     <entry>
+      <title>大数据概要</title>
+      <link href="/2022/04/03/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%A6%82%E8%A6%81/"/>
+      <url>/2022/04/03/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%A6%82%E8%A6%81/</url>
+      
+        <content type="html"><![CDATA[<h1 id="大数据概述"><a href="#大数据概述" class="headerlink" title="大数据概述"></a>大数据概述</h1><h2 id="大数据概念"><a href="#大数据概念" class="headerlink" title="大数据概念"></a>大数据概念</h2><p>大数据指无法在一定时间范围内用常规软件工具进行捕捉、管理和处理的数据集合，是需要新处理模式才能具有更强的决策能力、洞察发现力和流程优化能力的海量、高增长率和多样化的信息资产</p><p>大数据主要解决，<strong>海量数据</strong>的<strong>采集</strong>、<strong>存储</strong>和<strong>分析计算</strong>问题。</p><h2 id="大数据的特点"><a href="#大数据的特点" class="headerlink" title="大数据的特点"></a>大数据的特点</h2><ol><li>大量<br>截至目前，人类生产的所有印刷材料的数据量是200PB，而历史上全人类总共说过的话的数据量大约是5EB。当前，典型个人计算机硬盘的容量为TB量级，而一些大企业的数据量已经接近EB量级。</li><li>高速<br>这是大数据区分于传统数据挖掘的最显著特征。根据IDC的“数字宇宙”的报告，预计到2025年，全球数据使用量将达到163ZB。在如此海量的数据面前，处理数据的效率就是企业的生命。</li><li>多样<br>这种类型的多样性也让数据被分为<strong>结构化数据</strong>和<strong>非结构化数据</strong>。相对于以往便于存储的以数据库&#x2F;文本为主的结构化数据，非结构化数据越来越多，包括网络日志、音频、视频、图片、地理位置信息等，这些多类型的数据对数据的处理能力提出了更高要求。</li><li>低价值密度<br>价值密度的高低与数据总量的大小成反比。<br>比如，在一天监控视频中，我们只关心宋宋老师晚上在床上健身那一分钟，如何快速对有价值数据“提纯”成为目前大数据背景下待解决的难题。</li></ol><h2 id="大数据应用场景"><a href="#大数据应用场景" class="headerlink" title="大数据应用场景"></a>大数据应用场景</h2><ol><li>抖音视频推荐</li><li>电商广告推荐</li><li>零售：分析用户消费习惯，为用户购买商品提供方便</li><li>物流仓储：京东物理，上午下单送到</li><li>保险：海量数据挖掘及风险预测，助理保险行业精准营销，提升精细化定价能力</li><li>金融：多维度体现用户特征，帮助金融机构推荐优质客户，防范欺诈风险</li><li>房产：选出更合适的地，建合适的楼，卖合适的人 </li><li>人工智能+5G+物联网+虚拟现实</li></ol><h1 id="Hadoop概述"><a href="#Hadoop概述" class="headerlink" title="Hadoop概述"></a>Hadoop概述</h1><h2 id="Hadoop是什么"><a href="#Hadoop是什么" class="headerlink" title="Hadoop是什么"></a>Hadoop是什么</h2><p>Hadoop是一个由Apache基金会所开发的分布式系统基础架构</p><p>主要解决海量数据的存储和海量数据的分析计算问题</p><p>广义上来说，Hadoop通常是指一个更广泛的概念——Hadoop生态圈</p><p>Hadoop 创始人 Doug Cutting</p><h2 id="Hadoop优势"><a href="#Hadoop优势" class="headerlink" title="Hadoop优势"></a>Hadoop优势</h2><ol><li>高可靠性：Hadoop底层维护多个数据副本，所以即使Hadoop某个计算元素或存储出现故障，也不会导致数据的丢失</li><li>高扩展性：在集群间分配任务数据，可方便的扩展数以千计的节点（比如6.18，双十一的时候，动态加节点）</li><li>高效性：在MapReduce的思想下，Hadoop是并行工作的，以加快任务处理速度</li><li>高容错性：能够自动将失败的任务重新分配</li></ol><h2 id="Hadoop1-x、2-x、3-x区别"><a href="#Hadoop1-x、2-x、3-x区别" class="headerlink" title="Hadoop1.x、2.x、3.x区别"></a>Hadoop1.x、2.x、3.x区别</h2><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202208012028701.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/><h2 id="Hadoop组成"><a href="#Hadoop组成" class="headerlink" title="Hadoop组成"></a>Hadoop组成</h2><h3 id="HDFS架构概述"><a href="#HDFS架构概述" class="headerlink" title="HDFS架构概述"></a>HDFS架构概述</h3><p>Hadoop Distributed File System 简称 <strong>HDFS</strong> 是一个分布式文件系统</p><ol><li>NameNode（nn）：存储文件的元数据，<strong>如文件名，文件目录结构，文件属性</strong>，以及每个文件的块列表和块所在的DataNode等</li><li>DateNode（dn）：在<strong>本地文件系统存储文件块数据</strong>，以及块数据的校验和</li><li>Secondary NameNode（2nn）：每隔一段时间对NameNode元数据备份</li></ol><h3 id="YARN架构概述"><a href="#YARN架构概述" class="headerlink" title="YARN架构概述"></a>YARN架构概述</h3><p>Yet Another Resource Negotiator 简称 <strong>YARN</strong> ，是另一种资源协调者，是Hadoop的资源管理器</p><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202208012047774.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/><ol><li>ResourceManager（RM）：整个集群资源（内存，CPU）的老大</li><li>NodeManager（NM）：单个节点服务器资源老大</li><li>ApplicationMaster（AM）：单个任务运行的老大</li><li>Container：容器，相当于一台独立的服务器，里面封装了任务运行所需要的资源，比如内存，CPU，硬盘，网络等。</li></ol><p>注意：</p><ul><li>客户端可以有多个</li><li>集群上可以运行多个ApplicationMaster</li><li>每隔NodeManager上可以有多个Container</li></ul><h3 id="MapReduce架构概述"><a href="#MapReduce架构概述" class="headerlink" title="MapReduce架构概述"></a>MapReduce架构概述</h3><p>计算过程分为两个阶段 Map 和 Reduce</p><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202208012051902.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/><ol><li>Map阶段并行处理输入数据</li><li>Reduce阶段对Map结果进行汇总</li></ol><h3 id="HDFS、YARN、MapReduce三者关系"><a href="#HDFS、YARN、MapReduce三者关系" class="headerlink" title="HDFS、YARN、MapReduce三者关系"></a>HDFS、YARN、MapReduce三者关系</h3><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202208012054954.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/><p>NameNode 来告诉别人数据存储在哪个节点，DateNode就是实在的在本地进行数据存储，SecondaryNameNode，备份的数据进行NameNode挂了后进行部分数据恢复。ResourceManager负责整个集群资源的管理，此时来了一个客户，向集群提交了一个任务，任务过来后，ResourceManager就会找一个节点，开启一个Container，然后把任务ApplicationManager放在里面，App Manager就会向ResourceManager申请资源，ResourceManager就会进行调度，在有相应资源的节点上开启Container放入资源，最后任务Map阶段进行完后，汇总进行Reduce阶段，把结果写到HDFS上</p><h2 id="大数据技术生态体系"><a href="#大数据技术生态体系" class="headerlink" title="大数据技术生态体系"></a>大数据技术生态体系</h2><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202208012116656.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/><ol><li>Sqoop：Sqoop是一款开源的工具，主要用于在Hadoop、Hive与传统的数据库（MySQL）间进行数据的传递，可以将一个关系型数据库（例如 ：MySQL，Oracle 等）中的数据导进到Hadoop的HDFS中，也可以将HDFS的数据导进到关系型数据库中。</li><li>Flume：Flume是一个高可用的，高可靠的，分布式的海量日志采集、聚合和传输的系统，Flume支持在日志系统中定制各类数据发送方，用于收集数据； </li><li>Kafka：Kafka是一种高吞吐量的分布式发布订阅消息系统； </li><li>Spark：Spark是当前最流行的开源大数据内存计算框架。可以基于Hadoop上存储的大数据进行计算。</li><li>Flink：Flink是当前最流行的开源大数据内存计算框架。用于实时计算的场景较多。</li><li>Oozie：Oozie是一个管理Hadoop作业（job）的工作流程调度管理系统。</li><li>Hbase：HBase是一个分布式的、面向列的开源数据库。HBase不同于一般的关系数据库，它是一个适合于非结构化数据存储的数据库。</li><li>Hive：Hive是基于Hadoop的一个数据仓库工具，可以将结构化的数据文件映射为一张数据库表，并提供简单的SQL查询功能，可以将SQL语句转换为MapReduce任务进行运行。其优点是学习成本低，可以通过类SQL语句快速实现简单的MapReduce统计，不必开发专门的MapReduce应用，十分适合数据仓库的统计分析。</li><li>ZooKeeper：它是一个针对大型分布式系统的可靠协调系统，提供的功能包括：配置维护、名字服务、分布式同步、组服务等。</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大数据 </category>
+          
+          <category> Hadoop </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vue3 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>vue-cil的使用</title>
       <link href="/2022/04/02/vue-cil%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
       <url>/2022/04/02/vue-cil%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
