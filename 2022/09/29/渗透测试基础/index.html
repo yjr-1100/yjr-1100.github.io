@@ -1,0 +1,358 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>渗透测试基础 | YJR-1100</title><meta name="keywords" content="网络安全"><meta name="author" content="yjr-1100"><meta name="copyright" content="yjr-1100"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Kali Linux 发展史和特性Kali Linux 的发展 Kali Linux的前身是BackTrack,由Offensive Security Ltd维护和资助。 BackTrack4使用了ubuntu8.10的系统，而且只能装Debian的软件包；2011年8月18日，BackTrack发布了BackTrack5R1,基于ubuntu10.04内核为Kerne|2.6.39.4,目前Ba">
+<meta property="og:type" content="article">
+<meta property="og:title" content="渗透测试基础">
+<meta property="og:url" content="https://yjr-1100.github.io/2022/09/29/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="YJR-1100">
+<meta property="og:description" content="Kali Linux 发展史和特性Kali Linux 的发展 Kali Linux的前身是BackTrack,由Offensive Security Ltd维护和资助。 BackTrack4使用了ubuntu8.10的系统，而且只能装Debian的软件包；2011年8月18日，BackTrack发布了BackTrack5R1,基于ubuntu10.04内核为Kerne|2.6.39.4,目前Ba">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209290944004.jpg">
+<meta property="article:published_time" content="2022-09-29T01:38:23.000Z">
+<meta property="article:modified_time" content="2022-09-30T07:18:29.842Z">
+<meta property="article:author" content="yjr-1100">
+<meta property="article:tag" content="网络安全">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209290944004.jpg"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="canonical" href="https://yjr-1100.github.io/2022/09/29/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":150},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"bottom-left"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '渗透测试基础',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-09-30 15:18:29'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/mylogol2.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">48</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">17</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/background_4k.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">YJR-1100</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">渗透测试基础</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-09-29T01:38:23.000Z" title="发表于 2022-09-29 09:38:23">2022-09-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-30T07:18:29.842Z" title="更新于 2022-09-30 15:18:29">2022-09-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E4%B8%8E%E5%B7%A5%E5%85%B7/">渗透测试环境与工具</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E4%B8%8E%E5%B7%A5%E5%85%B7/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83/">渗透测试环境</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="渗透测试基础"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Kali-Linux-发展史和特性"><a href="#Kali-Linux-发展史和特性" class="headerlink" title="Kali Linux 发展史和特性"></a>Kali Linux 发展史和特性</h1><h2 id="Kali-Linux-的发展"><a href="#Kali-Linux-的发展" class="headerlink" title="Kali Linux 的发展"></a>Kali Linux 的发展</h2><ul>
+<li>Kali Linux的前身是BackTrack,由Offensive Security Ltd维护和资助。</li>
+<li>BackTrack4使用了ubuntu8.10的系统，而且只能装Debian的软件包；2011年8月18日，BackTrack发布了BackTrack5R1,基于ubuntu10.04内核为Kerne|2.6.39.4,目前BackTrack的最新版本为2012年8月13日发布的BackTrack5R3黑帽子版，内核为Kernel3.2.6.</li>
+<li>Kali Linux,是基于Debian Linuxl的发行版，集成了大量精心挑选的渗透测试和安全审计的工具，其第一个发行版(Kali Linux1.0)于2013年3月发布。</li>
+<li>面向的对象人群：从事渗透测试、数字取证、逆向工程、网络攻防技术研究等工作的人员。</li>
+</ul>
+<h2 id="Kali-Linux-的特性"><a href="#Kali-Linux-的特性" class="headerlink" title="Kali Linux 的特性"></a>Kali Linux 的特性</h2><ul>
+<li>永久免费</li>
+<li>开源Gt树：开源软件忠实的拥护者，那些想调整或重建包的人可以浏览开发树得到所有源代码。</li>
+<li>遵循FHS(Filesystem Hierarchy Standard,文件系统层次化标准)：Kali的开发遵循Liux目录结构标准，用户可以方便地找到命令文件、帮助文件、库文件等。</li>
+<li>支持无线设备：Kli能正常运行在各种各样的硬件上，能兼容大量USB和其它无线设备。</li>
+<li>安全的开发环境：K开发团队由一群可信任的人组成，他们只能在使用多种安全协议的时候提交包或管理源，每个开发者都会在编译和提交Ki的包时对它进行签名，并且源也会对它进行签名。</li>
+<li>多语言支持</li>
+<li>完全的可定制化</li>
+<li>支持ARM设备</li>
+</ul>
+<hr>
+<h1 id="VMWare-中安装-Kali-Linux"><a href="#VMWare-中安装-Kali-Linux" class="headerlink" title="VMWare 中安装 Kali Linux"></a>VMWare 中安装 Kali Linux</h1><h2 id="下载Kali-Linux-的镜像文件"><a href="#下载Kali-Linux-的镜像文件" class="headerlink" title="下载Kali Linux 的镜像文件"></a>下载Kali Linux 的镜像文件</h2><p><a target="_blank" rel="noopener" href="https://www.kali.org/get-kali/#kali-installer-images">通过Kali官网下载</a></p>
+<h2 id="创建新的虚拟机"><a href="#创建新的虚拟机" class="headerlink" title="创建新的虚拟机"></a>创建新的虚拟机</h2><p>选择创建虚拟机</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291448343.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>一般安装 Linux 系统都使用自定义安装</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291448466.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>这里没有什么要改的，直接下一步</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291448288.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>选择稍后安装操作系统，然后下一步</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291449637.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>Kali Linux 是基于 Debian的，我们选择如下图</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291449896.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>给虚拟机起个名字，选择存放的位置</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291458311.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>分配处理器个数和内存大小<br><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291459025.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/></p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291459647.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>默认NET网络连接模式就好了，然后下一步</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291459711.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>磁盘和I&#x2F;O都是默认的，直接下一步<br><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291459922.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/></p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291500301.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>选择创建虚拟磁盘，并选择磁盘大小</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291501747.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291501803.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291501007.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>点击完成后就创建好了虚拟机</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291501771.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>现在选择一下刚才下载的镜像文件</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291502144.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<h2 id="安装Kali-Linux"><a href="#安装Kali-Linux" class="headerlink" title="安装Kali Linux"></a>安装Kali Linux</h2><p>开启刚才创建的虚拟机，开始安装Kali Linux</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291524021.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>选择中文，中国，和汉语进行后面的安装</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291524339.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291524046.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291525740.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>给主机起个名字，由于单台主机，域名可以先空着</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291525285.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291525384.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>创建一个普通用户，起一个用户名和密码</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291525228.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291526566.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>磁盘分区部分都按照默认的，直接下一步就好了</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291526885.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291526700.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291526884.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291526034.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>选择是，将改动写入磁盘</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291527052.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>默认安装的软件，直接点击继续，然后等待安装</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291527164.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>GRUB启动引导选择是</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291527450.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>注意选择使用 <code>/dev/sda</code><br><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291527686.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/></p>
+<p>点击完成后重启就好了<br><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291528196.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/></p>
+<h1 id="Kali-Linux-基本配置"><a href="#Kali-Linux-基本配置" class="headerlink" title="Kali Linux 基本配置"></a>Kali Linux 基本配置</h1><h2 id="关机和重启"><a href="#关机和重启" class="headerlink" title="关机和重启"></a>关机和重启</h2><ol>
+<li><p>关机</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">shutdown -h now     /立即关机</span><br><span class="line">Init 0              /立即关机</span><br><span class="line">shutdown -h +1      /1分钟后关机</span><br><span class="line">shutdown -h 12:00   /12:00关机</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">shutdown -r now      //立即重启</span><br><span class="line">Init 6               //立即重启</span><br><span class="line">shutdown -r +1       //1分钟后重启</span><br><span class="line">shutdown -r 12:00    /12:00重启</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="为root设置初始密码"><a href="#为root设置初始密码" class="headerlink" title="为root设置初始密码"></a>为root设置初始密码</h2><p>刚开始我们登录的时候都是用安装的时候创建的普通用户登录的，现在我们给root用户设置密码，以后就可以使用root用户来登录了</p>
+<p>在看到下面界面的时候，按 <code>E</code> 键进入 <code>GNU GRUB</code> </p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291557896.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>进入后界面如下，通过上下左右键将光标移动到下面的位置进行修改</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291558506.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>将 <code>ro</code> 修改为 <code>rw</code> 并在后面加上 <code>init=/bin/bash</code></p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291558971.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>修改完后按 <code>Ctrl+X</code> 或 <code>F10</code> 进入单用户模式</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291601207.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>在单用户模式下输入passwd root命令，并为其设置密码，设置完成后重新启动即可使用root用户登录Kali</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291603188.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>此时重启时用虚拟机里的电源直接重启，输入init 6 不起作用</p>
+<h1 id="Kali-Linux-工具集"><a href="#Kali-Linux-工具集" class="headerlink" title="Kali Linux 工具集"></a>Kali Linux 工具集</h1><p><a target="_blank" rel="noopener" href="https://www.kali.org/tools/">Kali工具说明</a></p>
+<p>可以在上面的网站中学习工具的使用<a target="_blank" rel="noopener" href="http://roomorder.cxcyjd.com.cn/#/login">http://roomorder.cxcyjd.com.cn/#/login</a></p>
+<h2 id="十三类工具"><a href="#十三类工具" class="headerlink" title="十三类工具"></a>十三类工具</h2><ul>
+<li>信息收集</li>
+<li>漏洞利用工具集</li>
+<li>漏洞分析</li>
+<li>嗅探&#x2F;欺骗</li>
+<li>Web程序</li>
+<li>数据库评估软件</li>
+<li>权限维持</li>
+<li>数字取证</li>
+<li>密码攻击</li>
+<li>报告工具集</li>
+<li>无线攻击</li>
+<li>社会工程学工具</li>
+<li>逆向工程</li>
+</ul>
+<h2 id="信息收集工具"><a href="#信息收集工具" class="headerlink" title="信息收集工具"></a>信息收集工具</h2><ul>
+<li><p>Hping3</p>
+</li>
+<li><p>Whois</p>
+</li>
+<li><p>Dnsenum</p>
+</li>
+</ul>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291648152.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<h2 id="漏洞分析工具"><a href="#漏洞分析工具" class="headerlink" title="漏洞分析工具"></a>漏洞分析工具</h2><ul>
+<li>Nmap</li>
+<li>Nikto</li>
+<li>Sprata</li>
+</ul>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291649491.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<h2 id="Web程序"><a href="#Web程序" class="headerlink" title="Web程序"></a>Web程序</h2><ul>
+<li>Burpsuite</li>
+<li>Skipfish</li>
+<li>Whatweb</li>
+</ul>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291650648.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<h2 id="数据库评估软件"><a href="#数据库评估软件" class="headerlink" title="数据库评估软件"></a>数据库评估软件</h2><ul>
+<li>Salmap</li>
+</ul>
+<p>这是一个重要是sql注入工具</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291651196.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<h2 id="密码攻击工具"><a href="#密码攻击工具" class="headerlink" title="密码攻击工具"></a>密码攻击工具</h2><ul>
+<li>Hashcat</li>
+<li>John</li>
+<li>Ophcrack</li>
+</ul>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291652221.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<h2 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h2><ul>
+<li>Metasploit</li>
+</ul>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291653122.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<h2 id="社会工程学"><a href="#社会工程学" class="headerlink" title="社会工程学"></a>社会工程学</h2><ul>
+<li>SET</li>
+</ul>
+<p>这个可以生成一个钓鱼网站来获取用户名密码</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209291654255.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">yjr-1100</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://yjr-1100.github.io/2022/09/29/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/">https://yjr-1100.github.io/2022/09/29/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://yjr-1100.github.io" target="_blank">YJR-1100</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209290944004.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/09/30/Nmap%E7%9A%84%E4%BD%BF%E7%94%A8/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209301533248.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Nmap的使用</div></div></a></div><div class="next-post pull-right"><a href="/2022/08/02/Hadoop%E6%9C%AC%E5%9C%B0%E8%BF%90%E8%A1%8C%E6%A8%A1%E5%BC%8F/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/Hadoop.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Hadoop运行模式</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/04/29/DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="windows server2012 DHCP服务器"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204291349661.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-29</div><div class="title">windows server2012 DHCP服务器</div></div></a></div><div><a href="/2022/04/28/DNS%E6%9C%8D%E5%8A%A1/" title="windows server2012 DNS服务"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204282316431.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-28</div><div class="title">windows server2012 DNS服务</div></div></a></div><div><a href="/2022/09/30/Nmap%E7%9A%84%E4%BD%BF%E7%94%A8/" title="Nmap的使用"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209301533248.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-30</div><div class="title">Nmap的使用</div></div></a></div><div><a href="/2022/04/30/windowsServer2012Web/" title="windows server2012 Web服务器"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204301440072.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-30</div><div class="title">windows server2012 Web服务器</div></div></a></div><div><a href="/2022/04/27/windows%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0/" title="windows操作系统学习"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204272319402.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-27</div><div class="title">windows操作系统学习</div></div></a></div><div><a href="/2022/05/08/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0/" title="交换机工作原理学习"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-08</div><div class="title">交换机工作原理学习</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/mylogol2.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">yjr-1100</div><div class="author-info__description">一个俗人的博客</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">48</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">17</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/yjr-1100"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/yjr-1100" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:jiaruiyang221@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">总要记些什么证明我来过</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Kali-Linux-%E5%8F%91%E5%B1%95%E5%8F%B2%E5%92%8C%E7%89%B9%E6%80%A7"><span class="toc-number">1.</span> <span class="toc-text">Kali Linux 发展史和特性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Kali-Linux-%E7%9A%84%E5%8F%91%E5%B1%95"><span class="toc-number">1.1.</span> <span class="toc-text">Kali Linux 的发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Kali-Linux-%E7%9A%84%E7%89%B9%E6%80%A7"><span class="toc-number">1.2.</span> <span class="toc-text">Kali Linux 的特性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VMWare-%E4%B8%AD%E5%AE%89%E8%A3%85-Kali-Linux"><span class="toc-number">2.</span> <span class="toc-text">VMWare 中安装 Kali Linux</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BDKali-Linux-%E7%9A%84%E9%95%9C%E5%83%8F%E6%96%87%E4%BB%B6"><span class="toc-number">2.1.</span> <span class="toc-text">下载Kali Linux 的镜像文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%96%B0%E7%9A%84%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-number">2.2.</span> <span class="toc-text">创建新的虚拟机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Kali-Linux"><span class="toc-number">2.3.</span> <span class="toc-text">安装Kali Linux</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Kali-Linux-%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">Kali Linux 基本配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E6%9C%BA%E5%92%8C%E9%87%8D%E5%90%AF"><span class="toc-number">3.1.</span> <span class="toc-text">关机和重启</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BAroot%E8%AE%BE%E7%BD%AE%E5%88%9D%E5%A7%8B%E5%AF%86%E7%A0%81"><span class="toc-number">3.2.</span> <span class="toc-text">为root设置初始密码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Kali-Linux-%E5%B7%A5%E5%85%B7%E9%9B%86"><span class="toc-number">4.</span> <span class="toc-text">Kali Linux 工具集</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%B8%89%E7%B1%BB%E5%B7%A5%E5%85%B7"><span class="toc-number">4.1.</span> <span class="toc-text">十三类工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86%E5%B7%A5%E5%85%B7"><span class="toc-number">4.2.</span> <span class="toc-text">信息收集工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7"><span class="toc-number">4.3.</span> <span class="toc-text">漏洞分析工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Web%E7%A8%8B%E5%BA%8F"><span class="toc-number">4.4.</span> <span class="toc-text">Web程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%84%E4%BC%B0%E8%BD%AF%E4%BB%B6"><span class="toc-number">4.5.</span> <span class="toc-text">数据库评估软件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%86%E7%A0%81%E6%94%BB%E5%87%BB%E5%B7%A5%E5%85%B7"><span class="toc-number">4.6.</span> <span class="toc-text">密码攻击工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8"><span class="toc-number">4.7.</span> <span class="toc-text">漏洞利用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A4%BE%E4%BC%9A%E5%B7%A5%E7%A8%8B%E5%AD%A6"><span class="toc-number">4.8.</span> <span class="toc-text">社会工程学</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/09/30/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" title="渗透测试环境搭建"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209301532819.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="渗透测试环境搭建"/></a><div class="content"><a class="title" href="/2022/09/30/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" title="渗透测试环境搭建">渗透测试环境搭建</a><time datetime="2022-09-30T07:22:05.000Z" title="发表于 2022-09-30 15:22:05">2022-09-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/30/Nmap%E7%9A%84%E4%BD%BF%E7%94%A8/" title="Nmap的使用"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209301533248.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Nmap的使用"/></a><div class="content"><a class="title" href="/2022/09/30/Nmap%E7%9A%84%E4%BD%BF%E7%94%A8/" title="Nmap的使用">Nmap的使用</a><time datetime="2022-09-30T07:17:13.000Z" title="发表于 2022-09-30 15:17:13">2022-09-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/29/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/" title="渗透测试基础"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209290944004.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="渗透测试基础"/></a><div class="content"><a class="title" href="/2022/09/29/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/" title="渗透测试基础">渗透测试基础</a><time datetime="2022-09-29T01:38:23.000Z" title="发表于 2022-09-29 09:38:23">2022-09-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/02/Hadoop%E6%9C%AC%E5%9C%B0%E8%BF%90%E8%A1%8C%E6%A8%A1%E5%BC%8F/" title="Hadoop运行模式"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/Hadoop.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hadoop运行模式"/></a><div class="content"><a class="title" href="/2022/08/02/Hadoop%E6%9C%AC%E5%9C%B0%E8%BF%90%E8%A1%8C%E6%A8%A1%E5%BC%8F/" title="Hadoop运行模式">Hadoop运行模式</a><time datetime="2022-08-02T04:04:13.000Z" title="发表于 2022-08-02 12:04:13">2022-08-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/01/Hadoop%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" title="Hadoop运行环境搭建"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/Hadoop.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hadoop运行环境搭建"/></a><div class="content"><a class="title" href="/2022/08/01/Hadoop%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" title="Hadoop运行环境搭建">Hadoop运行环境搭建</a><time datetime="2022-08-01T14:27:53.000Z" title="发表于 2022-08-01 22:27:53">2022-08-01</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/background_4k.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022 By yjr-1100</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">你好有缘人</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())
+
+$('.yjr_wrap .yjr_menu').on('click',function (event) {
+// 判断标签是否li
+if (event.target.tagName === 'LI') {
+  $tar =$(event.target)
+  //获取子元素index
+  var index =  $tar.parent().children().index($tar);
+  $tar.parent().children().eq(index).addClass('yjr_itemSelected').siblings().removeClass('yjr_itemSelected')
+  if(index==1){
+      $tar.parent().parent().find('.yjr_code').attr('hidden',true)
+      $tar.parent().parent().find('.yjr_effect').attr('hidden',false)
+    }else{
+        $tar.parent().parent().find('.yjr_code').attr('hidden',false)
+      $tar.parent().parent().find('.yjr_effect').attr('hidden',true)
+    }
+  }
+})</script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
