@@ -1,11 +1,13 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Nmap的使用 | YJR-1100</title><meta name="keywords" content="网络安全"><meta name="author" content="yjr-1100"><meta name="copyright" content="yjr-1100"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="article">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Nmap的使用 | YJR-1100</title><meta name="keywords" content="网络安全"><meta name="author" content="yjr-1100"><meta name="copyright" content="yjr-1100"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Nmap简介Nmap是Linux下一款开源免费的网络发现(Network Discovery)和安全审计(Security Auditing)工具，软件名字Nmap是Network Mapperf的简称。 Nmap最初由Fyodor在1996年开始创建，随后在开源社区众多的志愿者参与下，该工具逐渐成为最为流行的安全必备工具之一。 Nmap使用原始IP报文来发现网络上有哪些主机，这些主机提供什么服务">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Nmap的使用">
 <meta property="og:url" content="https://yjr-1100.github.io/2022/09/30/Nmap%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="YJR-1100">
+<meta property="og:description" content="Nmap简介Nmap是Linux下一款开源免费的网络发现(Network Discovery)和安全审计(Security Auditing)工具，软件名字Nmap是Network Mapperf的简称。 Nmap最初由Fyodor在1996年开始创建，随后在开源社区众多的志愿者参与下，该工具逐渐成为最为流行的安全必备工具之一。 Nmap使用原始IP报文来发现网络上有哪些主机，这些主机提供什么服务">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209301533248.png">
 <meta property="article:published_time" content="2022-09-30T07:17:13.000Z">
-<meta property="article:modified_time" content="2022-09-30T12:07:42.232Z">
+<meta property="article:modified_time" content="2022-10-01T08:43:58.365Z">
 <meta property="article:author" content="yjr-1100">
 <meta property="article:tag" content="网络安全">
 <meta name="twitter:card" content="summary">
@@ -51,7 +53,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2022-09-30 20:07:42'
+  postUpdate: '2022-10-01 16:43:58'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -140,7 +142,478 @@
       }
     }
     detectApple()
-    })(window)</script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/mylogol2.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">48</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">17</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/background_4k.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">YJR-1100</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Nmap的使用</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-09-30T07:17:13.000Z" title="发表于 2022-09-30 15:17:13">2022-09-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-30T12:07:42.232Z" title="更新于 2022-09-30 20:07:42">2022-09-30</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E4%B8%8E%E5%B7%A5%E5%85%B7/">渗透测试环境与工具</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E4%B8%8E%E5%B7%A5%E5%85%B7/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">渗透测试工具</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">0</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>1分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Nmap的使用"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id=""><a href="#" class="headerlink" title=""></a></h1></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">yjr-1100</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://yjr-1100.github.io/2022/09/30/Nmap%E7%9A%84%E4%BD%BF%E7%94%A8/">https://yjr-1100.github.io/2022/09/30/Nmap%E7%9A%84%E4%BD%BF%E7%94%A8/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://yjr-1100.github.io" target="_blank">YJR-1100</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209301533248.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/09/30/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209301532819.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">渗透测试环境搭建</div></div></a></div><div class="next-post pull-right"><a href="/2022/09/29/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209290944004.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">渗透测试基础</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/04/29/DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="windows server2012 DHCP服务器"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204291349661.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-29</div><div class="title">windows server2012 DHCP服务器</div></div></a></div><div><a href="/2022/04/28/DNS%E6%9C%8D%E5%8A%A1/" title="windows server2012 DNS服务"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204282316431.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-28</div><div class="title">windows server2012 DNS服务</div></div></a></div><div><a href="/2022/04/30/windowsServer2012Web/" title="windows server2012 Web服务器"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204301440072.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-30</div><div class="title">windows server2012 Web服务器</div></div></a></div><div><a href="/2022/04/27/windows%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0/" title="windows操作系统学习"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204272319402.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-27</div><div class="title">windows操作系统学习</div></div></a></div><div><a href="/2022/05/08/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0/" title="交换机工作原理学习"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-08</div><div class="title">交换机工作原理学习</div></div></a></div><div><a href="/2022/05/10/%E4%BC%A0%E8%BE%93%E5%B1%82%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0/" title="传输层协议学习"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-10</div><div class="title">传输层协议学习</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/mylogol2.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">yjr-1100</div><div class="author-info__description">一个俗人的博客</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">48</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">19</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">17</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/yjr-1100"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/yjr-1100" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:jiaruiyang221@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">总要记些什么证明我来过</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/09/30/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" title="渗透测试环境搭建"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209301532819.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="渗透测试环境搭建"/></a><div class="content"><a class="title" href="/2022/09/30/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" title="渗透测试环境搭建">渗透测试环境搭建</a><time datetime="2022-09-30T07:22:05.000Z" title="发表于 2022-09-30 15:22:05">2022-09-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/30/Nmap%E7%9A%84%E4%BD%BF%E7%94%A8/" title="Nmap的使用"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209301533248.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Nmap的使用"/></a><div class="content"><a class="title" href="/2022/09/30/Nmap%E7%9A%84%E4%BD%BF%E7%94%A8/" title="Nmap的使用">Nmap的使用</a><time datetime="2022-09-30T07:17:13.000Z" title="发表于 2022-09-30 15:17:13">2022-09-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/29/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/" title="渗透测试基础"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209290944004.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="渗透测试基础"/></a><div class="content"><a class="title" href="/2022/09/29/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/" title="渗透测试基础">渗透测试基础</a><time datetime="2022-09-29T01:38:23.000Z" title="发表于 2022-09-29 09:38:23">2022-09-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/02/Hadoop%E6%9C%AC%E5%9C%B0%E8%BF%90%E8%A1%8C%E6%A8%A1%E5%BC%8F/" title="Hadoop运行模式"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/Hadoop.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hadoop运行模式"/></a><div class="content"><a class="title" href="/2022/08/02/Hadoop%E6%9C%AC%E5%9C%B0%E8%BF%90%E8%A1%8C%E6%A8%A1%E5%BC%8F/" title="Hadoop运行模式">Hadoop运行模式</a><time datetime="2022-08-02T04:04:13.000Z" title="发表于 2022-08-02 12:04:13">2022-08-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/01/Hadoop%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" title="Hadoop运行环境搭建"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/Hadoop.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hadoop运行环境搭建"/></a><div class="content"><a class="title" href="/2022/08/01/Hadoop%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" title="Hadoop运行环境搭建">Hadoop运行环境搭建</a><time datetime="2022-08-01T14:27:53.000Z" title="发表于 2022-08-01 22:27:53">2022-08-01</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/background_4k.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022 By yjr-1100</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">你好有缘人</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+    })(window)</script><meta name="generator" content="Hexo 6.1.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/mylogol2.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">49</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">19</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/background_4k.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">YJR-1100</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Nmap的使用</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-09-30T07:17:13.000Z" title="发表于 2022-09-30 15:17:13">2022-09-30</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-10-01T08:43:58.365Z" title="更新于 2022-10-01 16:43:58">2022-10-01</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E4%B8%8E%E5%B7%A5%E5%85%B7/">渗透测试环境与工具</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E4%B8%8E%E5%B7%A5%E5%85%B7/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">渗透测试工具</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">4.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>14分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Nmap的使用"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Nmap简介"><a href="#Nmap简介" class="headerlink" title="Nmap简介"></a>Nmap简介</h1><p>Nmap是Linux下一款开源免费的网络发现(Network Discovery)和安全审计(Security Auditing)工具，软件名字Nmap是Network Mapperf的简称。</p>
+<p>Nmap最初由Fyodor在1996年开始创建，随后在开源社区众多的志愿者参与下，该工具逐渐成为最为流行的安全必备工具之一。</p>
+<p>Nmap使用原始IP报文来发现网络上有哪些主机，这些主机提供什么服务（应用程序名和版本），服务运行在什么操作系统，它们使用什么类型的报文过滤器&#x2F;防火墙，以及一些其他功能。</p>
+<h2 id="Nmap家族成员"><a href="#Nmap家族成员" class="headerlink" title="Nmap家族成员"></a>Nmap家族成员</h2><ul>
+<li>Zenmap:Nmap的图形界面版</li>
+<li>Ncat:基于netcat,并扩展了一些功能，如ncat链、SSL支持、二进制等</li>
+<li>Ncrack:测试已部署的认证系统和密码强度，支持常用协议</li>
+<li>Ndiff:用于网络基线测试，对比Nmap扫描结果之间的差异</li>
+<li>Nping：允许将自己构造的数据包整合在扫描过程中，并对原始数据进行操控</li>
+</ul>
+<h1 id="Nmap安装包下载"><a href="#Nmap安装包下载" class="headerlink" title="Nmap安装包下载"></a>Nmap安装包下载</h1><p><a target="_blank" rel="noopener" href="https://nmap.org/download.html">官网下载</a></p>
+<h1 id="Nmap基本功能"><a href="#Nmap基本功能" class="headerlink" title="Nmap基本功能"></a>Nmap基本功能</h1><ol>
+<li><p>基本功能</p>
+<ul>
+<li>主机发现</li>
+<li>端口扫描</li>
+<li>应用程序与版本信息侦测</li>
+<li>操作系统侦测</li>
+</ul>
+</li>
+<li><p>附加功能</p>
+<ul>
+<li>规避防火墙&#x2F;入侵检测</li>
+<li>NSE脚本定制与使用</li>
+</ul>
+</li>
+</ol>
+<h2 id="Nmap命令语法格式"><a href="#Nmap命令语法格式" class="headerlink" title="Nmap命令语法格式"></a>Nmap命令语法格式</h2><p><code>nmap【空格】【选项多选项协议】【空格】【扫描目标说明】</code></p>
+<p><strong>说明</strong> 多个选项之间也是用空格进行分割的，如果某些选项需要指定某些参数，那么在这些选项与指定的参数之间一般也需要用空格进行分割。特殊情况下，有的选项与参数可以直接“连写”，如-p80,-p是选项，80是参数。为了使Nmap语法更加严谨，建议严格用空格进行分割。</p>
+<h3 id="默认方式扫描"><a href="#默认方式扫描" class="headerlink" title="默认方式扫描"></a>默认方式扫描</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap &lt;目标地址&gt;</span><br></pre></td></tr></table></figure>
+
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202210011013451.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<h3 id="全面扫描"><a href="#全面扫描" class="headerlink" title="全面扫描"></a>全面扫描</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -A -T 4 -v &lt;目标地址&gt;</span><br></pre></td></tr></table></figure>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202210011014956.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+
+<h1 id="主机发现"><a href="#主机发现" class="headerlink" title="主机发现"></a>主机发现</h1><p>目标：确定目标主机是否在线(Aive,处于开启状态)</p>
+<p>原理：与pig命令类似，发送探测包到目标主机，如果收到回复，则说明目标主机是开启的</p>
+<p>探测方式：Nmap支持十多种不同的主机探测方法</p>
+<ul>
+<li>ICMP ECHO&#x2F;TIMESTAMP&#x2F;NETMASK报文</li>
+<li>TCP SYN&#x2F;ACK报文</li>
+<li>SCTP INIT&#x2F;COOKIE-ECHO报文</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-sP</td>
+<td>Ping扫描（不进行端口扫描）</td>
+</tr>
+<tr>
+<td>-Pn</td>
+<td>不进行Ping扫描</td>
+</tr>
+<tr>
+<td>-PS&#x2F;-PA&#x2F;-PU&#x2F;-PY</td>
+<td>TCP SYN&#x2F;TCP ACK&#x2F;UDP&#x2F;SCTP INIT Ping 扫描</td>
+</tr>
+<tr>
+<td>-PE&#x2F;-PP&#x2F;-PM</td>
+<td>ICMP echo&#x2F;ICMP timestamp&#x2F;ICMP netmask Ping 扫描</td>
+</tr>
+<tr>
+<td>-R&#x2F;-n</td>
+<td>DNS反向域名解析&#x2F;禁用DNS反向解析</td>
+</tr>
+<tr>
+<td>-6</td>
+<td>扫描IPv6地址</td>
+</tr>
+<tr>
+<td>–dns-servers&lt;serv1[,serv2,…]&gt;</td>
+<td>指定DNS服务器</td>
+</tr>
+<tr>
+<td>–system-dns</td>
+<td>指定使用系统的DNS服务器</td>
+</tr>
+<tr>
+<td>–traceroute</td>
+<td>追踪每个路由节点</td>
+</tr>
+<tr>
+<td>–packet-trace</td>
+<td>追踪每个包</td>
+</tr>
+</tbody></table>
+<h2 id="局域网内执行Ping扫描"><a href="#局域网内执行Ping扫描" class="headerlink" title="局域网内执行Ping扫描"></a>局域网内执行Ping扫描</h2><p>目标：扫描局域网192.168.40.1-192.168.40.254内哪些1P的主机在线。</p>
+<p>命令：<code>nmap -sP 192.168.40.1-254</code>,或 <code>nmap -sP 192.168.40.0/24</code></p>
+<p>说明：在局域网内，无论采用哪一种选项，Nmap都是通过ARP包来询问IP地址上的主机是否活动的，如果收到ARP回复包，那么说明主机在线。</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202210011107348.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<h2 id="跨网段执行ping扫描"><a href="#跨网段执行ping扫描" class="headerlink" title="跨网段执行ping扫描"></a>跨网段执行ping扫描</h2><p>目标：扫描跨网段目标主机192.168.50.5是否在线。</p>
+<p>命令：<code>nmap-sP 192.168.50.5</code></p>
+<p>说明：扫描跨网段目标主机时，使用-sP或-sn选项，默认情况下Nmap会依次发送4种不同类型的数据包(ICMP echo request,TCP SYN packet to port 443，TCP ACK packet to port80，ICMP timestamp request)来探测目标主机是否在线，只要收到其中一个包的回复，就证明目标机在线。</p>
+<h2 id="–packet-trace的使用"><a href="#–packet-trace的使用" class="headerlink" title="–packet-trace的使用"></a>–packet-trace的使用</h2><p>可以查看都发出了什么类型的包</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202210011239279.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<hr>
+<h1 id="端口扫描"><a href="#端口扫描" class="headerlink" title="端口扫描"></a>端口扫描</h1><p>目标：确定目标主机的TCP&#x2F;UDP端口的开放情况</p>
+<p>原理：发送TCP、UDP等类型的探测包到目标端口，根据收到的回复包判定端口是否开放</p>
+<p>端口的六个状态</p>
+<ul>
+<li><code>open</code>:端口是开放的</li>
+<li><code>closed</code>:端口是关闭的</li>
+<li><code>filtered</code>:端口被防火墙IDS&#x2F;小PS屏蔽，无法确定其状态</li>
+<li><code>unfiltered</code>：端口没有被屏蔽，但是否开放需要进一步确定</li>
+<li><code>open filtered</code>:端口是开放的或被屏蔽</li>
+<li><code>closed filtered</code>:端口是关闭的或被屏蔽</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-p</td>
+<td>指定扫描的目标端口</td>
+</tr>
+<tr>
+<td>–exclude-port</td>
+<td>指定排除的目标端口</td>
+</tr>
+<tr>
+<td>-sT&#x2F;-sS&#x2F;-sA</td>
+<td>TCP connect&#x2F;TCP SYN&#x2F;TCP ACK 扫描</td>
+</tr>
+<tr>
+<td>-sN&#x2F;-sF&#x2F;-sX</td>
+<td>TCP NULL&#x2F;TCP FIN&#x2F;TCP Xmas扫描</td>
+</tr>
+<tr>
+<td>-sU</td>
+<td>UDP扫描</td>
+</tr>
+<tr>
+<td>-sW&#x2F;-sM</td>
+<td>TCP窗口&#x2F;TCP Maimom扫描</td>
+</tr>
+<tr>
+<td>–scanflags</td>
+<td>自定义TCP扫描</td>
+</tr>
+<tr>
+<td>-sO</td>
+<td>IP扫描</td>
+</tr>
+</tbody></table>
+<h2 id="p选项的应用"><a href="#p选项的应用" class="headerlink" title="-p选项的应用"></a>-p选项的应用</h2><p>在<code>-p</code>选项后指定扫描的端口号，最后跟上IP地址</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -p 1-1024,1433,3306,3389 192.168.0.22</span><br></pre></td></tr></table></figure>
+
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202210011430780.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>关于-p选项的说明：默认情况下，Nmap仅对用-p指定的TCP端口进行扫描，扫描方式为-sS(TCP SYN扫描)。如果既要扫描TCP端口，又要扫描UDP端口，则可以用<code>T:``U:</code>参数指定目标端口，并指定-sU(UDP扫描方式)和至少一种TCP扫描方式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -p T:139,U:53 -sS -sU 192.168.0.22</span><br></pre></td></tr></table></figure>
+
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202210011432814.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<h2 id="sS选项的应用"><a href="#sS选项的应用" class="headerlink" title="-sS选项的应用"></a>-sS选项的应用</h2><p>TCP SYN扫描</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -p 80,3306 -sS 192.168.0.22</span><br></pre></td></tr></table></figure>
+
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202210011436840.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<h3 id="TCP-SYN扫描-sS-原理"><a href="#TCP-SYN扫描-sS-原理" class="headerlink" title="TCP SYN扫描(-sS)原理"></a>TCP SYN扫描(-sS)原理</h3><p>Nmap向目标端口发送TCP SYN报文，如果目标机返回TCP SYN+ACK报文，则说明目标端口处于<strong>开放状态</strong>，同时Nmap会紧接着向目标机发送TCP RST:报文以重置此连接；如果目标机返回TCP RST+ACK报文，则说明目标端口处于<strong>关闭状态</strong>。</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202210011433561.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+
+<h2 id="sT选项的应用"><a href="#sT选项的应用" class="headerlink" title="-sT选项的应用"></a>-sT选项的应用</h2><p>TCP connect扫描</p>
+<p>相比 TCP SYN扫描，这是一个完整的连接，容易被发现，但是这个扫描允许任何用户发起</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -p 80,3306 -sT 192.168.0.22</span><br></pre></td></tr></table></figure>
+
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202210011440948.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<h3 id="TCP-connect扫描-sT-原理"><a href="#TCP-connect扫描-sT-原理" class="headerlink" title="TCP connect扫描(-sT)原理"></a>TCP connect扫描(-sT)原理</h3><p>Nmap向目标端口发送TCP SYN:报文，如果目标机返回TCP SYN+ACK报文，则说明目标端口处于<strong>开放状态</strong>，同时Nmap会紧接着向目标机依次发送TCP ACK、TCP RST+ACK完成三次握手和重置此连接；如果目标机返回TCP RST+ACK报文，则说明目标端口处于<strong>关闭状态</strong>。</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202210011436231.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+
+<h2 id="sA选项的应用"><a href="#sA选项的应用" class="headerlink" title="-sA选项的应用"></a>-sA选项的应用</h2><p>TCP ACK扫描</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -p 80,3306 -sA 192.168.0.22</span><br></pre></td></tr></table></figure>
+
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202210011444400.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<h3 id="TCP-ACK扫描-sA-原理"><a href="#TCP-ACK扫描-sA-原理" class="headerlink" title="TCP ACK扫描(-sA)原理"></a>TCP ACK扫描(-sA)原理</h3><p>Nmap向目标端口发送TCP ACK报文，无论目标端口是否处于开放状态，目标机都会返回TCP RST报文。如果Nmap主机能收到此TCP RST报文，则说明<strong>目标端口未被防火墙屏蔽。</strong></p>
+<p>TCP ACK扫描只能用于确定防火墙是否屏蔽某个端口，可以辅助TCP SYN的方式来<strong>判断目标主机防火墙的状况</strong>。</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202210011441743.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<h2 id="隐蔽扫描选项-sF-x2F-sN-x2F-sX-的应用"><a href="#隐蔽扫描选项-sF-x2F-sN-x2F-sX-的应用" class="headerlink" title="隐蔽扫描选项(-sF&#x2F;-sN&#x2F;-sX)的应用"></a>隐蔽扫描选项(-sF&#x2F;-sN&#x2F;-sX)的应用</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -p 80,3306 -sF 110.242.68.66</span><br></pre></td></tr></table></figure>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202210011452192.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+
+<h3 id="隐蔽扫描-sF-x2F-sN-x2F-sX-原理"><a href="#隐蔽扫描-sF-x2F-sN-x2F-sX-原理" class="headerlink" title="隐蔽扫描(-sF&#x2F;-sN&#x2F;-sX)原理"></a>隐蔽扫描(-sF&#x2F;-sN&#x2F;-sX)原理</h3><p>Nmap向目标端口发送TCP FIN(-sF)&#x2F;NULL(-sN)&#x2F;FIN+PSH+URG(-sX)报文</p>
+<p><strong>对于Liux系统的目标机</strong>，如果目标机未响应，则说明目标端口处于<strong>开放状态</strong>或<strong>被防火墙屏蔽</strong>；如果目标机返回TCP RST+ACK报文，则说明目标端口处于<strong>关闭状态。</strong></p>
+<p><strong>对于Windows系统的目标机</strong>，无论目标端口处于开放还是关闭状态，目标机都会返回TCP RST+ACK报文。</p>
+<p>因此，<strong>隐蔽扫描方式适合于Liux系统的目标机端口扫描。</strong></p>
+<h1 id="应用程序与版本信息侦测"><a href="#应用程序与版本信息侦测" class="headerlink" title="应用程序与版本信息侦测"></a>应用程序与版本信息侦测</h1><p>目标：识别目标主机开放的TCP&#x2F;UDP端口上运行的服务及版本信息流程</p>
+<p>这个动作一般是发生在端口扫描之后，首先检查open与open filtered状态的端口是否在排除端口列表内。如果在排除列表，将该端口剔除。</p>
+<p>如果是TCP端口，尝试建立TCP连接。尝试等待片刻（通常6秒或更多，具体时间可以查询文件nmap-services-probes中Probe TCP NULL q||对应的totalwaitms)。通常在等待时间内，会接收到目标机发送的“Welcome Banner”信息。Nmap将接收到的Banner与nmap-services-probest中NULL probe中的签名进行对比，查找对应应用程序的名字与版本信息</p>
+<p>如果通过”Welcome Banner”无法确定应用程序版本，那么Nmap再尝试发送其他的探测包(即从nmap-services-probest中挑选合适的probe),将probe得到的回复包与数据库中的签名进行对比。如果反复探测都无法得出具体应用，那么打印出应用返回报文，让用户自行进一步判定。</p>
+<p>如果是UDP端口，那么直接使用nmap-services-probes中探测包进行探测匹配，根据结果对比分析出UDP应用服务类型。</p>
+<p>如果探测到应用程序是SSL,那么调用openSSL进一步的侦查运行在SSL之上的具体的应用类型。</p>
+<p>如果探测到应用程序是SunRPC,那么调用orute-force RPC grinder进一步探测具体服务。</p>
+<p>上面我们反复提到了<code>nmap-services-probes</code>这是一个<strong>服务版本数据库文件</strong> ，默认路径：<code>usr/share/nmap/nmap-services-probes</code> 我们可以打开看一下</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-sV</td>
+<td>版本探测</td>
+</tr>
+<tr>
+<td>–allports</td>
+<td>全端口版本探测</td>
+</tr>
+<tr>
+<td>–version-intensity</td>
+<td>设置版本扫描强度</td>
+</tr>
+<tr>
+<td>–version-light</td>
+<td>轻量级扫描(相当于-version-intensity2)</td>
+</tr>
+<tr>
+<td>–version-all</td>
+<td>重量级扫描(相当于-version-intensity9)</td>
+</tr>
+<tr>
+<td>–version-trace</td>
+<td>跟踪版本扫描活动</td>
+</tr>
+<tr>
+<td>-sR</td>
+<td>RPC扫描</td>
+</tr>
+</tbody></table>
+<h2 id="sV选项的应用"><a href="#sV选项的应用" class="headerlink" title="-sV选项的应用"></a>-sV选项的应用</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sV 110.242.68.66</span><br></pre></td></tr></table></figure>
+
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202210011524299.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+
+<h2 id="version-trace选项的应用"><a href="#version-trace选项的应用" class="headerlink" title="-version-trace选项的应用"></a>-version-trace选项的应用</h2><p>跟踪版本扫描活动,我们指定一下扫描的端口，节约时间</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -p 80,443,3306 -sV --version-trace 110.242.68.66</span><br></pre></td></tr></table></figure>
+
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202210011526431.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+
+<h1 id="操作系统侦测"><a href="#操作系统侦测" class="headerlink" title="操作系统侦测"></a>操作系统侦测</h1><p>目标：识别目标主机操作系统的类型</p>
+<p>侦测方法：<strong>网络协议栈指纹识别技术</strong></p>
+<p>Nmap只是有这个功能罢了，一般来说侦测的不是很准确</p>
+<h2 id="常用的网络协议栈指纹识别方法"><a href="#常用的网络协议栈指纹识别方法" class="headerlink" title="常用的网络协议栈指纹识别方法"></a>常用的网络协议栈指纹识别方法</h2><h3 id="TTL"><a href="#TTL" class="headerlink" title="TTL"></a>TTL</h3><p>TTL:Time To Live,即数据包的“存活时间”，表示一个数据包在被丢弃之前可以通过多少跃点(Hop)。不同操作系统的缺省TTL值往往是不同的。</p>
+<ul>
+<li><p>常见操作系统的TTL值</p>
+<table>
+<thead>
+<tr>
+<th>操作系统名称</th>
+<th>TTL值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Windows 9x&#x2F;NT&#x2F;2000 Intel</td>
+<td>TTL&#x3D;128</td>
+</tr>
+<tr>
+<td>Digital Unix 4.0 Alpha</td>
+<td>TTL&#x3D;60</td>
+</tr>
+<tr>
+<td>Linux 2.2.x Intel</td>
+<td>TTL&#x3D;64</td>
+</tr>
+<tr>
+<td>Netware 4.11 Intel</td>
+<td>TTL&#x3D;128</td>
+</tr>
+<tr>
+<td>AIX 4.3.x IBM&#x2F;RS6000</td>
+<td>TTL&#x3D;60</td>
+</tr>
+<tr>
+<td>Cisc012.02514</td>
+<td>TTL&#x3D;255</td>
+</tr>
+<tr>
+<td>Solaris 8 Intel&#x2F;Spard</td>
+<td>TTL&#x3D;64</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>Windows系统修改TTL值的方法:<br>打开注册表，在”HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Tcpip\Parameters”新建一个“DefaultTTL”Dword键值进行自定义</p>
+</li>
+</ul>
+<h3 id="DF位"><a href="#DF位" class="headerlink" title="DF位"></a>DF位</h3><p>DF（不分段）位识别：不同OS对DF位有不同的处理方式，有些OS设置DF位，有些不设置DF位；还有一些OS在特定场合设置DF位，在其它场合不设置DF位。</p>
+<h3 id="Window-Size"><a href="#Window-Size" class="headerlink" title="Window Size"></a>Window Size</h3><p>Window Size:TCP接收（发送）窗口大小。它决定了接收信息的机器在收到多少数据包后发送ACK包。</p>
+<p>特定操作系统的缺省Window Size基本是常数，例如AIX用0x3F25,Windows、OpenBSD、FreeBSD用0x402E</p>
+<p>一般地，UNIX的Window Size较大。Windows、路由器、交换机等的较小。</p>
+<h3 id="ACK序号"><a href="#ACK序号" class="headerlink" title="ACK序号"></a>ACK序号</h3><p>不同的OS处理ACK序号时是不同的。如果发送一个FIN+PSH+URG的数据包到一个关闭的TCP端口，大多数OS会把回应ACK包的序号设置为发送的包的初始序号，而Windows和一些打印机则会发送序号为初始序号加1的ACK包。</p>
+<h3 id="对FIN包的响应"><a href="#对FIN包的响应" class="headerlink" title="对FIN包的响应"></a>对FIN包的响应</h3><p>发送一个只有FIN标志位的TCP数据包给一个打开的端口，Liux等系统不响应；有些系统如Windows、CISCO、HP&#x2F;UX等，发回一个RST。</p>
+<h3 id="ISN（初始化序列号）"><a href="#ISN（初始化序列号）" class="headerlink" title="ISN（初始化序列号）"></a>ISN（初始化序列号）</h3><p>不同的OS在选择TCP ISN时采用不同的方法：一些UNIX系统采用传统的64K递增方法；较新的Solaris、IRIX、FreeBSD、Digital Unix、Cray等系统采用随机增量的方法；Linux2.0、OpenVMS、AIX等系统采用真随机方法；Nindows系统采用一种时间相关的模型；还有一些系统使用常数，如3Com集线器使用0x803,Apple LaserWriter打印机使用0xC7001.</p>
+<h3 id="主机使用的端口"><a href="#主机使用的端口" class="headerlink" title="主机使用的端口"></a>主机使用的端口</h3><p>一些OS会开放特殊的端口，如Windows的137、139；一些网络设备，如入侵检测系统、防火墙等也开放自己特殊的端口。</p>
+<h2 id="侦测方法"><a href="#侦测方法" class="headerlink" title="侦测方法"></a>侦测方法</h2><p>与应用程序与版本信息侦测类似，操作系统侦测也是通过在数据库文件中查找比对来确定操作系统的</p>
+<p><code>nmap-os-db</code>就是<strong>操作系统数据库文件</strong>，该数据库包含了超过2600种操作系统的指纹信息，Nmap把TCP和UDP报文发送到目标机器上，然后将检查结果和nmap-os-db数据库进行比对，默认路径：<code>/usr/share/nmap/nmap-os-db</code></p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-O</td>
+<td>执行操作系统侦测</td>
+</tr>
+<tr>
+<td>-A</td>
+<td>执行攻击性探测</td>
+</tr>
+<tr>
+<td>–osscan-limit</td>
+<td>对指定的目标进行操作系统侦测</td>
+</tr>
+<tr>
+<td>–osscan-guess &#x2F;–fuzzy</td>
+<td>推测系统识别</td>
+</tr>
+</tbody></table>
+<h2 id="O选项的应用"><a href="#O选项的应用" class="headerlink" title="-O选项的应用"></a>-O选项的应用</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -O 110.242.68.66</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="规避FW（防火墙）-x2F-IDS（入侵检测）"><a href="#规避FW（防火墙）-x2F-IDS（入侵检测）" class="headerlink" title="规避FW（防火墙）&#x2F;IDS（入侵检测）"></a>规避FW（防火墙）&#x2F;IDS（入侵检测）</h1><p>目标：绕过目标主机的防火墙、入侵检测系统等防护手段</p>
+<p>常用选项</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-T</td>
+<td>时序选项</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>报文分段</td>
+</tr>
+<tr>
+<td>–data-length</td>
+<td>指定发包长度</td>
+</tr>
+<tr>
+<td>–mtu</td>
+<td>指定偏移量大小(必须是8的倍数)</td>
+</tr>
+<tr>
+<td>-D</td>
+<td>使用诱饵进行源地址欺骗</td>
+</tr>
+<tr>
+<td>-sI</td>
+<td>空闲扫描（源地址欺骗）</td>
+</tr>
+<tr>
+<td>–source-port</td>
+<td>源端口欺骗</td>
+</tr>
+<tr>
+<td>–spoof-mac</td>
+<td>源MAC地址欺骗</td>
+</tr>
+</tbody></table>
+<h2 id="T选项的应用"><a href="#T选项的应用" class="headerlink" title="-T选项的应用"></a>-T选项的应用</h2><p>控制扫描速度,使用-T(0~5)可以启用时序选项，一般来说数字越大，速度越快，精度越低</p>
+<ul>
+<li><code>-T0</code>（偏执的）：非常慢的扫描，用于IDS逃避</li>
+<li><code>-T1</code>（鬼崇的）：缓慢的扫描，用于IDS逃避</li>
+<li><code>-T2</code>（文雅的）：降低速度以降低对带宽的消耗，此选项一般不常用</li>
+<li><code>-T3</code>（普通的）：默认，根据目标的反应自动调整时间</li>
+<li><code>-T4</code>（野蛮的）：快速扫描，常用扫描方式，需要在很好的网络环境下使用</li>
+<li><code>-T5</code>（疯狂的）：极速扫描，以牺牲准确度来提升扫描速度</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -T 4 192.168.0.22</span><br></pre></td></tr></table></figure>
+<h2 id="D选项的应用"><a href="#D选项的应用" class="headerlink" title="-D选项的应用"></a>-D选项的应用</h2><p>源IP地址欺骗,使用参数 RND来指定欺骗的地址个数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -D RND:2 110.242.68.66</span><br></pre></td></tr></table></figure>
+
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202210011610448.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<p>可以看到图中除了本机IP<code>192.168.0.24</code> 之外，还多了两个其它的假Ip</p>
+<h2 id="空闲扫描-sI-的应用"><a href="#空闲扫描-sI-的应用" class="headerlink" title="空闲扫描(-sI)的应用"></a>空闲扫描(-sI)的应用</h2><p>就是利用网络上空闲的IP来代替本机去扫描</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -Pn -sI 192.168.0.7 110.242.68.66</span><br></pre></td></tr></table></figure>
+
+<p>使用 <code>-Pn</code> 选项是为了防止来自真实ip 的ping，注意前一个ip一定要是网络上可用的ip</p>
+<h2 id="spoof-mac选项的应用一一源MAC地址欺骗"><a href="#spoof-mac选项的应用一一源MAC地址欺骗" class="headerlink" title="-spoof-mac选项的应用一一源MAC地址欺骗"></a>-spoof-mac选项的应用一一源MAC地址欺骗</h2><p>所用命令：<code>nmap --spoof-mac 0 &lt;目标lP&gt;</code>,其中参数0表示随机分配一个MAC地址，也可以手动指定MAC地址，如：<code>nmap --spoof-mac aa:bb:cc:dd:ee:ff&lt;目标IP&gt;</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap --spoof-mac 0 110.242.68.66</span><br></pre></td></tr></table></figure>
+
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202210011623330.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+
+
+<h1 id="NSE脚本的简单应用"><a href="#NSE脚本的简单应用" class="headerlink" title="NSE脚本的简单应用"></a>NSE脚本的简单应用</h1><h2 id="NSE和Lua"><a href="#NSE和Lua" class="headerlink" title="NSE和Lua"></a>NSE和Lua</h2><p>除了常规的网络扫描，Nmap还可根据NSE(Nmap scripting Engine)的脚本进行大量渗透工作，这种脚本基于Lua语言编写。</p>
+<p>脚本存放目录：&#x2F;usr&#x2F;share&#x2F;nmap&#x2F;scripts&#x2F;</p>
+<h2 id="NSE开发工具"><a href="#NSE开发工具" class="headerlink" title="NSE开发工具"></a>NSE开发工具</h2><p>IDE for Nmap Script Developers</p>
+<h2 id="NSE脚本运用"><a href="#NSE脚本运用" class="headerlink" title="NSE脚本运用"></a>NSE脚本运用</h2><p>常用选项</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-sC</td>
+<td>等价于-scripta&#x3D;default,使用默认类别的脚本进行扫描</td>
+</tr>
+<tr>
+<td>–script&#x3D;<Lua scripts></td>
+<td><Lua scripts>使用某个或某类脚本进行扫描，支持通配符描述</td>
+</tr>
+<tr>
+<td>–script-args&#x3D;&lt;n1&#x3D;v1,[n2&#x3D;v2,…]&gt;</td>
+<td>为脚本提供默认参数</td>
+</tr>
+<tr>
+<td>–script-args-file&#x3D;filename</td>
+<td>使用文件来为脚本提供参数</td>
+</tr>
+<tr>
+<td>–script-trace</td>
+<td>显示脚本执行过程中发送与接收的数据</td>
+</tr>
+<tr>
+<td>–script-updatedb</td>
+<td>更新脚本数据库</td>
+</tr>
+<tr>
+<td>–script-help&#x3D;<Lua scripts></td>
+<td>显示脚本的帮助信息，其中<Lua scripts:>部分可以逗号分隔的文件或脚本类别</td>
+</tr>
+</tbody></table>
+<h2 id="暴力破解脚本-–script-brute-应用"><a href="#暴力破解脚本-–script-brute-应用" class="headerlink" title="暴力破解脚本(–script brute)应用"></a>暴力破解脚本(–script brute)应用</h2><p>提供暴力破解的方式，可对数据库、SMB、SNMP等进行简单密码的暴力猜解</p>
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202210011630396.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+<h2 id="漏洞扫描脚本-script-vuln-应用"><a href="#漏洞扫描脚本-script-vuln-应用" class="headerlink" title="漏洞扫描脚本(-script vuln)应用"></a>漏洞扫描脚本(-script vuln)应用</h2><p>检查是否存在常见漏洞</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap --script vuln 192.168.0.22</span><br></pre></td></tr></table></figure>
+
+<img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202210011640192.png" style="box-shadow: 5px 5px 10px #9da0de;border-radius:10px; margin:15px auto"/>
+
+
+
+
+
+<h1 id="扫描结果保存与输出"><a href="#扫描结果保存与输出" class="headerlink" title="扫描结果保存与输出"></a>扫描结果保存与输出</h1><p>三种格式的输出</p>
+<ul>
+<li>norma:标准模式(选项-oN)</li>
+<li>xml文档：(选项-oX)</li>
+<li>grep文件(选项-oG)</li>
+</ul>
+<p>注：<code>-oA</code>选项可将扫描结果以标准格式、XML、Grep格式一次性全部保存</p>
+<h2 id="以普通模式-oN-输出Nmap扫描结果"><a href="#以普通模式-oN-输出Nmap扫描结果" class="headerlink" title="以普通模式(-oN)输出Nmap扫描结果"></a>以普通模式(-oN)输出Nmap扫描结果</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nmap -sS -oN /home/outputl.txt 192.168.0.22</span><br></pre></td></tr></table></figure>
+
+<p>上面的命令就可用吧扫描结果写入指定目录下的文件中</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">yjr-1100</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://yjr-1100.github.io/2022/09/30/Nmap%E7%9A%84%E4%BD%BF%E7%94%A8/">https://yjr-1100.github.io/2022/09/30/Nmap%E7%9A%84%E4%BD%BF%E7%94%A8/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://yjr-1100.github.io" target="_blank">YJR-1100</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">网络安全</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209301533248.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/09/30/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"><img class="prev-cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209301532819.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">渗透测试环境搭建</div></div></a></div><div class="next-post pull-right"><a href="/2022/09/29/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/"><img class="next-cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209290944004.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">渗透测试基础</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/04/28/DNS%E6%9C%8D%E5%8A%A1/" title="windows server2012 DNS服务"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204282316431.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-28</div><div class="title">windows server2012 DNS服务</div></div></a></div><div><a href="/2022/04/29/DHCP%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="windows server2012 DHCP服务器"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204291349661.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-29</div><div class="title">windows server2012 DHCP服务器</div></div></a></div><div><a href="/2022/04/30/windowsServer2012Web/" title="windows server2012 Web服务器"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204301440072.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-30</div><div class="title">windows server2012 Web服务器</div></div></a></div><div><a href="/2022/04/27/windows%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%AD%A6%E4%B9%A0/" title="windows操作系统学习"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202204272319402.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-27</div><div class="title">windows操作系统学习</div></div></a></div><div><a href="/2022/05/08/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%E5%AD%A6%E4%B9%A0/" title="交换机工作原理学习"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205061313488.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-08</div><div class="title">交换机工作原理学习</div></div></a></div><div><a href="/2022/05/11/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/" title="密码学基础学习"><img class="cover" src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202205111412740.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-11</div><div class="title">密码学基础学习</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/mylogol2.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">yjr-1100</div><div class="author-info__description">一个俗人的博客</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">49</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">20</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">19</div></a></div></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/yjr-1100"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/yjr-1100" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:jiaruiyang221@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">总要记些什么证明我来过</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Nmap%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">Nmap简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Nmap%E5%AE%B6%E6%97%8F%E6%88%90%E5%91%98"><span class="toc-number">1.1.</span> <span class="toc-text">Nmap家族成员</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Nmap%E5%AE%89%E8%A3%85%E5%8C%85%E4%B8%8B%E8%BD%BD"><span class="toc-number">2.</span> <span class="toc-text">Nmap安装包下载</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Nmap%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD"><span class="toc-number">3.</span> <span class="toc-text">Nmap基本功能</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Nmap%E5%91%BD%E4%BB%A4%E8%AF%AD%E6%B3%95%E6%A0%BC%E5%BC%8F"><span class="toc-number">3.1.</span> <span class="toc-text">Nmap命令语法格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E6%96%B9%E5%BC%8F%E6%89%AB%E6%8F%8F"><span class="toc-number">3.1.1.</span> <span class="toc-text">默认方式扫描</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E9%9D%A2%E6%89%AB%E6%8F%8F"><span class="toc-number">3.1.2.</span> <span class="toc-text">全面扫描</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BB%E6%9C%BA%E5%8F%91%E7%8E%B0"><span class="toc-number">4.</span> <span class="toc-text">主机发现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%80%E5%9F%9F%E7%BD%91%E5%86%85%E6%89%A7%E8%A1%8CPing%E6%89%AB%E6%8F%8F"><span class="toc-number">4.1.</span> <span class="toc-text">局域网内执行Ping扫描</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%A8%E7%BD%91%E6%AE%B5%E6%89%A7%E8%A1%8Cping%E6%89%AB%E6%8F%8F"><span class="toc-number">4.2.</span> <span class="toc-text">跨网段执行ping扫描</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E2%80%93packet-trace%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">4.3.</span> <span class="toc-text">–packet-trace的使用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AB%AF%E5%8F%A3%E6%89%AB%E6%8F%8F"><span class="toc-number">5.</span> <span class="toc-text">端口扫描</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#p%E9%80%89%E9%A1%B9%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">5.1.</span> <span class="toc-text">-p选项的应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sS%E9%80%89%E9%A1%B9%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">5.2.</span> <span class="toc-text">-sS选项的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-SYN%E6%89%AB%E6%8F%8F-sS-%E5%8E%9F%E7%90%86"><span class="toc-number">5.2.1.</span> <span class="toc-text">TCP SYN扫描(-sS)原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sT%E9%80%89%E9%A1%B9%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">5.3.</span> <span class="toc-text">-sT选项的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-connect%E6%89%AB%E6%8F%8F-sT-%E5%8E%9F%E7%90%86"><span class="toc-number">5.3.1.</span> <span class="toc-text">TCP connect扫描(-sT)原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sA%E9%80%89%E9%A1%B9%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">5.4.</span> <span class="toc-text">-sA选项的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-ACK%E6%89%AB%E6%8F%8F-sA-%E5%8E%9F%E7%90%86"><span class="toc-number">5.4.1.</span> <span class="toc-text">TCP ACK扫描(-sA)原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%90%E8%94%BD%E6%89%AB%E6%8F%8F%E9%80%89%E9%A1%B9-sF-x2F-sN-x2F-sX-%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">5.5.</span> <span class="toc-text">隐蔽扫描选项(-sF&#x2F;-sN&#x2F;-sX)的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%90%E8%94%BD%E6%89%AB%E6%8F%8F-sF-x2F-sN-x2F-sX-%E5%8E%9F%E7%90%86"><span class="toc-number">5.5.1.</span> <span class="toc-text">隐蔽扫描(-sF&#x2F;-sN&#x2F;-sX)原理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E4%B8%8E%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF%E4%BE%A6%E6%B5%8B"><span class="toc-number">6.</span> <span class="toc-text">应用程序与版本信息侦测</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#sV%E9%80%89%E9%A1%B9%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">6.1.</span> <span class="toc-text">-sV选项的应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#version-trace%E9%80%89%E9%A1%B9%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">6.2.</span> <span class="toc-text">-version-trace选项的应用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%BE%A6%E6%B5%8B"><span class="toc-number">7.</span> <span class="toc-text">操作系统侦测</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE%E6%A0%88%E6%8C%87%E7%BA%B9%E8%AF%86%E5%88%AB%E6%96%B9%E6%B3%95"><span class="toc-number">7.1.</span> <span class="toc-text">常用的网络协议栈指纹识别方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TTL"><span class="toc-number">7.1.1.</span> <span class="toc-text">TTL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DF%E4%BD%8D"><span class="toc-number">7.1.2.</span> <span class="toc-text">DF位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Window-Size"><span class="toc-number">7.1.3.</span> <span class="toc-text">Window Size</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ACK%E5%BA%8F%E5%8F%B7"><span class="toc-number">7.1.4.</span> <span class="toc-text">ACK序号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9FIN%E5%8C%85%E7%9A%84%E5%93%8D%E5%BA%94"><span class="toc-number">7.1.5.</span> <span class="toc-text">对FIN包的响应</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ISN%EF%BC%88%E5%88%9D%E5%A7%8B%E5%8C%96%E5%BA%8F%E5%88%97%E5%8F%B7%EF%BC%89"><span class="toc-number">7.1.6.</span> <span class="toc-text">ISN（初始化序列号）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E6%9C%BA%E4%BD%BF%E7%94%A8%E7%9A%84%E7%AB%AF%E5%8F%A3"><span class="toc-number">7.1.7.</span> <span class="toc-text">主机使用的端口</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%A6%E6%B5%8B%E6%96%B9%E6%B3%95"><span class="toc-number">7.2.</span> <span class="toc-text">侦测方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#O%E9%80%89%E9%A1%B9%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">7.3.</span> <span class="toc-text">-O选项的应用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%84%E9%81%BFFW%EF%BC%88%E9%98%B2%E7%81%AB%E5%A2%99%EF%BC%89-x2F-IDS%EF%BC%88%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B%EF%BC%89"><span class="toc-number">8.</span> <span class="toc-text">规避FW（防火墙）&#x2F;IDS（入侵检测）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#T%E9%80%89%E9%A1%B9%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">8.1.</span> <span class="toc-text">-T选项的应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D%E9%80%89%E9%A1%B9%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">8.2.</span> <span class="toc-text">-D选项的应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A9%BA%E9%97%B2%E6%89%AB%E6%8F%8F-sI-%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">8.3.</span> <span class="toc-text">空闲扫描(-sI)的应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#spoof-mac%E9%80%89%E9%A1%B9%E7%9A%84%E5%BA%94%E7%94%A8%E4%B8%80%E4%B8%80%E6%BA%90MAC%E5%9C%B0%E5%9D%80%E6%AC%BA%E9%AA%97"><span class="toc-number">8.4.</span> <span class="toc-text">-spoof-mac选项的应用一一源MAC地址欺骗</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#NSE%E8%84%9A%E6%9C%AC%E7%9A%84%E7%AE%80%E5%8D%95%E5%BA%94%E7%94%A8"><span class="toc-number">9.</span> <span class="toc-text">NSE脚本的简单应用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#NSE%E5%92%8CLua"><span class="toc-number">9.1.</span> <span class="toc-text">NSE和Lua</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NSE%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7"><span class="toc-number">9.2.</span> <span class="toc-text">NSE开发工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NSE%E8%84%9A%E6%9C%AC%E8%BF%90%E7%94%A8"><span class="toc-number">9.3.</span> <span class="toc-text">NSE脚本运用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9A%B4%E5%8A%9B%E7%A0%B4%E8%A7%A3%E8%84%9A%E6%9C%AC-%E2%80%93script-brute-%E5%BA%94%E7%94%A8"><span class="toc-number">9.4.</span> <span class="toc-text">暴力破解脚本(–script brute)应用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E6%89%AB%E6%8F%8F%E8%84%9A%E6%9C%AC-script-vuln-%E5%BA%94%E7%94%A8"><span class="toc-number">9.5.</span> <span class="toc-text">漏洞扫描脚本(-script vuln)应用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%AB%E6%8F%8F%E7%BB%93%E6%9E%9C%E4%BF%9D%E5%AD%98%E4%B8%8E%E8%BE%93%E5%87%BA"><span class="toc-number">10.</span> <span class="toc-text">扫描结果保存与输出</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A5%E6%99%AE%E9%80%9A%E6%A8%A1%E5%BC%8F-oN-%E8%BE%93%E5%87%BANmap%E6%89%AB%E6%8F%8F%E7%BB%93%E6%9E%9C"><span class="toc-number">10.1.</span> <span class="toc-text">以普通模式(-oN)输出Nmap扫描结果</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/11/02/Dart%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A00/" title="Dart语言学习"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/Dart.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Dart语言学习"/></a><div class="content"><a class="title" href="/2022/11/02/Dart%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A00/" title="Dart语言学习">Dart语言学习</a><time datetime="2022-11-02T02:06:58.000Z" title="发表于 2022-11-02 10:06:58">2022-11-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/30/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" title="渗透测试环境搭建"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209301532819.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="渗透测试环境搭建"/></a><div class="content"><a class="title" href="/2022/09/30/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" title="渗透测试环境搭建">渗透测试环境搭建</a><time datetime="2022-09-30T07:22:05.000Z" title="发表于 2022-09-30 15:22:05">2022-09-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/30/Nmap%E7%9A%84%E4%BD%BF%E7%94%A8/" title="Nmap的使用"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209301533248.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Nmap的使用"/></a><div class="content"><a class="title" href="/2022/09/30/Nmap%E7%9A%84%E4%BD%BF%E7%94%A8/" title="Nmap的使用">Nmap的使用</a><time datetime="2022-09-30T07:17:13.000Z" title="发表于 2022-09-30 15:17:13">2022-09-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/29/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/" title="渗透测试基础"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/202209290944004.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="渗透测试基础"/></a><div class="content"><a class="title" href="/2022/09/29/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95%E5%9F%BA%E7%A1%80/" title="渗透测试基础">渗透测试基础</a><time datetime="2022-09-29T01:38:23.000Z" title="发表于 2022-09-29 09:38:23">2022-09-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/02/Hadoop%E6%9C%AC%E5%9C%B0%E8%BF%90%E8%A1%8C%E6%A8%A1%E5%BC%8F/" title="Hadoop运行模式"><img src="https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/Hadoop.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hadoop运行模式"/></a><div class="content"><a class="title" href="/2022/08/02/Hadoop%E6%9C%AC%E5%9C%B0%E8%BF%90%E8%A1%8C%E6%A8%A1%E5%BC%8F/" title="Hadoop运行模式">Hadoop运行模式</a><time datetime="2022-08-02T04:04:13.000Z" title="发表于 2022-08-02 12:04:13">2022-08-02</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.jsdelivr.net/gh/yjr-1100/Photobag/githubioimg/background_4k.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2022 By yjr-1100</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">你好有缘人</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
   endLoading: () => {
     document.body.style.overflow = 'auto';
     document.getElementById('loading-box').classList.add("loaded")
